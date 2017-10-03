@@ -1,0 +1,47 @@
+/*
+ * Dark Mode stylesheet
+ * Beta test to one day include in WordPress Core.
+ * 
+ * Stylesheet Version: 1.0
+ * 
+ * DEVELOPERS:
+ * The Dark Mode stylesheet is built using the Sass CSS pre-processor. With this you will
+ * need to have at least Sass version 3.x.x installed. To compile the stylesheet, please
+ * use the following command line option:
+ * 
+ * sass --watch darkmode.scss:darkmode.css --style compressed --sourcemap=none
+ * 
+ */
+
+/* Colour variables
+ * 
+ * Official WordPress Colours
+ * https://make.wordpress.org/design/handbook/design-guide/foundations/colors/
+ */
+$white:			#ffffff;
+$wordpress:		#0073aa;
+$blue:			$wordpress;
+$medium-blue:	#00a0d2;
+
+$ultra-grey:	#191e23;
+$dark-grey:		#23282D;
+$base-grey:		#32373C;
+$dark-silver:	#82878C;
+$silver-grey:	#A0A5AA;
+$light-silver:	#B4B9BE;
+
+$accent-red:	#DC3232;
+$accent-orange:	#F56E28;
+$accent-yellow:	#FFB900;
+$accent-green:	#46B450;
+$accent-blue:	$blue;
+$accent-purple:	#826EB4;
+
+// Start here
+body {
+	
+	background-color: $ultra-grey;
+	color: $light-silver;
+
+}
+
