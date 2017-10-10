@@ -4,12 +4,19 @@
  * 
  * Stylesheet Version: 1.0
  * 
+ * 
  * DEVELOPERS:
  * The Dark Mode stylesheet is built using the Sass CSS pre-processor. With this you will
  * need to have at least Sass version 3.x.x installed. To compile the stylesheet, please
  * use the following command line option:
  * 
  * sass --watch darkmode.scss:darkmode.css --style compressed --sourcemap=none
+ * 
+ * 
+ * CONTRIBUTE:
+ * Redesigning the WordPress admin area is no easy feat. If you want to get
+ * involved and help out, you can help redesign the WordPress dashboard or
+ * contribute code via GitHub ( https://github.com/danieltj27/Dark-Mode ).
  * 
  */
 
@@ -38,10 +45,5 @@ $accent-blue:	$blue;
 $accent-purple:	#826EB4;
 
 // Start here
-body {
-	
-	background-color: $ultra-grey;
-	color: $light-silver;
-
-}
+body {}
 

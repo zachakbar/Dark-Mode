@@ -1,16 +1,14 @@
 <?php
 
 /**
-
-	Plugin Name: Dark Mode
-	Plugin URI: https://wordpress.org/plugins/dark-mode/
-	Description: Let's your users make the WordPress admin dashboard darker.
-	Author: Daniel James
-	Author URI: https://www.danieltj.co.uk/
-	Text Domain: dark-mode
-	Version: 1.0
-
-*/
+ * Plugin Name: Dark Mode
+ * Plugin URI: https://wordpress.org/plugins/dark-mode/
+ * Description: Let's your users make the WordPress admin dashboard darker.
+ * Author: Daniel James
+ * Author URI: https://www.danieltj.co.uk/
+ * Text Domain: dark-mode
+ * Version: 1.0
+ */
 
 // No thank you
 if ( ! defined( 'ABSPATH' ) ) die();
@@ -96,6 +94,9 @@ class Dark_Mode {
 
 		// Is the current user using Dark Mode?
 		if ( false !== self::is_using_dark_mode() ) {
+
+			// Run the hook before the dark mode css is added
+			do_action('doing_dark_mode');
 
 			// Register the Dark Mode stylesheet
 			wp_register_style('dark_mode_css', plugins_url('dark-mode', 'dark-mode') . '/darkmode.css', array(), '1.0');
