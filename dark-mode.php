@@ -99,10 +99,20 @@ class Dark_Mode {
 			do_action('doing_dark_mode');
 
 			// Register the Dark Mode stylesheet
-			wp_register_style('dark_mode_css', plugins_url('dark-mode', 'dark-mode') . '/darkmode.css', array(), '1.0');
+			/**
+			 * Filters the Dark Mode stylesheet.
+			 *
+			 * Prevents image captions from being appended to image HTML when inserted into the editor.
+			 *
+			 * @since
+			 *
+			 * @param string URL of default CSS for dark mode.
+			 */
+			$css_url = apply_filters( 'dark_mode_css', plugins_url('dark-mode', 'dark-mode') . '/darkmode.css' );
+			wp_register_style('dark_mode', $css_url, array(), '1.0');
 
 			// Enqueue the stylesheet in the dashboard
-			wp_enqueue_style('dark_mode_css');
+			wp_enqueue_style('dark_mode');
 
 		}
 
