@@ -102,11 +102,9 @@ class Dark_Mode {
 			/**
 			 * Filters the Dark Mode stylesheet.
 			 *
-			 * Prevents image captions from being appended to image HTML when inserted into the editor.
+			 * @since 1.1
 			 *
-			 * @since
-			 *
-			 * @param string URL of default CSS for dark mode.
+			 * @param string $css_url URL of default CSS for Dark Mode.
 			 */
 			$css_url = apply_filters( 'dark_mode_css', plugins_url('dark-mode', 'dark-mode') . '/darkmode.css' );
 			wp_register_style('dark_mode', $css_url, array(), '1.0');
