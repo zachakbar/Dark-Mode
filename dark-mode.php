@@ -13,7 +13,7 @@
 // No thank you
 if ( ! defined( 'ABSPATH' ) ) die();
 
-// Create a new instance
+// Start here
 new Dark_Mode;
 
 /**
@@ -31,7 +31,6 @@ class Dark_Mode {
 	 */
 	public function __construct() {
 
-		// Hook into WordPress
 		add_action('plugins_loaded', array( __CLASS__, 'load_text_domain' ), 10);
 		add_action('admin_enqueue_scripts', array( __CLASS__, 'load_dark_mode_css' ), 10);
 		add_action('personal_options', array( __CLASS__, 'add_profile_fields' ), 10);
@@ -41,21 +40,20 @@ class Dark_Mode {
 	}
 
 	/**
-	 * Load the plugin text domain.
+	 * Load the plugin text domain for l10n.
 	 * 
 	 * @since 1.0
 	 */
 	public static function load_text_domain() {
 
-		// Load the plugin text domain for language localisation
 		load_plugin_textdomain( 'dark-mode', false, untrailingslashit(dirname(__FILE__)) . '/languages' );
 
 	}
 
 	/**
-	 * Checks if the current user has Dark Mode on.
+	 * Checks if the current user has Dark Mode turned on.
 	 * 
-	 * @param $user_id string ID of a given user.
+	 * @param string $user_id ID of a given user.
 	 * 
 	 * @since 1.0
 	 * @return boolean
@@ -85,7 +83,7 @@ class Dark_Mode {
 	}
 
 	/**
-	 * Add the stylesheet to the dashboard.
+	 * Add the stylesheet to the dashboard if enabled.
 	 * 
 	 * @since 1.0
 	 * @return void
@@ -95,21 +93,21 @@ class Dark_Mode {
 		// Is the current user using Dark Mode?
 		if ( false !== self::is_using_dark_mode() ) {
 
-			// Run the hook before the dark mode css is added
+			// The user has Dark Mode enabled
 			do_action('doing_dark_mode');
 
-			// Register the Dark Mode stylesheet
 			/**
-			 * Filters the Dark Mode stylesheet.
+			 * Filters the Dark Mode stylesheet URL.
 			 *
 			 * @since 1.1
 			 *
-			 * @param string $css_url URL of default CSS for Dark Mode.
+			 * @param  string $css_url URL of default CSS for Dark Mode.
+			 * @return string $css_url
 			 */
 			$css_url = apply_filters( 'dark_mode_css', plugins_url('dark-mode', 'dark-mode') . '/darkmode.css' );
 			wp_register_style('dark_mode', $css_url, array(), '1.0');
 
-			// Enqueue the stylesheet in the dashboard
+			// Enqueue the stylesheet for loading
 			wp_enqueue_style('dark_mode');
 
 		}
@@ -119,10 +117,10 @@ class Dark_Mode {
 	/**
 	 * Create the HTML markup for the profile setting.
 	 * 
-	 * @param $profileuser
+	 * @param object $profileuser WP_User object data
 	 * 
 	 * @since 1.0
-	 * @return boolean
+	 * @return mixed
 	 */
 	public static function add_profile_fields( $profileuser ) {
 
@@ -143,7 +141,7 @@ class Dark_Mode {
 	/**
 	 * Save the value of the profile field.
 	 * 
-	 * @param $user_id
+	 * @param string $user_id
 	 * 
 	 * @since 1.0
 	 * @return mixed
