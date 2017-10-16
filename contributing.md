@@ -14,5 +14,5 @@ Thank you to the list of people below for helping with the project. Should you b
 
 | Name               	| GitHub Username   	| WordPress.org Username 	|
 |--------------------	|-------------------	|-----------------------	|
-| Daniel James			| danieltj				| danieltj					|
+| Daniel James			| danieltj27			| danieltj					|
 | munyagu				| munyagu				| munyagu					|
