@@ -28,11 +28,12 @@ class Dark_Mode {
 	 * Function which hooks into WordPress Core.
 	 * 
 	 * @since 1.0
+	 * @since 1.1 Changed admin_enqueue_scripts hook to 99 to override admin colour scheme styles.
 	 */
 	public function __construct() {
 
 		add_action('plugins_loaded', array( __CLASS__, 'load_text_domain' ), 10);
-		add_action('admin_enqueue_scripts', array( __CLASS__, 'load_dark_mode_css' ), 10);
+		add_action('admin_enqueue_scripts', array( __CLASS__, 'load_dark_mode_css' ), 99);
 		add_action('personal_options', array( __CLASS__, 'add_profile_fields' ), 10);
 		add_action('personal_options_update', array( __CLASS__, 'save_profile_fields' ), 10);
 		add_action('edit_user_profile_update', array( __CLASS__, 'save_profile_fields' ), 10);

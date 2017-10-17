@@ -20,7 +20,8 @@
  * 
  */
 
-/* Colour variables
+/**
+ * Colour variables
  * 
  * Official WordPress Colours
  * https://make.wordpress.org/design/handbook/design-guide/foundations/colors/
@@ -44,6 +45,196 @@ $accent-green:	#46B450;
 $accent-blue:	$blue;
 $accent-purple:	#826EB4;
 
-// Start here
-body {}
+
+body {
+
+	background-color: $base-grey;
+
+	h1, h2, h3, h4, h5, h6 {
+
+		color: $white;
+
+	}
+
+	p,
+	span,
+	code,
+	kbd,
+	label,
+	.form-table th,
+	.form-wrap label,
+	.form-wrap p,
+	p.description,
+	.importer-title {
+
+		color: $white;
+
+	}
+
+	table {
+
+		background-color: $ultra-grey;
+		border-color: $dark-grey;
+
+		&.widefat {
+
+			border-color: $dark-grey;
+
+		}
+
+		&.striped {
+
+			tr {
+
+				background-color: $base-grey;
+
+				&:nth-child(odd) {
+
+					background-color: #2c3138;
+
+				}
+
+			}
+
+		}
+
+		tr {
+
+			background-color: $base-grey;
+
+			th,
+			td {
+
+				background-color: transparent;
+				color: $white;
+
+			}
+
+		}
+
+	}
+
+	.notice p,
+	div.updated p {
+
+		color: $base-grey;
+
+	}
+
+	code,
+	kbd {
+
+		background-color: rgba(0, 0, 0, 0.25);
+
+	}
+
+	ul#adminmenu a.wp-has-current-submenu:after,
+	ul#adminmenu>li.current>a.current:after {
+
+		border-right-color: $base-grey;
+
+	}
+
+	.welcome-panel,
+	.postbox,
+	.card {
+
+		background-color: $ultra-grey;
+		border-color: $dark-grey;
+		color: $white;
+
+		p {
+
+			color: $white;
+
+		}
+
+	}
+
+	#future-posts ul span,
+	#published-posts ul span,
+	#dashboard-widgets h3,
+	#dashboard-widgets h4,
+	#dashboard_quick_press .drafts h2,
+	#dashboard_right_now li a:before,
+	#dashboard_right_now li span:before,
+	.welcome-panel .welcome-icon:before {
+
+		color: $white;
+
+	}
+
+	.pressthis-bookmarklet span {
+
+		color: $base-grey;
+
+	}
+
+	.color-option.selected,
+	.color-option:hover {
+
+		background-color: $ultra-grey;
+
+	}
+
+	input[type=text],
+	input[type=search],
+	input[type=radio],
+	input[type=tel],
+	input[type=time],
+	input[type=url],
+	input[type=week],
+	input[type=password],
+	input[type=checkbox],
+	input[type=color],
+	input[type=date],
+	input[type=datetime],
+	input[type=datetime-local],
+	input[type=email],
+	input[type=month],
+	input[type=number],
+	select,
+	textarea {
+
+		background-color: #575b5f;
+		border-color: $dark-grey;
+		color: $white;
+
+	}
+
+	input[type=checkbox]:checked:before {
+
+		color: $white;
+
+	}
+
+	input[type=radio]:checked:before {
+
+		background-color: $white;
+
+	}
+
+	a {
+
+		color: $medium-blue;
+		text-decoration: underline;
+
+		&:hover {
+
+			color: $medium-blue;
+			text-decoration: none;
+
+		}
+
+		&:focus {
+
+			color: $medium-blue;
+			-webkit-box-shadow: 0 0 0 1px $blue, 0 0 2px 1px rgba(0, 160, 210, 0.8);
+			box-shadow: 0 0 0 1px $blue, 0 0 2px 1px rgba(0, 160, 210, 0.8);
+
+		}
+
+	}
+
+}
 
