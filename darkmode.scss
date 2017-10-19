@@ -21,29 +21,29 @@
  */
 
 /**
- * Colour variables
+ * Colour Variables
  * 
- * Official WordPress Colours
+ * The defined colours are loosely based on the official branding colours.
+ * The Official WordPress Colours can be found here:
  * https://make.wordpress.org/design/handbook/design-guide/foundations/colors/
  */
 $white:			#ffffff;
-$wordpress:		#0073aa;
-$blue:			$wordpress;
+$blue:			#0073aa;
 $medium-blue:	#00a0d2;
-
-$ultra-grey:	#191e23;
-$dark-grey:		#23282D;
-$base-grey:		#32373C;
-$dark-silver:	#82878C;
-$silver-grey:	#A0A5AA;
-$light-silver:	#B4B9BE;
-
 $accent-red:	#DC3232;
 $accent-orange:	#F56E28;
 $accent-yellow:	#FFB900;
 $accent-green:	#46B450;
 $accent-blue:	$blue;
 $accent-purple:	#826EB4;
+
+// Custom Colour Palette
+$light-blue:	#38d0ff;
+$base-grey:		#283138;
+$light-grey:	#bbc8d4;
+$dark-grey:		#1f272d;
+$ultra-grey:	#191f25;
+$dark-silver:	#50626f;
 
 
 body {
@@ -52,7 +52,7 @@ body {
 
 	h1, h2, h3, h4, h5, h6 {
 
-		color: $white;
+		color: $light-grey;
 
 	}
 
@@ -67,7 +67,7 @@ body {
 	p.description,
 	.importer-title {
 
-		color: $white;
+		color: $light-grey;
 
 	}
 
@@ -76,25 +76,9 @@ body {
 		background-color: $ultra-grey;
 		border-color: $dark-grey;
 
-		&.widefat {
+		p {
 
-			border-color: $dark-grey;
-
-		}
-
-		&.striped {
-
-			tr {
-
-				background-color: $base-grey;
-
-				&:nth-child(odd) {
-
-					background-color: #2c3138;
-
-				}
-
-			}
+			color: $light-grey;
 
 		}
 
@@ -106,7 +90,150 @@ body {
 			td {
 
 				background-color: transparent;
+				color: $light-grey;
+
+			}
+
+		}
+
+		&.widefat {
+
+			border-color: $dark-grey;
+
+			thead,
+			tfoot {
+
+				th,
+				td {
+
+					border-top-color: $base-grey;
+					border-bottom-color: $base-grey;
+					color: $light-grey;
+
+				}
+
+			}
+
+			p {
+
+				color: $light-grey;
+
+			}
+
+		}
+
+		&.striped {
+
+			tr {
+
+				background-color: $dark-grey;
+
+				&:nth-child(odd) {
+
+					background-color: $ultra-grey;
+
+				}
+
+			}
+
+		}
+
+		&.plugins {
+
+			.active td,
+			.active th {
+
+				background-color: $ultra-grey;
+
+			}
+
+			tr.active+tr.inactive td,
+			tr.active+tr.inactive th,
+			tr.active.plugin-update-tr+tr.inactive td,
+			tr.active.plugin-update-tr+tr.inactive th {
+
+				box-shadow: inset 0 1px 0 rgba(0,0,0,.02), inset 0 -1px 0 $base-grey;
+
+			}
+
+		}
+
+		&.wp-list-table {
+
+			tr {
+
+				background-color: $dark-grey;
+
+				th, td {
+
+					color: $light-grey;
+
+					*::before,
+					*::after {
+
+						color: $light-grey;
+
+					}
+
+				}
+
+			}
+
+		}
+
+	}
+
+	.subsubsub,
+	.subsubsub li {
+
+		color: $light-grey;
+
+		a {
+
+			color: $light-blue;
+
+			span.count,
+			&.current span.count {
+
+				color: $light-grey;
+
+			}
+
+		}
+
+		a.current {
+
+			color: $white;
+
+		}
+
+	}
+
+	.tablenav {
+
+		.tablenav-pages-navspan {
+
+			background: $base-grey;
+			border-color: $ultra-grey;
+			color: $light-grey;
+
+		}
+
+		.tablenav-pages a {
+
+			background: $dark-silver;
+			border: 1px solid $base-grey;
+
+			span {
+
 				color: $white;
+
+			}
+
+			&:hover {
+
+				background: $medium-blue;
+				border-color: $base-grey;
 
 			}
 
@@ -135,15 +262,47 @@ body {
 
 	}
 
-	.welcome-panel,
-	.postbox,
-	.card {
+	#screen-meta {
 
-		background-color: $ultra-grey;
-		border-color: $dark-grey;
-		color: $white;
+		background-color: $dark-grey;
+		border-color: $ultra-grey;
 
-		p {
+	}
+
+	#show-settings-link,
+	#contextual-help-link {
+
+		box-shadow: none;
+
+	}
+
+	#contextual-help-link-wrap,
+	#screen-options-link-wrap {
+
+		background-color: $dark-grey;
+		border-color: $ultra-grey;
+		color: $light-grey;
+
+	}
+
+	#contextual-help-back {
+
+		background-color: $base-grey;
+		border-color: $ultra-grey;
+
+	}
+
+	.contextual-help-tabs {
+
+		.active a {
+
+			background-color: $base-grey;
+			border-color: $dark-grey;
+			color: $light-grey;
+
+		}
+
+		a:hover {
 
 			color: $white;
 
@@ -151,6 +310,53 @@ body {
 
 	}
 
+	#screen-meta-links .show-settings:active,
+	#screen-meta-links .show-settings:focus,
+	#screen-meta-links .show-settings:hover,
+	#contextual-help-wrap h5,
+	#screen-options-wrap h5,
+	#screen-options-wrap legend,
+	#screen-meta-links .show-settings {
+
+		color: $light-grey;
+
+		&:hover {
+
+			color: $white;
+
+			&::before,
+			&::after {
+
+				color: $white;
+
+			}
+
+		}
+
+	}
+
+	.welcome-panel,
+	.postbox,
+	.card,
+	#activity-widget #the-comment-list .comment-item,
+	.community-events ul,
+	.wp-filter {
+
+		background-color: $dark-grey;
+		border-color: $ultra-grey;
+		color: $light-grey;
+
+		p {
+
+			color: $light-grey;
+
+		}
+
+	}
+
+	.howto,
+	.item-type,
+	.is-submenu,
 	#future-posts ul span,
 	#published-posts ul span,
 	#dashboard-widgets h3,
@@ -158,9 +364,10 @@ body {
 	#dashboard_quick_press .drafts h2,
 	#dashboard_right_now li a:before,
 	#dashboard_right_now li span:before,
-	.welcome-panel .welcome-icon:before {
+	.welcome-panel .welcome-icon:before,
+	#latest-comments #the-comment-list .comment-meta {
 
-		color: $white;
+		color: $light-grey;
 
 	}
 
@@ -173,7 +380,319 @@ body {
 	.color-option.selected,
 	.color-option:hover {
 
+		background-color: $dark-grey;
+
+	}
+
+	.accordion-section-content,
+	.widgets-holder-wrap {
+
+		background-color: $dark-grey;
+		border-color: $ultra-grey;
+
+	}
+
+	#nav-menu-header,
+	#menu-management .menu-edit {
+
+		border-color: $ultra-grey;
+
+	}
+
+	.control-section .accordion-section-title,
+	.customize-pane-child .accordion-section-title,
+	&.js .control-section .accordion-section-title:focus,
+	&.js .control-section .accordion-section-title:hover,
+	&.js .control-section.open .accordion-section-title,
+	&.js .control-section:hover .accordion-section-title {
+
 		background-color: $ultra-grey;
+		border-color: $base-grey;
+		color: $light-grey;
+
+	}
+
+	.wp-tab-active,
+	ul.add-menu-item-tabs li.tabs,
+	ul.category-tabs li.tabs,
+	.categorydiv div.tabs-panel,
+	.customlinkdiv div.tabs-panel,
+	.posttypediv div.tabs-panel,
+	.taxonomydiv div.tabs-panel,
+	.wp-tab-panel {
+
+		background-color: $base-grey;
+		border-color: $dark-grey;
+
+	}
+
+	.wp-editor-expand #wp-content-editor-tools,
+	#wp-content-editor-tools {
+
+		background-color: $base-grey;
+		border-color: $dark-grey;
+
+	}
+
+	#post-body ul.add-menu-item-tabs li.tabs a,
+	#post-body ul.category-tabs li.tabs a,
+	#side-sortables .add-menu-item-tabs .tabs a,
+	#side-sortables .category-tabs .tabs a,
+	.wp-tab-bar .wp-tab-active a {
+
+		color: $light-grey;
+
+	}
+
+	.accordion-section,
+	.accordion-section.open:hover,
+	#menu-management .menu-edit,
+	#menu-settings-column .accordion-container,
+	.comment-ays,
+	.feature-filter,
+	.imgedit-group,
+	.manage-menus,
+	.menu-item-handle,
+	.popular-tags,
+	.stuffbox,
+	.widget-inside,
+	.widget-top,
+	.widgets-holder-wrap,
+	p.popular-tags,
+	.postbox .hndle,
+	.stuffbox .hndle {
+
+		border-color: $base-grey;
+
+	}
+
+	#major-publishing-actions,
+	.menu-item-settings,
+	.link-to-original,
+	&.nav-menus-php #post-body {
+
+		background: $dark-grey;
+		border-color: $base-grey;
+
+	}
+
+	.link-to-original,
+	.accordion-section-title:after,
+	.handlediv,
+	.item-edit,
+	.postbox .handlediv.button-link,
+	.sidebar-name-arrow {
+
+		color: $light-grey;
+
+	}
+
+	.accordion-section-title:hover:after,
+	.handlediv:focus,
+	.handlediv:hover,
+	.item-edit:focus,
+	.item-edit:hover,
+	.postbox .handlediv.button-link:focus,
+	.postbox .handlediv.button-link:hover,
+	.sidebar-name:hover .sidebar-name-arrow,
+	.widget-action:focus,
+	.widget-top:hover .widget-action {
+
+		color: $white;
+
+	}
+
+	.menu-item-handle,
+	.widget .widget-top,
+	.widget-inside,
+	.manage-menus,
+	#menu-management {
+
+		background: $ultra-grey;
+		border-color: $dark-grey;
+
+	}
+
+	.menu-item-bar .menu-item-handle {
+
+		&,
+		&:hover {
+
+			border-color: $base-grey;
+
+		}
+
+	}
+
+	.inactive-sidebar .description,
+	.widget-holder .description,
+	#available-widgets .widget-description,
+	#widgets-right a.widget-control-edit,
+	.in-widget-title {
+
+		color: $light-grey;
+
+	}
+
+	#available-widgets .widget-top:hover,
+	#widgets-left .widget-in-question .widget-top,
+	#widgets-left .widget-top:hover,
+	.widgets-chooser ul,
+	div#widgets-right .widget-top:hover {
+
+		border-color: $ultra-grey;
+
+	}
+
+	.nav-tab-wrapper,
+	.wrap h2.nav-tab-wrapper,
+	h1.nav-tab-wrapper {
+
+		border-color: $dark-grey;
+
+	}
+
+	.nav-tab {
+
+		background-color: $dark-grey;
+		border-color: $ultra-grey;
+		color: $light-grey;
+
+		&:focus,
+		&:hover {
+
+			background-color: $light-grey;
+
+		}
+
+	}
+
+	.nav-tab-active,
+	.nav-tab-active:focus,
+	.nav-tab-active:focus:active,
+	.nav-tab-active:hover {
+
+		background-color: $ultra-grey;
+		border-color: $dark-grey;
+		color: $light-grey;
+
+	}
+
+	.media-modal-content {
+
+		background-color: $ultra-grey;
+		border-color: $base-grey;
+		color: $light-grey;
+
+	}
+
+	.media-frame-content,
+	.edit-attachment-frame .attachment-info {
+
+		background-color: $base-grey;
+		border-color: $dark-grey;
+		color: $light-grey;
+
+	}
+
+	.edit-attachment-frame .edit-media-header .left,
+	.edit-attachment-frame .edit-media-header .right,
+	&.upload-php .media-modal-close {
+
+		border-color: $base-grey;
+
+	}
+
+	.edit-attachment-frame .attachment-info .filename,
+	.attachment-details .setting span,
+	.compat-item label span,
+	.media-sidebar .setting span {
+
+		color: $light-grey;
+
+	}
+
+	.theme-overlay {
+
+		.theme-backdrop,
+		.theme-wrap {
+
+			background: $base-grey;
+
+		}
+
+		.current-label {
+
+			background: $dark-grey;
+
+		}
+
+		.theme-name,
+		.theme-version,
+		.theme-author,
+		.theme-description {
+
+			color: $light-grey;
+
+		}
+
+		.theme-tags {
+
+			border-color: $ultra-grey;
+			color: $light-grey;
+
+			span {
+
+				color: $white;
+
+			}
+
+		}
+
+		.theme-header {
+
+			&,
+			.close,
+			.left,
+			.right {
+
+				border-color: $ultra-grey;
+
+			}
+
+			.close:before {
+
+				color: $light-grey;
+
+			}
+
+		}
+
+		.theme-actions {
+
+			background-color: $dark-grey;
+			border-color: $ultra-grey;
+
+		}
+
+	}
+
+	.theme-browser .theme {
+
+		border-color: $dark-grey;
+
+		&.add-new-theme span:after {
+
+			color: $white;
+
+		}
+
+		.theme-name,
+		.theme-actions {
+
+			background-color: $ultra-grey;
+
+		}
 
 	}
 
@@ -196,7 +715,7 @@ body {
 	select,
 	textarea {
 
-		background-color: #575b5f;
+		background-color: $dark-silver;
 		border-color: $dark-grey;
 		color: $white;
 
@@ -214,23 +733,47 @@ body {
 
 	}
 
+	::-webkit-input-placeholder {
+
+		color: $white;
+
+	}
+
+	::-moz-placeholder {
+
+		color: $white;
+
+	}
+
+	:-ms-input-placeholder {
+
+		color: $white;
+
+	}
+
+	:-moz-placeholder {
+
+		color: $white;
+
+	}
+
 	a {
 
-		color: $medium-blue;
+		color: $light-blue;
 		text-decoration: underline;
 
 		&:hover {
 
-			color: $medium-blue;
+			color: $light-blue;
 			text-decoration: none;
 
 		}
 
 		&:focus {
 
-			color: $medium-blue;
-			-webkit-box-shadow: 0 0 0 1px $blue, 0 0 2px 1px rgba(0, 160, 210, 0.8);
-			box-shadow: 0 0 0 1px $blue, 0 0 2px 1px rgba(0, 160, 210, 0.8);
+			color: $light-blue;
+			-webkit-box-shadow: 0 0 0 1px $light-blue, 0 0 2px 1px rgba(0, 160, 210, 0.8);
+			box-shadow: 0 0 0 1px $light-blue, 0 0 2px 1px rgba(0, 160, 210, 0.8);
 
 		}
 

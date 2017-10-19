@@ -1,9 +1,9 @@
 === Dark Mode ===
 Contributors: danieltj
-Tags: admin, accessibility, css, profile, theme
+Tags: accessibility, admin, dashboard, profile, style
 Requires at least: 4.0
 Tested up to: 4.8
-Stable tag: 1.0
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,15 +13,15 @@ Let's your users make the WordPress admin dashboard darker.
 
 = About the Plugin =
 
-Feature plugin with the hopes that it'll make it's way into Core one day! Do not use this on production websites.
+Feature plugin with the hopes that it'll make it's way into Core one day! We highly recommend you don't use this on production websites.
 
-Using technology at night time can have a negative effect on your eyesight. Dark Mode will darken the colours of your admin dashboard making it easier for you to work at night.
+Using technology at night time can have a negative effect on your eyesight. Dark Mode will darken the colours of your admin dashboard making it easier for you to work at night time.
 
 For information on the progress of this plugin, [please refer to the Trac ticket](https://core.trac.wordpress.org/ticket/41928) or you can get involved on the [GitHub repository](https://github.com/danieltj27/Dark-Mode).
 
 = Plugin Developers =
 
-As some plugins make use of custom stylesheets, you can use the `doing_dark_mode` action hook to include a custom stylesheet that supports Dark Mode for your plugins interface.
+As some plugins make use of custom stylesheets, you can use the `doing_dark_mode` action hook to include a custom stylesheet that supports Dark Mode for your plugins interface. Alternatively you can use the `dark_mode_css` filter hook to change the Dark Mode stylesheet for your own. 
 
 == Installation ==
 
@@ -45,5 +45,12 @@ Yes! You can follow the Trac ticket for updates and get involved on GitHub with 
 
 == Changelog ==
 
+= 1.1 =
+
+* Redesigned (most of) the admin dashboard into a darker design.
+* Added a filter hook to change the URL of the Dark Mode stylesheet.
+* Minor improvements to the code.
+
 = 1.0 =
+
 * Initial version.

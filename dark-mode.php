@@ -7,7 +7,7 @@
  * Author: Daniel James
  * Author URI: https://www.danieltj.co.uk/
  * Text Domain: dark-mode
- * Version: 1.0
+ * Version: 1.1
  */
 
 // No thank you
@@ -106,7 +106,9 @@ class Dark_Mode {
 			 * @return string $css_url
 			 */
 			$css_url = apply_filters( 'dark_mode_css', plugins_url('dark-mode', 'dark-mode') . '/darkmode.css' );
-			wp_register_style('dark_mode', $css_url, array(), '1.0');
+			
+			// Register the dark mode stylesheet
+			wp_register_style('dark_mode', $css_url, array(), '1.1');
 
 			// Enqueue the stylesheet for loading
 			wp_enqueue_style('dark_mode');
@@ -142,10 +144,10 @@ class Dark_Mode {
 	/**
 	 * Save the value of the profile field.
 	 * 
-	 * @param string $user_id
+	 * @param string $user_id A users id
 	 * 
 	 * @since 1.0
-	 * @return mixed
+	 * @return void
 	 */
 	public static function save_profile_fields( $user_id ) {
 
