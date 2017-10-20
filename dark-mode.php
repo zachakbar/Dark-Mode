@@ -7,7 +7,7 @@
  * Author: Daniel James
  * Author URI: https://www.danieltj.co.uk/
  * Text Domain: dark-mode
- * Version: 1.1
+ * Version: 1.1.1
  */
 
 // No thank you
@@ -29,6 +29,8 @@ class Dark_Mode {
 	 * 
 	 * @since 1.0
 	 * @since 1.1 Changed admin_enqueue_scripts hook to 99 to override admin colour scheme styles.
+	 * 
+	 * @return void
 	 */
 	public function __construct() {
 
@@ -44,6 +46,8 @@ class Dark_Mode {
 	 * Load the plugin text domain for l10n.
 	 * 
 	 * @since 1.0
+	 * 
+	 * @return void
 	 */
 	public static function load_text_domain() {
 
@@ -94,7 +98,14 @@ class Dark_Mode {
 		// Is the current user using Dark Mode?
 		if ( false !== self::is_using_dark_mode() ) {
 
-			// The user has Dark Mode enabled
+			/**
+			 * Hook for when Dark Mode is running.
+			 * 
+			 * This hook is run at the start of Dark Mode initialising
+			 * the stylesheet but before it is enqueued.
+			 *
+			 * @since 1.0
+			 */
 			do_action('doing_dark_mode');
 
 			/**
@@ -103,12 +114,13 @@ class Dark_Mode {
 			 * @since 1.1
 			 *
 			 * @param  string $css_url URL of default CSS for Dark Mode.
+			 * 
 			 * @return string $css_url
 			 */
 			$css_url = apply_filters( 'dark_mode_css', plugins_url('dark-mode', 'dark-mode') . '/darkmode.css' );
 			
 			// Register the dark mode stylesheet
-			wp_register_style('dark_mode', $css_url, array(), '1.1');
+			wp_register_style('dark_mode', $css_url, array(), '1.1.1');
 
 			// Enqueue the stylesheet for loading
 			wp_enqueue_style('dark_mode');
@@ -144,7 +156,7 @@ class Dark_Mode {
 	/**
 	 * Save the value of the profile field.
 	 * 
-	 * @param string $user_id A users id
+	 * @param string $user_id Someone's user ID
 	 * 
 	 * @since 1.0
 	 * @return void

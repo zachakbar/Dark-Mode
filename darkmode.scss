@@ -39,11 +39,15 @@ $accent-purple:	#826EB4;
 
 // Custom Colour Palette
 $light-blue:	#38d0ff;
-$base-grey:		#283138;
+$base-grey:		#23282d;
 $light-grey:	#bbc8d4;
-$dark-grey:		#1f272d;
+$dark-grey:		#32373c;
 $ultra-grey:	#191f25;
 $dark-silver:	#50626f;
+$base-purple:	#4e5164;
+$light-purple:	#636c96;
+$dark-purple:	#3c3f4c;
+$ultra-purple:	#273139;
 
 
 body {
@@ -57,7 +61,6 @@ body {
 	}
 
 	p,
-	span,
 	code,
 	kbd,
 	label,
@@ -68,6 +71,16 @@ body {
 	.importer-title {
 
 		color: $light-grey;
+
+	}
+
+	#wpadminbar {
+
+		* {
+
+			color: inherit !important;
+
+		}
 
 	}
 
@@ -241,10 +254,20 @@ body {
 
 	}
 
-	.notice p,
-	div.updated p {
+	.notice,
+	div.error,
+	div.updated {
 
-		color: $base-grey;
+		background-color: $dark-grey;
+
+	}
+
+	.notice p,
+	div.updated p,
+	.about-wrap h1,
+	.about-wrap .about-text {
+
+		color: $light-grey;
 
 	}
 
@@ -335,6 +358,7 @@ body {
 
 	}
 
+	.try-gutenberg-panel,
 	.welcome-panel,
 	.postbox,
 	.card,
@@ -354,6 +378,21 @@ body {
 
 	}
 
+	.try-gutenberg-panel img,
+	.activity-block,
+	#dashboard_activity .subsubsub,
+	#dashboard_right_now .sub,
+	.community-events li:first-child,
+	.community-events li~li,
+	.community-events-footer,
+	.community-events .activity-block.last {
+
+		border-color: $base-grey;
+
+	}
+
+	.try-gutenberg-panel p,
+	.try-gutenberg-panel-column p.about-description,
 	.howto,
 	.item-type,
 	.is-submenu,
@@ -365,7 +404,15 @@ body {
 	#dashboard_right_now li a:before,
 	#dashboard_right_now li span:before,
 	.welcome-panel .welcome-icon:before,
-	#latest-comments #the-comment-list .comment-meta {
+	.community-events li,
+	#dashboard_activity .subsubsub a .count,
+	#dashboard_activity .subsubsub a.current .count,
+	#latest-comments #the-comment-list .comment-meta,
+	#post-body ul.add-menu-item-tabs li.tabs a,
+	#post-body ul.category-tabs li.tabs a,
+	#side-sortables .add-menu-item-tabs .tabs a,
+	#side-sortables .category-tabs .tabs a,
+	.wp-tab-bar .wp-tab-active a {
 
 		color: $light-grey;
 
@@ -431,16 +478,6 @@ body {
 
 		background-color: $base-grey;
 		border-color: $dark-grey;
-
-	}
-
-	#post-body ul.add-menu-item-tabs li.tabs a,
-	#post-body ul.category-tabs li.tabs a,
-	#side-sortables .add-menu-item-tabs .tabs a,
-	#side-sortables .category-tabs .tabs a,
-	.wp-tab-bar .wp-tab-active a {
-
-		color: $light-grey;
 
 	}
 
@@ -570,7 +607,8 @@ body {
 	.nav-tab-active,
 	.nav-tab-active:focus,
 	.nav-tab-active:focus:active,
-	.nav-tab-active:hover {
+	.nav-tab-active:hover,
+	.about-wrap h2 .nav-tab-active {
 
 		background-color: $ultra-grey;
 		border-color: $dark-grey;
@@ -693,6 +731,91 @@ body {
 			background-color: $ultra-grey;
 
 		}
+
+	}
+
+	&.wp-core-ui .button,
+	&.wp-core-ui .button-secondary {
+
+		background: $base-purple;
+		border-color: $ultra-purple;
+		box-shadow: 0 1px 0 $ultra-purple;
+		color: $white;
+
+		&:hover,
+		&:focus {
+
+			background: $dark-purple;
+			border-color: $ultra-purple;
+			color: $white;
+
+		}
+
+		&:active {
+
+			background: $ultra-purple;
+			color: $white;
+
+		}
+
+	}
+
+	&.wp-core-ui .button-primary {
+
+		&.button-hero {
+
+			box-shadow: 0 2px 0 $ultra-purple !important;
+
+			&.active,
+			&:active {
+
+				box-shadow: inset 0 3px 0 $base-purple !important;
+
+			}
+
+		}
+
+		background: $light-purple;
+		border-color: $dark-purple $dark-grey $dark-grey;
+		color: $white;
+		box-shadow: 0 1px 0 $ultra-grey;
+		text-shadow: 0 -1px 1px $dark-grey, 1px 0 1px $dark-grey, 0 1px 1px $dark-grey, -1px 0 1px $dark-grey;
+
+		&:hover,
+		&:focus {
+
+			background: $base-purple;
+			border-color: $dark-purple $dark-grey $dark-grey;
+			color: $white;
+			box-shadow: 0 1px 0 $ultra-grey;
+			text-shadow: 0 -1px 1px $dark-grey, 1px 0 1px $dark-grey, 0 1px 1px $dark-grey, -1px 0 1px $dark-grey;
+
+		}
+
+		&:active {
+
+			background: $dark-purple;
+			border-color: $dark-purple $dark-grey $dark-grey;
+			color: $white;
+			box-shadow: 0 1px 0 $ultra-grey;
+			text-shadow: 0 -1px 1px $dark-grey, 1px 0 1px $dark-grey, 0 1px 1px $dark-grey, -1px 0 1px $dark-grey;
+
+		}
+
+	}
+
+	&.wp-core-ui .button-disabled,
+	&.wp-core-ui .button-secondary.disabled,
+	&.wp-core-ui .button-secondary:disabled,
+	&.wp-core-ui .button-secondary[disabled],
+	&.wp-core-ui .button.disabled,
+	&.wp-core-ui .button:disabled,
+	&.wp-core-ui .button[disabled] {
+
+		background: $dark-grey !important;
+		border-color: $ultra-grey !important;
+		color: $light-grey !important;
+		text-shadow: none !important;
 
 	}
 

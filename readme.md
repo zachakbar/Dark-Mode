@@ -10,9 +10,10 @@ Ideally, Dark Mode will one day be a part of the WordPress Core. Until then, we 
 
 ## Information
 
+* [Plugin Page](https://wordpress.org/plugins/dark-mode/)
 * [GitHub Repository](https://github.com/danieltj27/Dark-Mode)
 * [Trac Ticket](https://core.trac.wordpress.org/ticket/41928)
 
 ## Forgotten
 
-In the event that something was forgotten about, let a contributor know. Questions, feedback and moral support is welcome!
+In the event that something was forgotten about, please let a contributor know. Questions, feedback and moral support is always very welcome!

@@ -1,9 +1,9 @@
 === Dark Mode ===
-Contributors: danieltj
+Contributors: danieltj, munyagu, travel_girl, melchoyce, afercia, hedgefield
 Tags: accessibility, admin, dashboard, profile, style
 Requires at least: 4.0
 Tested up to: 4.8
-Stable tag: 1.1
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -44,6 +44,13 @@ It adds an option for users to enable a 'dark mode' which will turn the admin da
 Yes! You can follow the Trac ticket for updates and get involved on GitHub with suggestions, feedback and code contributions!
 
 == Changelog ==
+
+= 1.1.1 =
+
+* Updated the readme.txt file information.
+* Minor improvements to code documentation blocks.
+* Restyled the new Try Gutenberg banner on the dashboard index.
+* Updated the colour palette and swapped blue for purple!
 
 = 1.1 =
 
