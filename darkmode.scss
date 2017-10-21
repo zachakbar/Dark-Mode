@@ -1,9 +1,6 @@
 /*
- * Dark Mode stylesheet
- * Beta test to one day include in WordPress Core.
- * 
- * Stylesheet Version: 1.0
- * 
+ * Dark Mode CSS
+ * A beta plugin to be included in WordPress Core one day.
  * 
  * DEVELOPERS:
  * The Dark Mode stylesheet is built using the Sass CSS pre-processor. With this you will
@@ -16,7 +13,7 @@
  * CONTRIBUTE:
  * Redesigning the WordPress admin area is no easy feat. If you want to get
  * involved and help out, you can help redesign the WordPress dashboard or
- * contribute code via GitHub ( https://github.com/danieltj27/Dark-Mode ).
+ * contribute code via GitHub ( https://github.com/danieltj27/Dark-Mode/ ).
  * 
  */
 
@@ -27,32 +24,33 @@
  * The Official WordPress Colours can be found here:
  * https://make.wordpress.org/design/handbook/design-guide/foundations/colors/
  */
-$white:			#ffffff;
-$blue:			#0073aa;
-$medium-blue:	#00a0d2;
-$accent-red:	#DC3232;
-$accent-orange:	#F56E28;
-$accent-yellow:	#FFB900;
-$accent-green:	#46B450;
-$accent-blue:	$blue;
-$accent-purple:	#826EB4;
+$white:         #ffffff;
+$blue:          #0073aa;
+$medium-blue:   #00a0d2;
+$accent-red:    #DC3232;
+$accent-orange: #F56E28;
+$accent-yellow: #FFB900;
+$accent-green:  #46B450;
+$accent-blue:   $blue;
+$accent-purple: #826EB4;
 
 // Custom Colour Palette
-$light-blue:	#38d0ff;
-$base-grey:		#23282d;
-$light-grey:	#bbc8d4;
-$dark-grey:		#32373c;
-$ultra-grey:	#191f25;
-$dark-silver:	#50626f;
-$base-purple:	#4e5164;
-$light-purple:	#636c96;
-$dark-purple:	#3c3f4c;
-$ultra-purple:	#273139;
+$base-grey:     #23282d;
+$light-grey:    #bbc8d4;
+$dark-grey:     #32373c;
+$ultra-grey:    #191f25;
+$dark-silver:   #50626f;
+$base-blue:     #2e74aa;
+$light-blue:    #4092d2;
+$dark-blue:     #2c5f88;
+$ultra-blue:    #1f3f58;
+$bright-blue:   #6dbfff;
 
 
 body {
 
 	background-color: $base-grey;
+	color: $light-grey;
 
 	h1, h2, h3, h4, h5, h6 {
 
@@ -119,7 +117,7 @@ body {
 				th,
 				td {
 
-					border-top-color: $base-grey;
+					border-top-color: $ultra-grey;
 					border-bottom-color: $base-grey;
 					color: $light-grey;
 
@@ -137,13 +135,17 @@ body {
 
 		&.striped {
 
-			tr {
+			tbody {
 
-				background-color: $dark-grey;
+				tr {
 
-				&:nth-child(odd) {
+					background-color: $dark-grey;
 
-					background-color: $ultra-grey;
+					&:nth-child(odd) {
+
+						background-color: $base-grey;
+
+					}
 
 				}
 
@@ -203,7 +205,7 @@ body {
 
 		a {
 
-			color: $light-blue;
+			color: $bright-blue;
 
 			span.count,
 			&.current span.count {
@@ -264,8 +266,56 @@ body {
 
 	.notice p,
 	div.updated p,
+	.fileedit-sub,
 	.about-wrap h1,
-	.about-wrap .about-text {
+	.about-wrap .about-text,
+	#bulk-titles div a:before,
+	.notice-dismiss:before,
+	.tagchecklist .ntdelbutton .remove-tag-icon:before,
+	.welcome-panel .welcome-panel-close:before,
+	.pressthis-js-toggle .dashicons,
+	.try-gutenberg-panel p,
+	.try-gutenberg-panel-column p.about-description,
+	.howto,
+	.item-type,
+	.is-submenu,
+	.nonessential,
+	#future-posts ul span,
+	#published-posts ul span,
+	#dashboard-widgets h3,
+	#dashboard-widgets h4,
+	#dashboard_quick_press .drafts h2,
+	#dashboard_right_now li a:before,
+	#dashboard_right_now li span:before,
+	.welcome-panel .welcome-icon:before,
+	.community-events li,
+	#dashboard_activity .subsubsub a .count,
+	#dashboard_activity .subsubsub a.current .count,
+	#latest-comments #the-comment-list .comment-meta,
+	#dashboard_quick_press .drafts li time,
+	#title-wrap #title-prompt-text,
+	.textarea-wrap #content-prompt-text,
+	#post-body ul.add-menu-item-tabs li.tabs a,
+	#post-body ul.category-tabs li.tabs a,
+	#side-sortables .add-menu-item-tabs .tabs a,
+	#side-sortables .category-tabs .tabs a,
+	.wp-tab-bar .wp-tab-active a,
+	.link-to-original,
+	.accordion-section-title:after,
+	.handlediv,
+	.item-edit,
+	.postbox .handlediv.button-link,
+	.sidebar-name-arrow,
+	.widgets-holder-wrap .description,
+	.inactive-sidebar .description,
+	.widget-holder .description,
+	#available-widgets .widget-description,
+	#widgets-right a.widget-control-edit,
+	.in-widget-title,
+	.edit-attachment-frame .attachment-info .filename,
+	.attachment-details .setting span,
+	.compat-item label span,
+	.media-sidebar .setting span {
 
 		color: $light-grey;
 
@@ -282,6 +332,14 @@ body {
 	ul#adminmenu>li.current>a.current:after {
 
 		border-right-color: $base-grey;
+
+	}
+
+	#activity-widget #the-comment-list .comment,
+	#activity-widget #the-comment-list .pingback {
+
+		-webkit-box-shadow: inset 0 1px 0 rgb(35, 41, 47);
+		box-shadow: inset 0 1px 0 rgb(35, 40, 46);
 
 	}
 
@@ -391,33 +449,6 @@ body {
 
 	}
 
-	.try-gutenberg-panel p,
-	.try-gutenberg-panel-column p.about-description,
-	.howto,
-	.item-type,
-	.is-submenu,
-	#future-posts ul span,
-	#published-posts ul span,
-	#dashboard-widgets h3,
-	#dashboard-widgets h4,
-	#dashboard_quick_press .drafts h2,
-	#dashboard_right_now li a:before,
-	#dashboard_right_now li span:before,
-	.welcome-panel .welcome-icon:before,
-	.community-events li,
-	#dashboard_activity .subsubsub a .count,
-	#dashboard_activity .subsubsub a.current .count,
-	#latest-comments #the-comment-list .comment-meta,
-	#post-body ul.add-menu-item-tabs li.tabs a,
-	#post-body ul.category-tabs li.tabs a,
-	#side-sortables .add-menu-item-tabs .tabs a,
-	#side-sortables .category-tabs .tabs a,
-	.wp-tab-bar .wp-tab-active a {
-
-		color: $light-grey;
-
-	}
-
 	.pressthis-bookmarklet span {
 
 		color: $base-grey;
@@ -425,12 +456,7 @@ body {
 	}
 
 	.color-option.selected,
-	.color-option:hover {
-
-		background-color: $dark-grey;
-
-	}
-
+	.color-option:hover,
 	.accordion-section-content,
 	.widgets-holder-wrap {
 
@@ -497,7 +523,12 @@ body {
 	.widgets-holder-wrap,
 	p.popular-tags,
 	.postbox .hndle,
-	.stuffbox .hndle {
+	.stuffbox .hndle,
+	#available-widgets .widget-top:hover,
+	#widgets-left .widget-in-question .widget-top,
+	#widgets-left .widget-top:hover,
+	.widgets-chooser ul,
+	div#widgets-right .widget-top:hover {
 
 		border-color: $base-grey;
 
@@ -510,17 +541,6 @@ body {
 
 		background: $dark-grey;
 		border-color: $base-grey;
-
-	}
-
-	.link-to-original,
-	.accordion-section-title:after,
-	.handlediv,
-	.item-edit,
-	.postbox .handlediv.button-link,
-	.sidebar-name-arrow {
-
-		color: $light-grey;
 
 	}
 
@@ -561,26 +581,6 @@ body {
 
 	}
 
-	.inactive-sidebar .description,
-	.widget-holder .description,
-	#available-widgets .widget-description,
-	#widgets-right a.widget-control-edit,
-	.in-widget-title {
-
-		color: $light-grey;
-
-	}
-
-	#available-widgets .widget-top:hover,
-	#widgets-left .widget-in-question .widget-top,
-	#widgets-left .widget-top:hover,
-	.widgets-chooser ul,
-	div#widgets-right .widget-top:hover {
-
-		border-color: $ultra-grey;
-
-	}
-
 	.nav-tab-wrapper,
 	.wrap h2.nav-tab-wrapper,
 	h1.nav-tab-wrapper {
@@ -608,18 +608,11 @@ body {
 	.nav-tab-active:focus,
 	.nav-tab-active:focus:active,
 	.nav-tab-active:hover,
-	.about-wrap h2 .nav-tab-active {
-
-		background-color: $ultra-grey;
-		border-color: $dark-grey;
-		color: $light-grey;
-
-	}
-
+	.about-wrap h2 .nav-tab-active,
 	.media-modal-content {
 
 		background-color: $ultra-grey;
-		border-color: $base-grey;
+		border-color: $dark-grey;
 		color: $light-grey;
 
 	}
@@ -641,11 +634,17 @@ body {
 
 	}
 
-	.edit-attachment-frame .attachment-info .filename,
-	.attachment-details .setting span,
-	.compat-item label span,
-	.media-sidebar .setting span {
+	#template textarea {
 
+		background: $ultra-grey;
+		border-color: $dark-grey;
+		color: $light-grey;
+
+	}
+
+	#templateside .highlight {
+
+		background: $dark-grey;
 		color: $light-grey;
 
 	}
@@ -737,24 +736,24 @@ body {
 	&.wp-core-ui .button,
 	&.wp-core-ui .button-secondary {
 
-		background: $base-purple;
-		border-color: $ultra-purple;
-		box-shadow: 0 1px 0 $ultra-purple;
+		background: $dark-silver;
+		border-color: $dark-grey;
+		box-shadow: 0 1px 0 $ultra-grey;
 		color: $white;
 
 		&:hover,
-		&:focus {
+		&:focus,
+		&:active {
 
-			background: $dark-purple;
-			border-color: $ultra-purple;
+			background: $dark-grey;
+			border-color: $dark-grey;
 			color: $white;
 
 		}
 
 		&:active {
 
-			background: $ultra-purple;
-			color: $white;
+			background: $ultra-grey;
 
 		}
 
@@ -764,28 +763,29 @@ body {
 
 		&.button-hero {
 
-			box-shadow: 0 2px 0 $ultra-purple !important;
+			box-shadow: 0 2px 0 $ultra-blue !important;
 
 			&.active,
 			&:active {
 
-				box-shadow: inset 0 3px 0 $base-purple !important;
+				box-shadow: inset 0 3px 0 $base-blue !important;
 
 			}
 
 		}
 
-		background: $light-purple;
-		border-color: $dark-purple $dark-grey $dark-grey;
+		background: $light-blue;
+		border-color: $dark-blue $dark-grey $dark-grey;
 		color: $white;
 		box-shadow: 0 1px 0 $ultra-grey;
 		text-shadow: 0 -1px 1px $dark-grey, 1px 0 1px $dark-grey, 0 1px 1px $dark-grey, -1px 0 1px $dark-grey;
 
 		&:hover,
-		&:focus {
+		&:focus,
+		&:active {
 
-			background: $base-purple;
-			border-color: $dark-purple $dark-grey $dark-grey;
+			background: $base-blue;
+			border-color: $dark-blue $dark-grey $dark-grey;
 			color: $white;
 			box-shadow: 0 1px 0 $ultra-grey;
 			text-shadow: 0 -1px 1px $dark-grey, 1px 0 1px $dark-grey, 0 1px 1px $dark-grey, -1px 0 1px $dark-grey;
@@ -794,11 +794,7 @@ body {
 
 		&:active {
 
-			background: $dark-purple;
-			border-color: $dark-purple $dark-grey $dark-grey;
-			color: $white;
-			box-shadow: 0 1px 0 $ultra-grey;
-			text-shadow: 0 -1px 1px $dark-grey, 1px 0 1px $dark-grey, 0 1px 1px $dark-grey, -1px 0 1px $dark-grey;
+			background: $dark-blue;
 
 		}
 
@@ -839,7 +835,7 @@ body {
 	textarea {
 
 		background-color: $dark-silver;
-		border-color: $dark-grey;
+		border-color: $ultra-grey;
 		color: $white;
 
 	}
@@ -882,7 +878,7 @@ body {
 
 	a {
 
-		color: $light-blue;
+		color: $bright-blue;
 		text-decoration: underline;
 
 		&:hover {
