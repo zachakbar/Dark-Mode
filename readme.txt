@@ -47,8 +47,8 @@ Yes! You can follow the Trac ticket for updates and get involved on GitHub with 
 
 = 1.1.3 =
 
-* Fixed a bug where the post title was not styled properly.
-* 
+* Fixed a bug where the post title, plugin & theme and dashboard meta boxes weren't styled.
+* Minor optimisations made to the stylesheet to help reduce the file size.
 
 = 1.1.2 =
 
