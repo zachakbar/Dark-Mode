@@ -3,7 +3,7 @@ Contributors: danieltj, munyagu, travel_girl, melchoyce, afercia, hedgefield
 Tags: accessibility, admin, dashboard, profile, style
 Requires at least: 4.0
 Tested up to: 4.8
-Stable tag: 1.1.2
+Stable tag: 1.1.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -44,6 +44,11 @@ It adds an option for users to enable a 'dark mode' which will turn the admin da
 Yes! You can follow the Trac ticket for updates and get involved on GitHub with suggestions, feedback and code contributions!
 
 == Changelog ==
+
+= 1.1.3 =
+
+* Fixed a bug where the post title was not styled properly.
+* 
 
 = 1.1.2 =
 

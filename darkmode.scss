@@ -198,6 +198,17 @@ body {
 
 	}
 
+	.tablenav {
+
+		p,
+		span {
+
+			color: $light-grey;
+
+		}
+
+	}
+
 	.subsubsub,
 	.subsubsub li {
 
@@ -315,7 +326,9 @@ body {
 	.edit-attachment-frame .attachment-info .filename,
 	.attachment-details .setting span,
 	.compat-item label span,
-	.media-sidebar .setting span {
+	.media-sidebar .setting span,
+	.upload-plugin .install-help,
+	.upload-theme .install-help {
 
 		color: $light-grey;
 
@@ -343,7 +356,11 @@ body {
 
 	}
 
-	#screen-meta {
+	.upload-plugin .wp-upload-form,
+	.upload-theme .wp-upload-form,
+	#screen-meta,
+	#contextual-help-link-wrap,
+	#screen-options-link-wrap {
 
 		background-color: $dark-grey;
 		border-color: $ultra-grey;
@@ -360,8 +377,6 @@ body {
 	#contextual-help-link-wrap,
 	#screen-options-link-wrap {
 
-		background-color: $dark-grey;
-		border-color: $ultra-grey;
 		color: $light-grey;
 
 	}
@@ -458,17 +473,80 @@ body {
 	.color-option.selected,
 	.color-option:hover,
 	.accordion-section-content,
-	.widgets-holder-wrap {
+	.widgets-holder-wrap,
+	.filter-drawer,
+	.wp-filter .favorites-form,
+	.filter-group,
+	.filtered-by .tag {
 
 		background-color: $dark-grey;
 		border-color: $ultra-grey;
 
 	}
 
+	.plugin-card {
+
+		background-color: $dark-grey;
+
+		p,
+		.column-compatibility span:before {
+
+			color: $light-grey;
+
+		}
+
+	}
+
+	.plugin-card-bottom {
+
+		background-color: $ultra-grey;
+
+	}
+
+	.plugin-card,
+	.plugin-card-bottom,
 	#nav-menu-header,
 	#menu-management .menu-edit {
 
 		border-color: $ultra-grey;
+
+	}
+
+	.wp-filter .button.drawer-toggle {
+
+		&,
+		&::before {
+
+			color: $light-grey;
+
+		}
+
+		&:hover,
+		&:focus,
+		&:active {
+
+			&,
+			&::before {
+
+				color: $white;
+
+			}
+
+		}
+
+	}
+
+	.filter-links li a {
+
+		border-color: $dark-grey;
+		color: $light-grey;
+
+		&.current {
+
+			border-color: $light-grey;
+			color: $light-grey;
+
+		}
 
 	}
 
@@ -485,6 +563,7 @@ body {
 
 	}
 
+	#dashboard_right_now .sub,
 	.wp-tab-active,
 	ul.add-menu-item-tabs li.tabs,
 	ul.category-tabs li.tabs,
@@ -581,6 +660,7 @@ body {
 
 	}
 
+	.wp-editor-expand #post-status-info,
 	.nav-tab-wrapper,
 	.wrap h2.nav-tab-wrapper,
 	h1.nav-tab-wrapper {
@@ -815,6 +895,7 @@ body {
 
 	}
 
+	#titlediv #title,
 	input[type=text],
 	input[type=search],
 	input[type=radio],
