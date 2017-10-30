@@ -7,7 +7,7 @@
  * Author: Daniel James
  * Author URI: https://www.danieltj.co.uk/
  * Text Domain: dark-mode
- * Version: 1.1.3
+ * Version: 1.2
  */
 
 // No thank you
@@ -58,21 +58,22 @@ class Dark_Mode {
 	/**
 	 * Checks if the current user has Dark Mode turned on.
 	 * 
-	 * @param string $user_id ID of a given user.
-	 * 
 	 * @since 1.0
+	 * 
+	 * @param  string $user_id The user ID of someone.
+	 * 
 	 * @return boolean
 	 */
 	public static function is_using_dark_mode( $user_id = NULL ) {
 
-		// Check if we have a user id given to us
+		// Check if we have a user id
 		if ( empty( $user_id ) ) {
 
 			$user_id = get_current_user_id();
 
 		}
 
-		// Check if the user is using Dark Mode based on the meta value
+		// Check if the user is using Dark Mode
 		if ( 'on' == get_user_meta( $user_id, 'dark_mode', true ) ) {
 
 			// Using Dark Mode
@@ -91,6 +92,7 @@ class Dark_Mode {
 	 * Add the stylesheet to the dashboard if enabled.
 	 * 
 	 * @since 1.0
+	 * 
 	 * @return void
 	 */
 	public static function load_dark_mode_css() {
@@ -113,14 +115,14 @@ class Dark_Mode {
 			 *
 			 * @since 1.1
 			 *
-			 * @param  string $css_url URL of default CSS for Dark Mode.
+			 * @param  string $css_url Default CSS file path for Dark Mode.
 			 * 
 			 * @return string $css_url
 			 */
 			$css_url = apply_filters( 'dark_mode_css', plugins_url('dark-mode', 'dark-mode') . '/darkmode.css' );
-			
+
 			// Register the dark mode stylesheet
-			wp_register_style('dark_mode', $css_url, array(), '1.1.3');
+			wp_register_style('dark_mode', $css_url, array(), '1.2');
 
 			// Enqueue the stylesheet for loading
 			wp_enqueue_style('dark_mode');
@@ -132,9 +134,10 @@ class Dark_Mode {
 	/**
 	 * Create the HTML markup for the profile setting.
 	 * 
-	 * @param object $profileuser WP_User object data
-	 * 
 	 * @since 1.0
+	 * 
+	 * @param  object $profileuser WP_User object data.
+	 * 
 	 * @return mixed
 	 */
 	public static function add_profile_fields( $profileuser ) {
@@ -145,7 +148,7 @@ class Dark_Mode {
 				<td>
 					<label for="dark_mode">
 						<input type="checkbox" id="dark_mode" name="dark_mode" class="dark_mode"<?php if ( 'on' == get_user_meta( $profileuser->data->ID, 'dark_mode', true ) ) : ?> checked="checked"<?php endif; ?> />
-						<?php _e('Enable the Dark Mode on the admin dashboard', 'dark-mode'); ?>
+						<?php _e('Enable Dark Mode on the admin dashboard', 'dark-mode'); ?>
 					</label>
 				</td>
 			</tr>
@@ -156,9 +159,10 @@ class Dark_Mode {
 	/**
 	 * Save the value of the profile field.
 	 * 
-	 * @param string $user_id Someone's user ID
-	 * 
 	 * @since 1.0
+	 * 
+	 * @param  string $user_id The user ID of someone.
+	 * 
 	 * @return void
 	 */
 	public static function save_profile_fields( $user_id ) {

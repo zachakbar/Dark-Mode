@@ -7,7 +7,7 @@
  * need to have at least Sass version 3.x.x installed. To compile the stylesheet, please
  * use the following command line option:
  * 
- * sass --watch darkmode.scss:darkmode.css --style compressed --sourcemap=none
+ * sass --watch darkmode.scss:darkmode.css --style compressed
  * 
  * 
  * CONTRIBUTE:
@@ -328,6 +328,9 @@ body {
 	.item-edit,
 	.postbox .handlediv.button-link,
 	.sidebar-name-arrow,
+	.edit-comment-author,
+	#comment-link-box,
+	#edit-slug-box,
 	.widgets-holder-wrap .description,
 	.inactive-sidebar .description,
 	.widget-holder .description,
@@ -371,7 +374,8 @@ body {
 	.upload-theme .wp-upload-form,
 	#screen-meta,
 	#contextual-help-link-wrap,
-	#screen-options-link-wrap {
+	#screen-options-link-wrap,
+	.quicktags-toolbar {
 
 		background-color: $dark-grey;
 		border-color: $ultra-grey;
@@ -446,6 +450,7 @@ body {
 	.welcome-panel,
 	.postbox,
 	.card,
+	.stuffbox,
 	#activity-widget #the-comment-list .comment-item,
 	.community-events ul,
 	.wp-filter {
@@ -508,7 +513,8 @@ body {
 
 	}
 
-	.plugin-card-bottom {
+	.plugin-card-bottom,
+	.notice-warning.notice-alt {
 
 		background-color: $ultra-grey;
 
@@ -517,7 +523,8 @@ body {
 	.plugin-card,
 	.plugin-card-bottom,
 	#nav-menu-header,
-	#menu-management .menu-edit {
+	#menu-management .menu-edit,
+	.wp-editor-container {
 
 		border-color: $ultra-grey;
 

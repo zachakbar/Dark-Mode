@@ -1,9 +1,9 @@
 === Dark Mode ===
-Contributors: danieltj, munyagu, travel_girl, melchoyce, afercia, hedgefield
+Contributors: danieltj, munyagu, travel_girl, melchoyce, afercia, hedgefield, megane9988
 Tags: accessibility, admin, dashboard, profile, style
 Requires at least: 4.0
 Tested up to: 4.8
-Stable tag: 1.1.3
+Stable tag: 1.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -43,11 +43,21 @@ It adds an option for users to enable a 'dark mode' which will turn the admin da
 
 Yes! You can follow the Trac ticket for updates and get involved on GitHub with suggestions, feedback and code contributions!
 
+== Screenshots ==
+
+1. The dashboard without Dark Mode turned off.
+2. The dashboard with Dark Mode turned on.
+3. Dark Mode with an admin colour scheme.
+4. The setting in a user's profile to turn Dark Mode on.
+
 == Changelog ==
 
-= 1.1.3 =
+= 1.2 =
 
-* Fixed a bug where the post title, plugin & theme and dashboard meta boxes weren't styled.
+* Added CSS source maps to files making it easier to develop the stylesheet further.
+* Updated a translation string for better clarity.
+* Updated the documentation comments for a few functions.
+* Fixed more issues with elements that are not styled. Thanks to all those who spotted them!
 * Minor optimisations made to the stylesheet to help reduce the file size.
 
 = 1.1.2 =
