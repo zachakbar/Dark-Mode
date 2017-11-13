@@ -2,8 +2,8 @@
 Contributors: danieltj, munyagu, travel_girl, melchoyce, afercia, hedgefield, megane9988
 Tags: accessibility, admin, dashboard, profile, style
 Requires at least: 4.0
-Tested up to: 4.8
-Stable tag: 1.2
+Tested up to: 4.9
+Stable tag: 1.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -43,14 +43,25 @@ It adds an option for users to enable a 'dark mode' which will turn the admin da
 
 Yes! You can follow the Trac ticket for updates and get involved on GitHub with suggestions, feedback and code contributions!
 
+= How can I remove the feedback link? =
+
+The Feedback link will take a user to the GitHub repository and will only be shown when Dark Mode is currently on. To completely remove it for every user, put `defined('DARK_MODE_FEEDBACK', true)` in your `wp-config.php` file.
+
 == Screenshots ==
 
-1. The dashboard without Dark Mode turned off.
+1. The dashboard with Dark Mode turned off.
 2. The dashboard with Dark Mode turned on.
 3. Dark Mode with an admin colour scheme.
 4. The setting in a user's profile to turn Dark Mode on.
 
 == Changelog ==
+
+= 1.3 =
+
+* Added link to GitHub repository for people to provide feedback.
+* Added the ability to schedule Dark Mode to come on between certain times.
+* Improved the implementation of certain core functions for better control.
+* Updated the styles to include more areas that were previously unstyled.
 
 = 1.2 =
 

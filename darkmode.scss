@@ -25,7 +25,7 @@
  * https://make.wordpress.org/design/handbook/design-guide/foundations/colors/
  */
 $white:         #ffffff;
-$blue:          #0073aa;
+$blue:          #0073aa; 
 $medium-blue:   #00a0d2;
 $accent-red:    #DC3232;
 $accent-orange: #F56E28;
@@ -44,7 +44,7 @@ $base-blue:     #2e74aa;
 $light-blue:    #4092d2;
 $dark-blue:     #2c5f88;
 $ultra-blue:    #1f3f58;
-$bright-blue:   #6dbfff;
+$bright-blue:   #00a0d2;
 
 
 body {
@@ -342,7 +342,8 @@ body {
 	.compat-item label span,
 	.media-sidebar .setting span,
 	.upload-plugin .install-help,
-	.upload-theme .install-help {
+	.upload-theme .install-help,
+	.subtitle {
 
 		color: $light-grey;
 
@@ -514,7 +515,11 @@ body {
 	}
 
 	.plugin-card-bottom,
-	.notice-warning.notice-alt {
+	.notice-warning.notice-alt,
+	#the-comment-list .unapproved td,
+	#the-comment-list .unapproved th,
+	#the-comment-list div.undo,
+	#the-comment-list tr.undo {
 
 		background-color: $ultra-grey;
 
