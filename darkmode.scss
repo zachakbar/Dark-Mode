@@ -25,6 +25,7 @@
  * https://make.wordpress.org/design/handbook/design-guide/foundations/colors/
  */
 $white:         #ffffff;
+$black:         #000000;
 $blue:          #0073aa; 
 $medium-blue:   #00a0d2;
 $accent-red:    #DC3232;
@@ -397,7 +398,8 @@ body {
 
 	}
 
-	#contextual-help-back {
+	#contextual-help-back,
+	#plugin-information-content {
 
 		background-color: $base-grey;
 		border-color: $ultra-grey;
@@ -601,8 +603,48 @@ body {
 
 	}
 
+	#plugin-information-scrollable {
+
+		#plugin-information-tabs a.current {
+
+			background-color: $black;
+			border-color: $ultra-grey;
+			color: $light-grey;
+
+		}
+
+		#plugin-information-content .fyi {
+
+			background: $ultra-grey !important;
+			border-color: $dark-grey !important;
+			color: $light-grey !important;
+
+			.counter-back {
+
+				background: $light-grey;
+
+			}
+
+			h3, strong {
+
+				color: $light-grey !important;
+
+			}
+
+		}
+
+	}
+
+	#plugin-information-footer {
+
+		background: $ultra-grey !important;
+		border-color: $dark-grey !important;
+
+	}
+
 	.wp-editor-expand #wp-content-editor-tools,
-	#wp-content-editor-tools {
+	#wp-content-editor-tools,
+	#plugin-information-tabs {
 
 		background-color: $base-grey;
 		border-color: $dark-grey;
@@ -833,6 +875,12 @@ body {
 			background-color: $ultra-grey;
 
 		}
+
+	}
+
+	#the-comment-list .approve a {
+
+		color: $accent-green;
 
 	}
 
