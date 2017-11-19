@@ -56,6 +56,12 @@ The Feedback link will take a user to the GitHub repository and will only be sho
 
 == Changelog ==
 
+= 1.3.1 =
+
+* Updated the stylesheet to now include the Customiser.
+* Fixed a typo in the plugin readme relating to the feedback constant.
+* Moved the feedback link from the left to the right of the toolbar.
+
 = 1.3 =
 
 * Added link to GitHub repository for people to provide feedback.

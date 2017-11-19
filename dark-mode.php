@@ -7,7 +7,7 @@
  * Author: Daniel James
  * Author URI: https://www.danieltj.co.uk/
  * Text Domain: dark-mode
- * Version: 1.3
+ * Version: 1.3.1
  */
 
 // No thank you
@@ -17,10 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) die();
 new Dark_Mode;
 
 /**
- * Define the Dark Mode class.
- * 
  * @package Dark_Mode
- * @since 1.0
  */
 class Dark_Mode {
 
@@ -64,7 +61,8 @@ class Dark_Mode {
 	 * Dark Mode turned on. This can be turned off globally
 	 * by defining the `DARK_MODE_FEEDBACK` constant to false.
 	 * 
-	 * @since 1.0
+	 * @since 1.3
+	 * @since 1.3.1 Moved link over to the right of the toolbar.
 	 * 
 	 * @return void
 	 */
@@ -84,7 +82,7 @@ class Dark_Mode {
 				// Setup the new link for the toolbar
 				$args = array(
 					'id'    => 'dark_mode_feedback',
-					'title' => _x('Dark Mode Feedback', 'Feedback link to GitHub', 'dark-mode'),
+					'title' => _x('Dark Mode Feedback', 'Feedback link to GitHub repository', 'dark-mode'),
 					'parent' => 'top-secondary',
 					'href'  => 'https://github.com/danieltj27/Dark-Mode/issues',
 					'meta'  => array(
@@ -232,14 +230,14 @@ class Dark_Mode {
 			 *
 			 * @since 1.1
 			 *
-			 * @param  string $css_url Default CSS file path for Dark Mode.
+			 * @param string $css_url Default CSS file path for Dark Mode.
 			 * 
 			 * @return string $css_url
 			 */
 			$css_url = apply_filters( 'dark_mode_css', plugins_url('dark-mode', 'dark-mode') . '/darkmode.css' );
 
 			// Register the dark mode stylesheet
-			wp_register_style('dark_mode', $css_url, array(), '1.3');
+			wp_register_style('dark_mode', $css_url, array(), '1.3.1');
 
 			// Enqueue the stylesheet
 			wp_enqueue_style('dark_mode');
@@ -253,7 +251,7 @@ class Dark_Mode {
 	 * 
 	 * @since 1.0
 	 * 
-	 * @param  object $profileuser WP_User object data.
+	 * @param object $profileuser WP_User object data.
 	 * 
 	 * @return mixed
 	 */
@@ -280,7 +278,7 @@ class Dark_Mode {
 					</p>
 					<p>
 						<label>
-							<?php _ex('From', 'Time frame starting from', 'dark-mode'); ?> <input type="time" name="dark_mode_start" id="dark_mode_start"<?php if ( ! empty( get_user_meta( $profileuser->data->ID, 'dark_mode_start', true ) ) ) : ?> value="<?php echo get_user_meta( $profileuser->data->ID, 'dark_mode_start', true ); ?>"<?php endif; ?> />
+							<?php _ex('From', 'Time frame starting at', 'dark-mode'); ?> <input type="time" name="dark_mode_start" id="dark_mode_start"<?php if ( ! empty( get_user_meta( $profileuser->data->ID, 'dark_mode_start', true ) ) ) : ?> value="<?php echo get_user_meta( $profileuser->data->ID, 'dark_mode_start', true ); ?>"<?php endif; ?> />
 							<?php _ex('To', 'Time frame ending at', 'dark-mode'); ?> <input type="time" name="dark_mode_end" id="dark_mode_end"<?php if ( ! empty( get_user_meta( $profileuser->data->ID, 'dark_mode_end', true ) ) ) : ?> value="<?php echo get_user_meta( $profileuser->data->ID, 'dark_mode_end', true ); ?>"<?php endif; ?> />
 						</label>
 					</p>

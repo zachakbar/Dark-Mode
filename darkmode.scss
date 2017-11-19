@@ -884,6 +884,177 @@ body {
 
 	}
 
+	#customize-controls {
+
+		border-color: $base-grey;
+
+		#customize-sidebar-outer-content {
+
+			border-color: $dark-grey;
+
+		}
+
+		.customize-panel-back,
+		.customize-section-back {
+
+			background-color: $base-grey;
+			border-color: transparent;
+			color: $light-grey;
+
+		}
+
+		#customize-theme-controls {
+
+			.accordion-section-content,
+			.description {
+
+				color: $light-grey;
+
+			}
+
+			.control-panel-content:not(.control-panel-nav_menus) .control-section:nth-child(2),
+			.control-panel-nav_menus .control-section-nav_menu,
+			.control-section-nav_menu_locations .accordion-section-title,
+			#accordion-section-menu_locations > .accordion-section-title,
+			.control-section:last-of-type.open,
+			.control-section:last-of-type > .accordion-section-title,
+			.control-section.open {
+
+				border-color: $ultra-grey;
+
+			}
+
+		}
+
+		.control-section .accordion-section-title:focus,
+		.control-section .accordion-section-title:hover,
+		.control-section.open .accordion-section-title,
+		.control-section:hover > .accordion-section-title {
+
+			&::after {
+
+				color: $light-grey;
+
+			}
+
+			background-color: $ultra-grey;
+			border-color: $dark-grey;
+			color: $light-grey;
+
+		}
+
+		.accordion-section-title,
+		.customize-section-title {
+
+			background-color: $base-grey;
+			border-color: $ultra-grey;
+			color: $light-grey;
+
+			&:hover {
+
+				background-color: $base-grey;
+
+			}
+
+			h3 {
+
+				color: $light-grey;
+
+			}
+
+		}
+
+		.customize-info {
+
+			border-color: $dark-grey;
+
+			.customize-help-toggle {
+
+				color: $light-grey;
+
+			}
+
+			.accordion-section-title,
+			.customize-panel-description {
+
+				background-color: $base-grey;
+				border-color: $dark-grey;
+				color: $light-grey;
+
+			}
+
+		}
+
+		#customize-theme-controls {
+
+			.control-panel-themes > .accordion-section-title {
+
+				background-color: $base-grey;
+				border-color: $ultra-grey;
+				color: $light-grey;
+
+			}
+
+		}
+
+		#customize-header-actions,
+		.customize-controls-close {
+
+			background-color: $base-grey;
+			border-color: $base-grey;
+			color: $light-grey;
+
+		}
+
+		.wp-full-overlay-footer {
+
+			background-color: $ultra-grey;
+			border-color: $base-grey;
+			color: $light-grey;
+
+		}
+
+		.customize-controls-close {
+
+			border-color: transparent;
+			color: $light-grey;
+
+			&:hover {
+
+				color: $white;
+
+			}
+
+		}
+
+		.wp-full-overlay-sidebar-content {
+
+			background-color: $dark-grey;
+
+		}
+
+		.collapse-sidebar-arrow {
+
+			&::before {
+
+				color: $dark-grey;
+
+			}
+
+		}
+
+		.collapse-sidebar {
+
+			span {
+
+				color: $light-grey;
+
+			}
+
+		}
+
+	}
+
 	&.wp-core-ui .button,
 	&.wp-core-ui .button-secondary {
 
