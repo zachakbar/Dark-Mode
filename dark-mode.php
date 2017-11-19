@@ -85,6 +85,7 @@ class Dark_Mode {
 				$args = array(
 					'id'    => 'dark_mode_feedback',
 					'title' => _x('Dark Mode Feedback', 'Feedback link to GitHub', 'dark-mode'),
+					'parent' => 'top-secondary',
 					'href'  => 'https://github.com/danieltj27/Dark-Mode/issues',
 					'meta'  => array(
 						'class' => 'dark_mode_feedback'
