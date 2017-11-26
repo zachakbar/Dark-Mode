@@ -45,7 +45,7 @@ Yes! You can follow the Trac ticket for updates and get involved on GitHub with 
 
 = How can I remove the feedback link? =
 
-The Feedback link will take a user to the GitHub repository and will only be shown when Dark Mode is currently on. To completely remove it for every user, put `define('DARK_MODE_FEEDBACK', true)` in your `wp-config.php` file.
+The Feedback link will take a user to the GitHub repository and will only be shown when Dark Mode is currently on. To completely remove it for every user, put `define('DARK_MODE_FEEDBACK', false)` in your `wp-config.php` file.
 
 == Screenshots ==
 
