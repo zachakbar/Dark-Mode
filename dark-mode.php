@@ -7,7 +7,7 @@
  * Author: Daniel James
  * Author URI: https://www.danieltj.co.uk/
  * Text Domain: dark-mode
- * Version: 1.3.1
+ * Version: 1.4
  */
 
 // No thank you
@@ -62,35 +62,47 @@ class Dark_Mode {
 	 * by defining the `DARK_MODE_FEEDBACK` constant to false.
 	 * 
 	 * @since 1.3
-	 * @since 1.3.1 Moved link over to the right of the toolbar.
+	 * @since 1.4 Updated the toolbar links.
 	 * 
 	 * @return void
 	 */
 	public static function add_feedback_link( $wp_admin_bar ) {
 
 		global $wp_admin_bar;
-
+		
 		// Get the current user ID
 		$user_id = get_current_user_id();
+		
+		// Check the current user has Dark Mode on
+		if ( 'on' == get_user_meta( $user_id, 'dark_mode', true ) ) {
+		
+			// Add Dark Mode to the toolbar
+			$args = array(
+				'id'     => 'dark_mode_link',
+				'title'  => __('Dark Mode', 'dark-mode'),
+				'parent' => 'top-secondary',
+				'href'   => admin_url('profile.php'),
+			);
 
-		// Check that we can show the feedback link
-		if ( ( ! defined( 'DARK_MODE_FEEDBACK' ) ) || ( defined( 'DARK_MODE_FEEDBACK' ) && false !== DARK_MODE_FEEDBACK ) ) {
+			// Add the link
+			$wp_admin_bar->add_node( $args );
 
-			// Check the current user has Dark Mode on
-			if ( 'on' == get_user_meta( $user_id, 'dark_mode', true ) ) {
-
-				// Setup the new link for the toolbar
+			// Should we add the feedback link to the toolbar
+			if ( ( ! defined( 'DARK_MODE_FEEDBACK' ) ) || ( defined( 'DARK_MODE_FEEDBACK' ) && false !== DARK_MODE_FEEDBACK ) ) {
+	
+				// Setup the feedback arguments
 				$args = array(
-					'id'    => 'dark_mode_feedback',
-					'title' => _x('Dark Mode Feedback', 'Feedback link to GitHub repository', 'dark-mode'),
-					'parent' => 'top-secondary',
-					'href'  => 'https://github.com/danieltj27/Dark-Mode/issues',
-					'meta'  => array(
-						'class' => 'dark_mode_feedback'
+					'id'     => 'dark_mode_feedback',
+					'title'  => _x('Feedback', 'Feedback link to GitHub repository', 'dark-mode'),
+					'parent' => 'dark_mode_link',
+					'href'   => 'https://github.com/danieltj27/Dark-Mode/issues',
+					'meta'   => array(
+						'class'  => 'dark_mode_feedback',
+						'target' => '_blank',
 					)
 				);
 
-				// Add the link to the toolbar
+				// Add feedback link
 				$wp_admin_bar->add_node($args);
 
 			}
@@ -137,41 +149,29 @@ class Dark_Mode {
 				// Get the current time
 				$current_time = date_i18n ( 'H:i' );
 				
-				// Check if time frame rolls over midnight
-				if ( $user_dm_start > $user_dm_end ) {
-					// Are we between the given times?
-					if ( $current_time >= $user_dm_start || $current_time <= $user_dm_end ) {
-						return true;
-					}
-					else {
-						return false;
-					}
-				}
+				/**
+				 * Here we need to check that the start time is later than the
+				 * end time and that the current time is between the two time
+				 * frames so it can be enabled.
+				 */
+				if ( ( $user_dm_start > $user_dm_end ) && ( $current_time >= $user_dm_start || $current_time <= $user_dm_end ) ) {
 
-				else {
-					// Are we between the given times?
-					if ( $user_dm_start <= $current_time && $user_dm_end >= $current_time ) {
+					// Dark Mode is automatically on
+					return true;
 
-						return true;
-
-					} else {
-
-						return false;
-
-					}
 				}
 
 			} else {
 
+				// Dark Mode is always turned on
 				return true;
 
 			}
 
-		} else {
-
-			return false;
-
 		}
+
+		// Dark Mode isn't being used
+		return false;
 
 	}
 
@@ -250,7 +250,7 @@ class Dark_Mode {
 			$css_url = apply_filters( 'dark_mode_css', plugins_url('dark-mode', 'dark-mode') . '/darkmode.css' );
 
 			// Register the dark mode stylesheet
-			wp_register_style('dark_mode', $css_url, array(), '1.3.1');
+			wp_register_style('dark_mode', $css_url, array(), '1.4');
 
 			// Enqueue the stylesheet
 			wp_enqueue_style('dark_mode');
@@ -263,6 +263,8 @@ class Dark_Mode {
 	 * Create the HTML markup for the profile setting.
 	 * 
 	 * @since 1.0
+	 * @since 1.3 Added automatic Dark Mode markup.
+	 * @since 1.4 Added id attribute to element.
 	 * 
 	 * @param object $profileuser WP_User object data.
 	 * 
@@ -274,7 +276,7 @@ class Dark_Mode {
 		$dark_mode_nonce = wp_create_nonce('dark_mode_nonce');
 
 		?>
-			<tr class="dark-mode user-dark-mode-option">
+			<tr class="dark-mode user-dark-mode-option" id="dark-mode">
 				<th scope="row"><?php _e('Dark Mode', 'dark-mode'); ?></th>
 				<td>
 					<p>
@@ -306,8 +308,9 @@ class Dark_Mode {
 	 * Save the value of the profile field.
 	 * 
 	 * @since 1.0
+	 * @since 1.3 Added auto Dark Mode settings.
 	 * 
-	 * @param  string $user_id The user ID of someone.
+	 * @param string $user_id The user ID of someone.
 	 * 
 	 * @return void
 	 */
