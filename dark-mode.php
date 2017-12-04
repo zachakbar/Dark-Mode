@@ -131,21 +131,34 @@ class Dark_Mode {
 			if ( true === self::is_dark_mode_auto( $user_id ) && true === $check_auto ) {
 
 				// Get the time ranges from the user meta but add one day to the end time
-				$user_dm_start = date( 'Y-m-d H:i:s', strtotime( get_user_meta( $user_id, 'dark_mode_start', true ) ) );
-				$user_dm_end = date( 'Y-m-d H:i:s', strtotime( get_user_meta( $user_id, 'dark_mode_end', true ) . ' +1 day' ) );
+				$user_dm_start = date_i18n( 'H:i', strtotime( get_user_meta( $user_id, 'dark_mode_start', true ) ) );
+				$user_dm_end = date_i18n( 'H:i', strtotime( get_user_meta( $user_id, 'dark_mode_end', true ) . ' +1 day' ) );
 
 				// Get the current time
-				$current_time = date( 'Y-m-d H:i' );
+				$current_time = date_i18n ( 'H:i' );
+				
+				// Check if time frame rolls over midnight
+				if ( $user_dm_start > $user_dm_end ) {
+					// Are we between the given times?
+					if ( $current_time >= $user_dm_start || $current_time <= $user_dm_end ) {
+						return true;
+					}
+					else {
+						return false;
+					}
+				}
 
-				// Are we between the given times?
-				if ( $user_dm_start <= $current_time && $user_dm_end >= $current_time ) {
+				else {
+					// Are we between the given times?
+					if ( $user_dm_start <= $current_time && $user_dm_end >= $current_time ) {
 
-					return true;
+						return true;
 
-				} else {
+					} else {
 
-					return false;
+						return false;
 
+					}
 				}
 
 			} else {
