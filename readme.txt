@@ -58,7 +58,7 @@ The Feedback link will take a user to the GitHub repository and will only be sho
 
 = 1.4 =
 
-* Updated the stylesheet to now include the Customiser.
+* Updated the stylesheet to now include new Customiser styles.
 * Further updates to the readme.txt file to address typos and updates.
 * Moved the toolbar links to the right and added feedback to a drop down.
 * Fixed an issue with Dark Mode being automatically turned on or off.

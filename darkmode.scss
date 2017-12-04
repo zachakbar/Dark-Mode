@@ -35,7 +35,6 @@ $accent-green:  #46B450;
 $accent-blue:   $blue;
 $accent-purple: #826EB4;
 
-// Custom Colour Palette
 $base-grey:     #23282d;
 $light-grey:    #bbc8d4;
 $dark-grey:     #32373c;
@@ -45,7 +44,7 @@ $base-blue:     #2e74aa;
 $light-blue:    #4092d2;
 $dark-blue:     #2c5f88;
 $ultra-blue:    #1f3f58;
-$bright-blue:   #00a0d2;
+$bright-blue:   #30ceff;
 
 
 body {
@@ -67,7 +66,9 @@ body {
 	.form-wrap label,
 	.form-wrap p,
 	p.description,
-	.importer-title {
+	.importer-title,
+	.menu-in-location,
+	.theme-location-set {
 
 		color: $light-grey;
 
@@ -344,7 +345,10 @@ body {
 	.media-sidebar .setting span,
 	.upload-plugin .install-help,
 	.upload-theme .install-help,
-	.subtitle {
+	.subtitle,
+	#customize-controls .control-section .accordion-section-title:focus .menu-in-location,
+	#customize-controls .control-section .accordion-section-title:hover .menu-in-location,
+	#customize-controls .theme-location-set {
 
 		color: $light-grey;
 
@@ -377,7 +381,10 @@ body {
 	#screen-meta,
 	#contextual-help-link-wrap,
 	#screen-options-link-wrap,
-	.quicktags-toolbar {
+	.quicktags-toolbar,
+	.attachment-media-view,
+	.media-widget-preview.media_audio,
+	.media-widget-preview.media_image {
 
 		background-color: $dark-grey;
 		border-color: $ultra-grey;
@@ -399,10 +406,24 @@ body {
 	}
 
 	#contextual-help-back,
-	#plugin-information-content {
+	#plugin-information-content,
+	&.wp-customizer #screen-options-wrap {
 
 		background-color: $base-grey;
 		border-color: $ultra-grey;
+
+	}
+
+	#customize-controls .cannot-expand:hover .accordion-section-title,
+	#customize-controls .panel-meta.customize-info .accordion-section-title:hover,
+	#customize-controls .customize-info .customize-panel-description,
+	#customize-controls .customize-info .customize-section-description,
+	#customize-controls .no-widget-areas-rendered-notice,
+	#customize-outer-theme-controls .customize-info .customize-section-description {
+
+		background-color: $base-grey;
+		border-color: $ultra-grey;
+		color: $light-grey;
 
 	}
 
@@ -884,6 +905,19 @@ body {
 
 	}
 
+	&.wp-customizer {
+
+		.menu-item-settings,
+		.menu-item-bar .menu-item-handle {
+
+			background-color: $base-grey;
+			border-color: $ultra-grey;
+			color: $light-grey;
+
+		}
+
+	}
+
 	#customize-controls {
 
 		border-color: $base-grey;
@@ -1067,8 +1101,8 @@ body {
 		&:focus,
 		&:active {
 
-			background: $dark-grey;
-			border-color: $dark-grey;
+			background: $base-grey;
+			border-color: $ultra-grey;
 			color: $white;
 
 		}
@@ -1199,7 +1233,8 @@ body {
 
 	}
 
-	a {
+	a,
+	&.wp-core-ui .button-link {
 
 		color: $bright-blue;
 		text-decoration: underline;
