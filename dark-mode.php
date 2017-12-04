@@ -81,7 +81,7 @@ class Dark_Mode {
 				'id'    => 'dark_mode',
 				'title' => 'Dark Mode'
 				'parent' => 'top-secondary',
-				'href'  => admin_url() . 'profile.php'
+				'href'  => admin_url( 'profile.php' )
 			);
 
 			// Add the link to the toolbar
