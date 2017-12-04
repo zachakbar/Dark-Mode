@@ -73,18 +73,30 @@ class Dark_Mode {
 		// Get the current user ID
 		$user_id = get_current_user_id();
 
-		// Check that we can show the feedback link
-		if ( ( ! defined( 'DARK_MODE_FEEDBACK' ) ) || ( defined( 'DARK_MODE_FEEDBACK' ) && false !== DARK_MODE_FEEDBACK ) ) {
+		// Check the current user has Dark Mode on
+		if ( 'on' == get_user_meta( $user_id, 'dark_mode', true ) ) {
 
-			// Check the current user has Dark Mode on
-			if ( 'on' == get_user_meta( $user_id, 'dark_mode', true ) ) {
+			// Setup Dark Mode for the toolbar
+			$args = array(
+				'id'    => 'dark_mode',
+				'title' => 'Dark Mode'
+				'parent' => 'top-secondary',
+				'href'  => admin_url( 'profile.php' )
+			);
 
+			// Add the link to the toolbar
+			$wp_admin_bar->add_node( $args );
+
+			// Check that we can show the feedback link
+			if ( ( ! defined( 'DARK_MODE_FEEDBACK' ) ) || ( defined( 'DARK_MODE_FEEDBACK' ) && false !== DARK_MODE_FEEDBACK ) ) {
+	
 				// Setup the new link for the toolbar
 				$args = array(
 					'id'    => 'dark_mode_feedback',
-					'title' => _x('Dark Mode Feedback', 'Feedback link to GitHub repository', 'dark-mode'),
-					'parent' => 'top-secondary',
+					'title' => _x('Feedback', 'Feedback link to GitHub repository', 'dark-mode'),
+					'parent' => 'dark_mode',
 					'href'  => 'https://github.com/danieltj27/Dark-Mode/issues',
+					'target' => '_blank',
 					'meta'  => array(
 						'class' => 'dark_mode_feedback'
 					)
@@ -92,7 +104,6 @@ class Dark_Mode {
 
 				// Add the link to the toolbar
 				$wp_admin_bar->add_node($args);
-
 			}
 
 		}
