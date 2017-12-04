@@ -81,7 +81,7 @@ class Dark_Mode {
 				'id'    => 'dark_mode',
 				'title' => 'Dark Mode'
 				'parent' => 'top-secondary',
-				'href'  => get_site_url() . '/wp-admin/profile.php'
+				'href'  => admin_url() . 'profile.php'
 			);
 
 			// Add the link to the toolbar
@@ -93,7 +93,7 @@ class Dark_Mode {
 				// Setup the new link for the toolbar
 				$args = array(
 					'id'    => 'dark_mode_feedback',
-					'title' => _x('Dark Mode Feedback', 'Feedback link to GitHub repository', 'dark-mode'),
+					'title' => _x('Feedback', 'Feedback link to GitHub repository', 'dark-mode'),
 					'parent' => 'dark_mode',
 					'href'  => 'https://github.com/danieltj27/Dark-Mode/issues',
 					'target' => '_blank',
