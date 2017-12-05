@@ -7,7 +7,7 @@
  * Author: Daniel James
  * Author URI: https://www.danieltj.co.uk/
  * Text Domain: dark-mode
- * Version: 1.4
+ * Version: 1.5
  */
 
 // No thank you
@@ -50,7 +50,7 @@ class Dark_Mode {
 	 */
 	public static function load_text_domain() {
 
-		load_plugin_textdomain( 'dark-mode', false, untrailingslashit(dirname(__FILE__)) . '/languages' );
+		load_plugin_textdomain( 'dark-mode', false, untrailingslashit( dirname( __FILE__ ) ) . '/languages' );
 
 	}
 
@@ -93,7 +93,7 @@ class Dark_Mode {
 				// Setup the feedback arguments
 				$args = array(
 					'id'     => 'dark_mode_feedback',
-					'title'  => _x('Feedback', 'Feedback link to GitHub repository', 'dark-mode'),
+					'title'  => _x('Feedback', 'Link to GitHub repository', 'dark-mode'),
 					'parent' => 'dark_mode_link',
 					'href'   => 'https://github.com/danieltj27/Dark-Mode/issues',
 					'meta'   => array(
@@ -143,8 +143,8 @@ class Dark_Mode {
 			if ( true === self::is_dark_mode_auto( $user_id ) && true === $check_auto ) {
 
 				// Get the time ranges from the user meta but add one day to the end time
-				$user_dm_start = date_i18n( 'H:i', strtotime( get_user_meta( $user_id, 'dark_mode_start', true ) ) );
-				$user_dm_end = date_i18n( 'H:i', strtotime( get_user_meta( $user_id, 'dark_mode_end', true ) . ' +1 day' ) );
+				$user_dm_start = date( 'H:i', strtotime( get_user_meta( $user_id, 'dark_mode_start', true ) ) );
+				$user_dm_end = date( 'H:i', strtotime( get_user_meta( $user_id, 'dark_mode_end', true ) . ' +1 day' ) );
 
 				// Get the current time
 				$current_time = date_i18n ( 'H:i' );
@@ -250,7 +250,7 @@ class Dark_Mode {
 			$css_url = apply_filters( 'dark_mode_css', plugins_url('dark-mode', 'dark-mode') . '/darkmode.css' );
 
 			// Register the dark mode stylesheet
-			wp_register_style('dark_mode', $css_url, array(), '1.4');
+			wp_register_style('dark_mode', $css_url, array(), '1.5');
 
 			// Enqueue the stylesheet
 			wp_enqueue_style('dark_mode');

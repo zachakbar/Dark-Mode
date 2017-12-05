@@ -1,9 +1,9 @@
 === Dark Mode ===
-Contributors: danieltj, munyagu, travel_girl, melchoyce, afercia, hedgefield, megane9988, presskopp
+Contributors: danieltj, munyagu, travel_girl, melchoyce, afercia, hedgefield, megane9988, presskopp, willrad
 Tags: accessibility, admin, dashboard, profile, style
 Requires at least: 4.0
 Tested up to: 4.9
-Stable tag: 1.4
+Stable tag: 1.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -55,6 +55,12 @@ The Feedback link will take a user to the GitHub repository and will only be sho
 4. The setting in a user's profile to turn Dark Mode on.
 
 == Changelog ==
+
+= 1.5 =
+
+* Added support for Code Mirror editor styles.
+* Fixed a bug where automatic Dark Mode was set incorrectly.
+* Improvements to translation strings.
 
 = 1.4 =
 

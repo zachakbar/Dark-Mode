@@ -405,6 +405,7 @@ body {
 
 	}
 
+	#wpwrap,
 	#contextual-help-back,
 	#plugin-information-content,
 	&.wp-customizer #screen-options-wrap {
@@ -1046,6 +1047,12 @@ body {
 			border-color: $base-grey;
 			color: $light-grey;
 
+			.devices {
+
+				box-shadow: none;
+
+			}
+
 		}
 
 		.customize-controls-close {
@@ -1082,6 +1089,79 @@ body {
 			span {
 
 				color: $light-grey;
+
+			}
+
+		}
+
+	}
+
+	.CodeMirror {
+
+		background-color: $ultra-grey;
+		color: $light-grey;
+
+		&-gutter {
+
+			background-color: $base-grey;
+			border-color: $ultra-grey;
+
+			&s {
+
+				border-color: $base-grey;
+
+			}
+
+		}
+
+		&-activeline-background {
+
+			background-color: $dark-grey;
+
+		}
+
+		&-linenumber {
+
+			color: $light-grey;
+
+		}
+
+		&-code {
+
+			.cm {
+
+				&-tag,
+				&-builtin,
+				&-qualifier {
+
+					color: $accent-green;
+
+				}
+
+				&-property {
+
+					color: $light-blue;
+
+				}
+
+				&-number {
+
+					color: $accent-purple;
+
+				}
+
+				&-error,
+				&-atom {
+
+					color: $accent-red;
+
+				}
+
+				&-comment {
+
+					color: $light-grey;
+
+				}
 
 			}
 
