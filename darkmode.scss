@@ -45,7 +45,9 @@ $light-blue:    #4092d2;
 $dark-blue:     #2c5f88;
 $ultra-blue:    #1f3f58;
 $bright-blue:   #30ceff;
-
+$lavender:      #c678dd;
+$sunglo:        #e06c75;
+$olivine:       #98c379;
 
 body {
 
@@ -1150,10 +1152,15 @@ body {
 
 				}
 
-				&-error,
-				&-atom {
+				&-error	{
 
 					color: $accent-red;
+
+				}
+				
+				&-atom {
+
+					color: $accent-yellow;
 
 				}
 
@@ -1162,7 +1169,31 @@ body {
 					color: $light-grey;
 
 				}
+				
+				&-keyword {
 
+					color: $lavender;
+
+				}
+				
+				&-def {
+
+					color: $medium-blue;
+
+				}
+				
+				&-variable_2{
+
+					color: $sunglo;
+
+				}
+				
+				&-string {
+
+					color: $olivine;
+
+				}
+				
 			}
 
 		}
