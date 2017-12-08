@@ -80,7 +80,7 @@ class Dark_Mode {
 			$menu_class = 'dark_mode_link';
 
 			// Add an extra class when auto
-			if ( false !== self::is_using_dark_mode( $user_id, true ) ) {
+			if ( true === self::is_dark_mode_auto( $user_id ) && false !== self::is_using_dark_mode( $user_id, true ) ) {
 
 				// Add the extra class
 				$menu_class = $menu_class . ' is_auto';
