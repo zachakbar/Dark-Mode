@@ -76,12 +76,26 @@ class Dark_Mode {
 		// Check the current user has Dark Mode on
 		if ( 'on' == get_user_meta( $user_id, 'dark_mode', true ) ) {
 		
+			// Set the menu class
+			$menu_class = 'dark_mode_link';
+
+			// Add an extra class when auto
+			if ( false !== self::is_using_dark_mode( $user_id, true ) ) {
+
+				// Add the extra class
+				$menu_class = $menu_class . ' is_auto';
+
+			}
+
 			// Add Dark Mode to the toolbar
 			$args = array(
 				'id'     => 'dark_mode_link',
-				'title'  => __('Dark Mode', 'dark-mode'),
+				'title'  => _x('Dark Mode', 'Toolbar link text', 'dark-mode'),
 				'parent' => 'top-secondary',
 				'href'   => admin_url('profile.php'),
+				'meta'   => array(
+					'class' => $menu_class,
+				),
 			);
 
 			// Add the link
@@ -143,34 +157,30 @@ class Dark_Mode {
 			if ( true === self::is_dark_mode_auto( $user_id ) && true === $check_auto ) {
 
 				// Get the time ranges from the user meta but add one day to the end time
-				$user_dm_start = date( 'H:i', strtotime( get_user_meta( $user_id, 'dark_mode_start', true ) ) );
-				$user_dm_end = date( 'H:i', strtotime( get_user_meta( $user_id, 'dark_mode_end', true ) . ' +1 day' ) );
+				$auto_start = date_i18n( 'H:i', strtotime( get_user_meta( $user_id, 'dark_mode_start', true ) ) );
+				$auto_end = date_i18n( 'H:i', strtotime( get_user_meta( $user_id, 'dark_mode_end', true ) ) );
 
 				// Get the current time
-				$current_time = date_i18n ( 'H:i' );
+				$current_time = date_i18n( 'H:i' );
 				
-				/**
-				 * Here we need to check that the start time is later than the
-				 * end time and that the current time is between the two time
-				 * frames so it can be enabled.
-				 */
-				if ( ( $user_dm_start > $user_dm_end ) && ( $current_time >= $user_dm_start || $current_time <= $user_dm_end ) ) {
+				// Check the current time is between the start and end time
+				if ( $current_time >= $auto_start || $current_time <= $auto_end ) {
 
-					// Dark Mode is automatically on
+					// Set automatically and on right now
 					return true;
 
 				}
 
 			} else {
 
-				// Dark Mode is always turned on
+				// It is always on
 				return true;
 
 			}
 
 		}
 
-		// Dark Mode isn't being used
+		// It's not enabled
 		return false;
 
 	}
@@ -178,17 +188,21 @@ class Dark_Mode {
 	/**
 	 * Checks if the user is using automatic Dark Mode.
 	 * 
-	 * This function only checks if the user has automatic Dark Mode
-	 * turned on, it doesn't check whether it's currently on based on
-	 * the times given though.
+	 * This checks if Dark Mode is set to come on automatically
+	 * for a given user. This is set to private as it's an extension
+	 * of `is_using_dark_mode()` and only checks the auto value is set.
+	 * 
+	 * @access private
+	 * @see (function) is_using_dark_mode
 	 * 
 	 * @since 1.3
+	 * @since 1.5 Access was changed to private.
 	 * 
 	 * @param string $user_id User ID
 	 * 
 	 * @return boolean
 	 */
-	public static function is_dark_mode_auto( $user_id = NULL ) {
+	private static function is_dark_mode_auto( $user_id = NULL ) {
 
 		// Have we been given a user ID
 		if ( empty( $user_id ) ) {
@@ -226,7 +240,7 @@ class Dark_Mode {
 		$user_id = get_current_user_id();
 
 		// Is the current user using Dark Mode?
-		if ( false !== self::is_using_dark_mode( $user_id ) ) {
+		if ( false !== self::is_using_dark_mode( $user_id, true ) ) {
 
 			/**
 			 * Hook for when Dark Mode is running.
