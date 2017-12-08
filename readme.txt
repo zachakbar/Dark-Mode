@@ -13,15 +13,15 @@ Let's your users make the WordPress admin dashboard darker.
 
 = About the Plugin =
 
-Feature plugin with the hopes that it'll make it's way into Core one day! We highly recommend you don't use this on production websites.
+This is beta plugin that might one day be part of the WordPress core. Please don't use this on production websites unless you're happy with the stability as some things may still be experimental.
 
 Using technology at night time can have a negative effect on your eyesight. Dark Mode will darken the colours of your admin dashboard making it easier for you to work at night time.
 
-For information on the progress of this plugin, [please refer to the Trac ticket](https://core.trac.wordpress.org/ticket/41928) or you can get involved on the [GitHub repository](https://github.com/danieltj27/Dark-Mode).
+For information on the progress of this plugin, please refer to the [Trac ticket](https://core.trac.wordpress.org/ticket/41928) or you can get involved on the [GitHub repository](https://github.com/danieltj27/Dark-Mode).
 
 = Plugin Developers =
 
-As some plugins make use of custom stylesheets, you can use the `doing_dark_mode` action hook to include a custom stylesheet that supports Dark Mode for your plugins interface when it's turned on. Alternatively you can use the `dark_mode_css` filter hook to change the Dark Mode stylesheet for your own version if you'd prefer.
+As some plugins make use of custom stylesheets, you can use the `doing_dark_mode` action hook to include a custom stylesheet that supports Dark Mode for your own plugin interfaces when it's enabled. Alternatively you can use the `dark_mode_css` filter hook to change the Dark Mode stylesheet for your own version if you'd prefer.
 
 == Installation ==
 
@@ -33,26 +33,26 @@ As some plugins make use of custom stylesheets, you can use the `doing_dark_mode
 
 = Why is there a plugin for this? =
 
-The goal is to have this plugin merged into the WordPress Core. For more information, please see the GitHub repository or Trac ticket.
+WordPress by default has a very bright colour scheme and this can hurt your eyes if you're working on a website late at night. Dark Mode provides a nice, darker alternative when it's late.
 
 = What does this plugin do? =
 
-It adds an option for users to enable a 'Dark Mode' which will turn the admin dashboard darker so it's nicer to use at night time.
+It adds an option for people to enable a 'Dark Mode' which will turn the admin dashboard darker so it's nicer to use at night time.
 
 = Can I contribute to this plugin? =
 
-Yes! You can follow the Trac ticket for updates and get involved on GitHub with suggestions, feedback and code contributions.
+Yes, you can follow the Trac ticket for updates and get involved on GitHub with suggestions, feedback and code contributions.
 
 = How can I remove the feedback link? =
 
-The Feedback link will take a user to the GitHub repository and will only be shown when Dark Mode is currently on. To completely remove it for every user, put `define('DARK_MODE_FEEDBACK', false)` in your `wp-config.php` file.
+The Feedback link will take a user to the GitHub repository and will only be shown when Dark Mode is currently on. To remove it for every user, put `define( 'DARK_MODE_FEEDBACK', false );` in your `wp-config.php` file.
 
 == Screenshots ==
 
 1. The dashboard with Dark Mode turned off.
 2. The dashboard with Dark Mode turned on.
-3. Dark Mode with an admin colour scheme.
-4. The setting in a user's profile to turn Dark Mode on.
+3. Dark Mode with an admin colour scheme in use.
+4. The Dark Mode settings on a user's profile page.
 
 == Changelog ==
 
@@ -60,6 +60,7 @@ The Feedback link will take a user to the GitHub repository and will only be sho
 
 * Added support for Code Mirror editor styles.
 * Fixed a bug where automatic Dark Mode was set incorrectly.
+* Improvements to how some core functions worked.
 * Improvements to translation strings.
 
 = 1.4 =

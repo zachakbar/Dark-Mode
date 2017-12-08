@@ -26,7 +26,8 @@
  */
 $white:         #ffffff;
 $black:         #000000;
-$blue:          #0073aa; 
+$blue:          #0073aa;
+$clear:         transparent;
 $medium-blue:   #00a0d2;
 $accent-red:    #DC3232;
 $accent-orange: #F56E28;
@@ -37,6 +38,7 @@ $accent-purple: #826EB4;
 
 $base-grey:     #23282d;
 $light-grey:    #bbc8d4;
+$heavy-grey:    #37444c;
 $dark-grey:     #32373c;
 $ultra-grey:    #191f25;
 $dark-silver:   #50626f;
@@ -408,6 +410,34 @@ body {
 		#screen-options-link-wrap {
 
 			color: $light-grey;
+
+			button {
+
+				background-color: $dark-grey;
+				border-color: $ultra-grey;
+				color: $light-grey;
+
+				&::after {
+
+					color: $light-grey;
+
+				}
+
+				&:hover {
+
+					background-color: $heavy-grey;
+					border-color: $ultra-grey;
+					color: $white;
+
+					&::after {
+
+						color: $white;
+
+					}
+
+				}
+
+			}
 
 		}
 
@@ -868,11 +898,31 @@ body {
 
 					border-color: $ultra-grey;
 
-				}
+					&:before {
 
-				.close:before {
+						color: $light-grey;
 
-					color: $light-grey;
+					}
+
+					&:hover {
+
+						&::before {
+
+							color: $black;
+
+						}
+
+					}
+
+					&.disabled {
+
+						&::before {
+
+							color: $light-grey;
+
+						}
+
+					}
 
 				}
 
@@ -889,18 +939,25 @@ body {
 
 		.theme-browser .theme {
 
-			border-color: $dark-grey;
+			border-color: $ultra-grey;
 
-			&.add-new-theme span:after {
+			&.active .theme-name,
+			&.add-new-theme a:focus,
+			&.add-new-theme a:hover {
 
-				color: $white;
+				&::after {
+
+					background-color: $dark-grey;
+
+				}
 
 			}
 
 			.theme-name,
-			.theme-actions {
+			.theme-actions,
+			.theme-screenshot {
 
-				background-color: $ultra-grey;
+				background-color: $dark-grey;
 
 			}
 
@@ -1182,12 +1239,13 @@ body {
 			border-color: $dark-grey;
 			box-shadow: 0 1px 0 $ultra-grey;
 			color: $white;
+			text-decoration: none;
 
 			&:hover,
 			&:focus,
 			&:active {
 
-				background: $base-grey;
+				background: $heavy-grey;
 				border-color: $ultra-grey;
 				color: $white;
 
@@ -1195,13 +1253,14 @@ body {
 
 			&:active {
 
-				background: $ultra-grey;
+				background: $dark-grey;
 
 			}
 
 		}
 
-		.button-primary {
+		.button-primary,
+		.page-title-action {
 
 			&.button-hero {
 
@@ -1348,7 +1407,7 @@ body {
 		.button-link {
 
 			color: $bright-blue;
-			text-decoration: underline;
+			text-decoration: none;
 
 			&:hover {
 
@@ -1369,57 +1428,10 @@ body {
 
 	}
 
-	#wpadminbar #wp-admin-bar-dark_mode_link {
+	#adminmenu a.wp-has-current-submenu:after,
+	#adminmenu > li.current > a.current:after {
 
-		@media screen and (max-width: 782px) {
-
-			display: block;
-
-		}
-
-		> .ab-item {
-
-			@media screen and (max-width: 782px) {
-
-				width: 52px;
-				display: block;
-				overflow: hidden;
-				font-size: 0px;
-
-			}
-
-			&::before {
-
-				font: 400 20px/1 dashicons;
-				content: "\f100";
-				top: 2px;
-
-				@media screen and (max-width: 782px) {
-
-					width: 52px;
-					top: 8px;
-					font: 400 32px/1 dashicons;
-					text-align: center;
-
-				}
-
-			}
-
-		}
-
-		&.is_auto {
-
-			> .ab-item {
-
-				&::before {
-
-					content: "\f469";
-
-				}
-
-			}
-
-		}
+		border-right-color: $base-grey;
 
 	}
 
