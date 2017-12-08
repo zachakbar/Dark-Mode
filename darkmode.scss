@@ -1288,6 +1288,12 @@ body {
 		background-color: $white;
 
 	}
+	
+	input[type="text"]:disabled {
+		
+    		background-color: $dark-grey;
+		
+	}
 
 	::-webkit-input-placeholder {
 
