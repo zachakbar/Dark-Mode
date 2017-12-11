@@ -24,29 +24,32 @@
  * The Official WordPress Colours can be found here:
  * https://make.wordpress.org/design/handbook/design-guide/foundations/colors/
  */
-$white:         #ffffff;
-$black:         #000000;
-$blue:          #0073aa;
-$clear:         transparent;
-$medium-blue:   #00a0d2;
-$accent-red:    #DC3232;
-$accent-orange: #F56E28;
-$accent-yellow: #FFB900;
-$accent-green:  #46B450;
-$accent-blue:   $blue;
-$accent-purple: #826EB4;
+$white:           #ffffff;
+$black:           #000000;
+$blue:            #0073aa;
+$clear:           transparent;
+$medium-blue:     #00a0d2;
+$accent-red:      #DC3232;
+$accent-orange:   #F56E28;
+$accent-yellow:   #FFB900;
+$accent-green:    #46B450;
+$accent-blue:     $blue;
+$accent-purple:   #826EB4;
 
-$base-grey:     #23282d;
-$light-grey:    #bbc8d4;
-$heavy-grey:    #37444c;
-$dark-grey:     #32373c;
-$ultra-grey:    #191f25;
-$dark-silver:   #50626f;
-$base-blue:     #2e74aa;
-$light-blue:    #4092d2;
-$dark-blue:     #2c5f88;
-$ultra-blue:    #1f3f58;
-$bright-blue:   #30ceff;
+$base-grey:       #23282d;
+$light-grey:      #bbc8d4;
+$heavy-grey:      #37444c;
+$dark-grey:       #32373c;
+$ultra-grey:      #191f25;
+$dark-silver:     #50626f;
+$base-blue:       #2e74aa;
+$light-blue:      #4092d2;
+$dark-blue:       #2c5f88;
+$ultra-blue:      #1f3f58;
+$bright-blue:     #30ceff;
+$editor-lavender: #c678dd;
+$editor-sunglo:   #e06c75;
+$editor-olivine:  #98c379;
 
 
 body {
@@ -1213,16 +1216,45 @@ body {
 
 					}
 
-					&-error,
-					&-atom {
+					&-error	{
 
 						color: $accent-red;
+
+					}
+
+					&-atom {
+
+						color: $accent-yellow;
 
 					}
 
 					&-comment {
 
 						color: $light-grey;
+
+					}
+
+					&-keyword {
+
+						color: $editor-lavender;
+
+					}
+
+					&-def {
+
+						color: $medium-blue;
+
+					}
+
+					&-variable_2 {
+
+						color: $editor-sunglo;
+
+					}
+
+					&-string {
+
+						color: $editor-olivine;
 
 					}
 
