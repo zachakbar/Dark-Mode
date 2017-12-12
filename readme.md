@@ -1,6 +1,6 @@
 # Dark Mode
 
-Let's your users make the WordPress admin dashboard darker.
+Lets your users make the WordPress admin dashboard darker.
 
 ## Contribute
 
