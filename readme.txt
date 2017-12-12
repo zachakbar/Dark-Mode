@@ -7,13 +7,13 @@ Stable tag: 1.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Let's your users make the WordPress admin dashboard darker.
+Lets your users make the WordPress admin dashboard darker.
 
 == Description ==
 
 = About the Plugin =
 
-This is beta plugin that might one day be part of the WordPress core. Please don't use this on production websites unless you're happy with the stability as some things may still be experimental.
+This is a beta plugin that might one day be part of the WordPress core. Please don't use this on production websites unless you're happy with the stability as some things may still be experimental.
 
 Using technology at night time can have a negative effect on your eyesight. Dark Mode will darken the colours of your admin dashboard making it easier for you to work at night time.
 
