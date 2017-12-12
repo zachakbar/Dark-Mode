@@ -47,6 +47,7 @@ $light-blue:      #4092d2;
 $dark-blue:       #2c5f88;
 $ultra-blue:      #1f3f58;
 $bright-blue:     #30ceff;
+
 $editor-lavender: #c678dd;
 $editor-sunglo:   #e06c75;
 $editor-olivine:  #98c379;
@@ -58,7 +59,8 @@ body {
 	color: $light-grey;
 
 	#wpbody,
-	#wpfooter {
+	#wpfooter,
+	#file-editor-warning {
 
 		background-color: $base-grey;
 		color: $light-grey;
@@ -387,6 +389,36 @@ body {
 
 		}
 
+		#templateside {
+
+			> ul {
+
+				background-color: $base-grey;
+				border-color: $dark-grey;
+
+				li {
+
+					a,
+					span {
+
+						background-color: $clear;
+
+						&.hover,
+						&:hover {
+
+							background-color: $dark-grey;
+							color: $light-grey;
+
+						}
+
+					}
+
+				}
+
+			}
+
+		}
+
 		.upload-plugin .wp-upload-form,
 		.upload-theme .wp-upload-form,
 		#screen-meta,
@@ -447,7 +479,8 @@ body {
 		#wpwrap,
 		#contextual-help-back,
 		#plugin-information-content,
-		&.wp-customizer #screen-options-wrap {
+		&.wp-customizer #screen-options-wrap,
+		.notification-dialog {
 
 			background-color: $base-grey;
 			border-color: $ultra-grey;
@@ -517,13 +550,15 @@ body {
 		.stuffbox,
 		#activity-widget #the-comment-list .comment-item,
 		.community-events ul,
-		.wp-filter {
+		.wp-filter,
+		.menu-edit #post-body {
 
 			background-color: $dark-grey;
 			border-color: $ultra-grey;
 			color: $light-grey;
 
-			p {
+			p,
+			span {
 
 				color: $light-grey;
 
@@ -1165,6 +1200,7 @@ body {
 		.CodeMirror {
 
 			background-color: $ultra-grey;
+			border-color: $ultra-grey;
 			color: $light-grey;
 
 			&-gutter {
@@ -1246,6 +1282,7 @@ body {
 
 					}
 
+					&-variable_1,
 					&-variable_2 {
 
 						color: $editor-sunglo;
