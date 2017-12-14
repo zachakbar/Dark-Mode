@@ -6,7 +6,7 @@ Thank you to everyone who has contributed to Dark Mode!
 
 Getting involved with the plugins development is crucial if it's ever going to make it into WordPress core. To do that, we need volunteers to help us out.
 
-Whether your a developer with code, a designer with designs or someone with just a few ideas; anything is appreciated. To get started, create or respond to an existing issue and/or provide a pull request as anyone is welcome to help out where they can.
+Whether you're a developer with code, a designer with designs or someone with just a few ideas; anything is appreciated. To get started, create or respond to an existing issue and/or provide a pull request as anyone is welcome to help out where they can.
 
 ## Thank You
 
