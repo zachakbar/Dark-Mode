@@ -1356,6 +1356,23 @@ body {
 
 			}
 
+			.imgedit-wrap {
+
+				.imgedit-settings {
+
+					background-color: $ultra-grey;
+					border-color: $dark-silver;
+
+					h2 {
+
+						color: $white;
+
+					}
+
+				}
+
+			}
+
 			.edit-media-header {
 
 				background-color: $ultra-grey;
@@ -1425,6 +1442,14 @@ body {
 	#adminmenu > li.current > a.current:after {
 
 		border-right-color: $base-grey;
+
+	}
+
+	.notice,
+	.error,
+	.updated {
+
+		background-color: $ultra-grey;
 
 	}
 
@@ -1556,6 +1581,21 @@ body {
 		&:active {
 
 			background: $dark-grey;
+			border-color: $ultra-grey;
+
+		}
+
+		&.active {
+
+			background: $dark-grey;
+			border-color: $ultra-grey;
+
+			&:hover {
+
+				background: $heavy-grey;
+				border-color: $ultra-grey;
+
+			}
 
 		}
 
@@ -1616,6 +1656,23 @@ body {
 		color: $light-grey !important;
 		text-shadow: none !important;
 		opacity: 0.65;
+
+	}
+
+	.media-frame {
+
+		input[type=text],
+		input[type=password],
+		input[type=number],
+		input[type=search],
+		input[type=email],
+		input[type=url],
+		select,
+		textarea {
+
+			border-color: $ultra-grey;
+
+		}
 
 	}
 

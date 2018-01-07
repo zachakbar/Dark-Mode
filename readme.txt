@@ -66,6 +66,7 @@ The Feedback link will take a user to the GitHub repository and will only be sho
 * Fixed issue with UI notices having an incorrect background colour.
 * Added styling to the media attachment modal popup.
 * Fixed CSS conflicts causing the customiser to not be styled.
+* Fixed a variety of smaller UI elements that had incorrect styles.
 
 = 1.5 =
 
