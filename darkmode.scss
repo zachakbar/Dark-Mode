@@ -548,6 +548,34 @@ body {
 
 				}
 
+				ul.widgets-chooser-sidebars {
+
+					border-color: $ultra-grey;
+
+					li {
+
+						background-color: $dark-grey;
+						border-color: $base-grey;
+						color: $light-grey;
+
+						&.widgets-chooser-selected {
+
+							background-color: $accent-blue;
+							color: $white;
+
+						}
+
+						&:hover {
+
+							background-color: $ultra-grey;
+							color: $white;
+
+						}
+
+					}
+
+				}
+
 			}
 
 		}
