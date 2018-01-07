@@ -1,8 +1,9 @@
 /*
- * Dark Mode CSS
- * A beta plugin to be included in WordPress Core one day.
+ * Dark Mode
+ * A feature plugin that might make it in WordPress core one day.
  * 
  * DEVELOPERS:
+ * -----------
  * The Dark Mode stylesheet is built using the Sass CSS pre-processor. With this you will
  * need to have at least Sass version 3.x.x installed. To compile the stylesheet, please
  * use the following command line option:
@@ -11,15 +12,14 @@
  * 
  * 
  * CONTRIBUTE:
+ * -----------
  * Redesigning the WordPress admin area is no easy feat. If you want to get
  * involved and help out, you can help redesign the WordPress dashboard or
  * contribute code via GitHub ( https://github.com/danieltj27/Dark-Mode/ ).
  * 
- */
-
-/**
- * Colour Variables
  * 
+ * COLOURS:
+ * --------
  * The defined colours are loosely based on the official branding colours.
  * The Official WordPress Colours can be found here:
  * https://make.wordpress.org/design/handbook/design-guide/foundations/colors/
@@ -346,7 +346,6 @@ body {
 		.edit-comment-author,
 		#comment-link-box,
 		#edit-slug-box,
-		.widgets-holder-wrap .description,
 		.inactive-sidebar .description,
 		.widget-holder .description,
 		#available-widgets .widget-description,
@@ -460,7 +459,7 @@ body {
 
 				&:hover {
 
-					background-color: $heavy-grey;
+					background-color: $dark-grey;
 					border-color: $ultra-grey;
 					color: $white;
 
@@ -484,6 +483,72 @@ body {
 
 			background-color: $base-grey;
 			border-color: $ultra-grey;
+
+		}
+
+		.widgets-holder-wrap {
+
+			background-color: $base-grey;
+			border-color: $clear;
+
+			.sidebar-name {
+
+				&:hover {
+
+					button {
+
+						span {
+
+							color: $white;
+
+						}
+
+					}
+
+				}
+
+			}
+
+			.widgets-sortables {
+
+				background-color: $base-grey;
+
+			}
+
+		}
+
+		#widgets-left,
+		#widgets-right {
+
+			.widget {
+
+				.widget-top {
+
+					&:hover {
+
+						border-color: $dark-grey;
+
+					}
+
+					.widget-control-edit {
+
+						background-color: $dark-grey;
+						border-left-color: $clear;
+						color: $light-grey;
+
+						&:hover {
+
+							background-color: $dark-silver;
+							border-left-color: $clear;
+							color: $white;
+
+						}
+
+					}
+
+				}
+
+			}
 
 		}
 
@@ -588,7 +653,6 @@ body {
 		.color-option.selected,
 		.color-option:hover,
 		.accordion-section-content,
-		.widgets-holder-wrap,
 		.filter-drawer,
 		.wp-filter .favorites-form,
 		.filter-group,
@@ -760,15 +824,10 @@ body {
 		.stuffbox,
 		.widget-inside,
 		.widget-top,
-		.widgets-holder-wrap,
 		p.popular-tags,
 		.postbox .hndle,
 		.stuffbox .hndle,
-		#available-widgets .widget-top:hover,
-		#widgets-left .widget-in-question .widget-top,
-		#widgets-left .widget-top:hover,
-		.widgets-chooser ul,
-		div#widgets-right .widget-top:hover {
+		.widgets-chooser ul {
 
 			border-color: $base-grey;
 
@@ -1382,6 +1441,7 @@ body {
 			border-color: $ultra-grey !important;
 			color: $light-grey !important;
 			text-shadow: none !important;
+			opacity: 0.65;
 
 		}
 

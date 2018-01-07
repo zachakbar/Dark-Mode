@@ -3,8 +3,9 @@ Contributors: danieltj, munyagu, travel_girl, melchoyce, afercia, hedgefield, me
 Tags: accessibility, admin, dashboard, profile, style
 Requires at least: 4.0
 Tested up to: 4.9
-Stable tag: 1.5
-License: GPLv2 or later
+Stable tag: 1.6
+Requires PHP: 5.4
+License: GNU GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Lets your users make the WordPress admin dashboard darker.
@@ -55,6 +56,12 @@ The Feedback link will take a user to the GitHub repository and will only be sho
 4. The Dark Mode settings on a user's profile page.
 
 == Changelog ==
+
+= 1.6 =
+
+* Fixed a problem with automatic Dark Mode not activating correctly.
+* Fixed issue with PHP 5.4 installs not supporting empty if statements.
+* Added the requires PHP header and set it to 5.4 for compatibility.
 
 = 1.5 =
 

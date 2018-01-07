@@ -7,18 +7,14 @@
  * Author: Daniel James
  * Author URI: https://www.danieltj.co.uk/
  * Text Domain: dark-mode
- * Version: 1.5
+ * Version: 1.6
  */
 
 // No thank you
 if ( ! defined( 'ABSPATH' ) ) die();
 
-// Start here
 new Dark_Mode;
 
-/**
- * @package Dark_Mode
- */
 class Dark_Mode {
 
 	/**
@@ -70,7 +66,7 @@ class Dark_Mode {
 
 		global $wp_admin_bar;
 		
-		// Get the current user ID
+		// Get the current user id
 		$user_id = get_current_user_id();
 		
 		// Check the current user has Dark Mode on
@@ -126,26 +122,26 @@ class Dark_Mode {
 	}
 
 	/**
-	 * Checks if the current user has Dark Mode turned on.
+	 * Checks if a user has Dark Mode enabled.
 	 * 
-	 * This function checks if Dark Mode has been enabled or not
-	 * for a given user. The second optional parameter allows you
-	 * to check if it's turned on for automatic use and is currently
-	 * turned on between the specified times.
+	 * Using this function allows you to check if a specified user
+	 * or the current user (default) has Dark Mode enabled. Set the
+	 * $check_auto parameter to true to check if it's set to automatically
+	 * come between two time frames and we're between the time frame now.
 	 * 
 	 * @since 1.0
+	 * @since 1.6 Major rewrite to properly address automatic Dark Mode.
 	 * 
 	 * @param string  $user_id    User ID of given person.
 	 * @param boolean $check_auto Check for auto mode or not.
 	 * 
 	 * @return boolean
 	 */
-	public static function is_using_dark_mode( $user_id = NULL, $check_auto = false ) {
+	public static function is_using_dark_mode( $user_id = false, $check_auto = false ) {
 
-		// Check if we have a user id
-		if ( empty( $user_id ) ) {
+		// Check we've got a user id
+		if ( false === $user_id ) {
 
-			// Get the currently logged in user instead
 			$user_id = get_current_user_id();
 
 		}
@@ -153,34 +149,43 @@ class Dark_Mode {
 		// Check if the user is using Dark Mode
 		if ( 'on' == get_user_meta( $user_id, 'dark_mode', true ) ) {
 
-			// Does this user has Dark Mode turned on automatically?
+			// Should we check for auto mode
 			if ( true === self::is_dark_mode_auto( $user_id ) && true === $check_auto ) {
 
-				// Get the time ranges from the user meta but add one day to the end time
-				$auto_start = date_i18n( 'H:i', strtotime( get_user_meta( $user_id, 'dark_mode_start', true ) ) );
-				$auto_end = date_i18n( 'H:i', strtotime( get_user_meta( $user_id, 'dark_mode_end', true ) ) );
+				// Get the time frames for auto mode
+				$auto_start = date_i18n( 'Y-m-d H:i:s', strtotime( get_user_meta( $user_id, 'dark_mode_start', true ) ) );
+				$auto_end = date_i18n( 'Y-m-d H:i:s', strtotime( get_user_meta( $user_id, 'dark_mode_end', true ) ) );
+
+				/**
+				 * Check if the end time is smaller then the start time
+				 * because if the start time is 8pm and the end time is
+				 * 6am, without adding 1 day to the end date, the time frame
+				 * will actually be 8pm to 6am on the same day which is backwards.
+				 */
+				if ( $auto_start > $auto_end ) {
+
+					$auto_end = date_i18n( 'Y-m-d H:i:s', strtotime( '+1 day', strtotime( get_user_meta( $user_id, 'dark_mode_end', true ) ) ) );
+
+				}
 
 				// Get the current time
-				$current_time = date_i18n( 'H:i' );
-				
-				// Check the current time is between the start and end time
-				if ( $current_time >= $auto_start || $current_time <= $auto_end ) {
+				$current_time = date_i18n( 'Y-m-d H:i:s' );
 
-					// Set automatically and on right now
+				// Check the current time is between the start and end time
+				if ( $current_time >= $auto_start && $current_time <= $auto_end ) {
+
 					return true;
 
 				}
 
 			} else {
 
-				// It is always on
 				return true;
 
 			}
 
 		}
 
-		// It's not enabled
 		return false;
 
 	}
@@ -197,17 +202,18 @@ class Dark_Mode {
 	 * 
 	 * @since 1.3
 	 * @since 1.5 Access was changed to private.
+	 * @since 1.6 Changed default value of user id to false.
 	 * 
 	 * @param string $user_id User ID
 	 * 
 	 * @return boolean
 	 */
-	private static function is_dark_mode_auto( $user_id = NULL ) {
+	private static function is_dark_mode_auto( $user_id = false ) {
 
 		// Have we been given a user ID
-		if ( empty( $user_id ) ) {
+		if ( false === $user_id ) {
 
-			// Grab the currently logged in user ID
+			// Get the current user id
 			$user_id = get_current_user_id();
 
 		}
@@ -215,12 +221,10 @@ class Dark_Mode {
 		// Has automatic Dark Mode been turned on
 		if ( 'on' == get_user_meta( $user_id, 'dark_mode_auto', true ) ) {
 
-			// Dark Mode on auto
 			return true;
 
 		} else {
 
-			// Not on automatically
 			return false;
 
 		}
@@ -264,7 +268,7 @@ class Dark_Mode {
 			$css_url = apply_filters( 'dark_mode_css', plugins_url('dark-mode', 'dark-mode') . '/darkmode.css' );
 
 			// Register the dark mode stylesheet
-			wp_register_style('dark_mode', $css_url, array(), '1.5');
+			wp_register_style('dark_mode', $css_url, array(), '1.6');
 
 			// Enqueue the stylesheet
 			wp_enqueue_style('dark_mode');
@@ -307,8 +311,8 @@ class Dark_Mode {
 					</p>
 					<p>
 						<label>
-							<?php _ex('From', 'Time frame starting at', 'dark-mode'); ?> <input type="time" name="dark_mode_start" id="dark_mode_start"<?php if ( ! empty( get_user_meta( $profileuser->data->ID, 'dark_mode_start', true ) ) ) : ?> value="<?php echo get_user_meta( $profileuser->data->ID, 'dark_mode_start', true ); ?>"<?php endif; ?> />
-							<?php _ex('To', 'Time frame ending at', 'dark-mode'); ?> <input type="time" name="dark_mode_end" id="dark_mode_end"<?php if ( ! empty( get_user_meta( $profileuser->data->ID, 'dark_mode_end', true ) ) ) : ?> value="<?php echo get_user_meta( $profileuser->data->ID, 'dark_mode_end', true ); ?>"<?php endif; ?> />
+							<?php _ex('From', 'Time frame starting at', 'dark-mode'); ?> <input type="time" name="dark_mode_start" id="dark_mode_start"<?php if ( false !== get_user_meta( $profileuser->data->ID, 'dark_mode_start', true ) ) : ?> value="<?php echo get_user_meta( $profileuser->data->ID, 'dark_mode_start', true ); ?>"<?php endif; ?> />
+							<?php _ex('To', 'Time frame ending at', 'dark-mode'); ?> <input type="time" name="dark_mode_end" id="dark_mode_end"<?php if ( false !== get_user_meta( $profileuser->data->ID, 'dark_mode_end', true ) ) : ?> value="<?php echo get_user_meta( $profileuser->data->ID, 'dark_mode_end', true ); ?>"<?php endif; ?> />
 						</label>
 					</p>
 					<input type="hidden" name="dark_mode_nonce" id="dark_mode_nonce" value="<?php echo $dark_mode_nonce; ?>" />
