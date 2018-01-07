@@ -64,6 +64,8 @@ The Feedback link will take a user to the GitHub repository and will only be sho
 * Added the requires PHP header and set it to 5.4 for compatibility.
 * Improved the CSS for many widget related styling bugs.
 * Fixed issue with UI notices having an incorrect background colour.
+* Added styling to the media attachment modal popup.
+* Fixed CSS conflicts causing the customiser to not be styled.
 
 = 1.5 =
 

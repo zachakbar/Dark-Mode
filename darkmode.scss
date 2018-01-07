@@ -59,8 +59,7 @@ body {
 	color: $light-grey;
 
 	#wpbody,
-	#wpfooter,
-	#file-editor-warning {
+	#wpfooter {
 
 		background-color: $base-grey;
 		color: $light-grey;
@@ -357,10 +356,7 @@ body {
 		.media-sidebar .setting span,
 		.upload-plugin .install-help,
 		.upload-theme .install-help,
-		.subtitle,
-		#customize-controls .control-section .accordion-section-title:focus .menu-in-location,
-		#customize-controls .control-section .accordion-section-title:hover .menu-in-location,
-		#customize-controls .theme-location-set {
+		.subtitle {
 
 			color: $light-grey;
 
@@ -478,7 +474,6 @@ body {
 		#wpwrap,
 		#contextual-help-back,
 		#plugin-information-content,
-		&.wp-customizer #screen-options-wrap,
 		.notification-dialog {
 
 			background-color: $base-grey;
@@ -577,19 +572,6 @@ body {
 				}
 
 			}
-
-		}
-
-		#customize-controls .cannot-expand:hover .accordion-section-title,
-		#customize-controls .panel-meta.customize-info .accordion-section-title:hover,
-		#customize-controls .customize-info .customize-panel-description,
-		#customize-controls .customize-info .customize-section-description,
-		#customize-controls .no-widget-areas-rendered-notice,
-		#customize-outer-theme-controls .customize-info .customize-section-description {
-
-			background-color: $base-grey;
-			border-color: $ultra-grey;
-			color: $light-grey;
 
 		}
 
@@ -1094,490 +1076,219 @@ body {
 
 		}
 
-		&.wp-customizer {
+	}
 
-			.menu-item-settings,
-			.menu-item-bar .menu-item-handle {
+	&.wp-customizer {
+
+		#screen-options-wrap {
+
+			background-color: $ultra-grey;
+			border-color: $base-grey;
+
+		}
+
+		.menu-item-settings,
+		.menu-item-bar .menu-item-handle {
+
+			background-color: $base-grey;
+			border-color: $ultra-grey;
+			color: $light-grey;
+
+		}
+
+	}
+
+	#customize-controls {
+
+		border-color: $base-grey;
+
+		.cannot-expand:hover .accordion-section-title,
+		.panel-meta.customize-info .accordion-section-title:hover,
+		.customize-info .customize-panel-description,
+		.customize-info .customize-section-description,
+		.no-widget-areas-rendered-notice,
+		#customize-outer-theme-controls .customize-info .customize-section-description {
+
+			background-color: $base-grey;
+			border-color: $ultra-grey;
+			color: $light-grey;
+
+		}
+
+		.control-section .accordion-section-title:focus .menu-in-location,
+		.control-section .accordion-section-title:hover .menu-in-location,
+		.theme-location-set {
+
+			color: $light-grey;
+
+		}
+
+		#customize-sidebar-outer-content {
+
+			border-color: $dark-grey;
+
+		}
+
+		.customize-panel-back,
+		.customize-section-back {
+
+			background-color: $base-grey;
+			border-color: transparent;
+			color: $light-grey;
+
+		}
+
+		#customize-theme-controls {
+
+			.accordion-section-content,
+			.description {
+
+				color: $light-grey;
+
+			}
+
+			.control-panel-content:not(.control-panel-nav_menus) .control-section:nth-child(2),
+			.control-panel-nav_menus .control-section-nav_menu,
+			.control-section-nav_menu_locations .accordion-section-title,
+			#accordion-section-menu_locations > .accordion-section-title,
+			.control-section:last-of-type.open,
+			.control-section:last-of-type > .accordion-section-title,
+			.control-section.open {
+
+				border-color: $ultra-grey;
+
+			}
+
+		}
+
+		.control-section .accordion-section-title:focus,
+		.control-section .accordion-section-title:hover,
+		.control-section.open .accordion-section-title,
+		.control-section:hover > .accordion-section-title {
+
+			&::after {
+
+				color: $light-grey;
+
+			}
+
+			background-color: $ultra-grey;
+			border-color: $dark-grey;
+			color: $light-grey;
+
+		}
+
+		.accordion-section-title,
+		.customize-section-title {
+
+			background-color: $base-grey;
+			border-color: $ultra-grey;
+			color: $light-grey;
+
+			&:hover {
 
 				background-color: $base-grey;
-				border-color: $ultra-grey;
+
+			}
+
+			h3 {
+
 				color: $light-grey;
 
 			}
 
 		}
 
-		#customize-controls {
+		.customize-info {
 
-			border-color: $base-grey;
+			border-color: $dark-grey;
 
-			#customize-sidebar-outer-content {
+			.customize-help-toggle {
 
-				border-color: $dark-grey;
-
-			}
-
-			.customize-panel-back,
-			.customize-section-back {
-
-				background-color: $base-grey;
-				border-color: transparent;
-				color: $light-grey;
-
-			}
-
-			#customize-theme-controls {
-
-				.accordion-section-content,
-				.description {
-
-					color: $light-grey;
-
-				}
-
-				.control-panel-content:not(.control-panel-nav_menus) .control-section:nth-child(2),
-				.control-panel-nav_menus .control-section-nav_menu,
-				.control-section-nav_menu_locations .accordion-section-title,
-				#accordion-section-menu_locations > .accordion-section-title,
-				.control-section:last-of-type.open,
-				.control-section:last-of-type > .accordion-section-title,
-				.control-section.open {
-
-					border-color: $ultra-grey;
-
-				}
-
-			}
-
-			.control-section .accordion-section-title:focus,
-			.control-section .accordion-section-title:hover,
-			.control-section.open .accordion-section-title,
-			.control-section:hover > .accordion-section-title {
-
-				&::after {
-
-					color: $light-grey;
-
-				}
-
-				background-color: $ultra-grey;
-				border-color: $dark-grey;
 				color: $light-grey;
 
 			}
 
 			.accordion-section-title,
-			.customize-section-title {
+			.customize-panel-description {
 
 				background-color: $base-grey;
-				border-color: $ultra-grey;
-				color: $light-grey;
-
-				&:hover {
-
-					background-color: $base-grey;
-
-				}
-
-				h3 {
-
-					color: $light-grey;
-
-				}
-
-			}
-
-			.customize-info {
-
 				border-color: $dark-grey;
-
-				.customize-help-toggle {
-
-					color: $light-grey;
-
-				}
-
-				.accordion-section-title,
-				.customize-panel-description {
-
-					background-color: $base-grey;
-					border-color: $dark-grey;
-					color: $light-grey;
-
-				}
-
-			}
-
-			#customize-theme-controls {
-
-				.control-panel-themes > .accordion-section-title {
-
-					background-color: $base-grey;
-					border-color: $ultra-grey;
-					color: $light-grey;
-
-				}
-
-			}
-
-			#customize-header-actions,
-			.customize-controls-close {
-
-				background-color: $base-grey;
-				border-color: $base-grey;
 				color: $light-grey;
-
-			}
-
-			.wp-full-overlay-footer {
-
-				background-color: $ultra-grey;
-				border-color: $base-grey;
-				color: $light-grey;
-
-				.devices {
-
-					box-shadow: none;
-
-				}
-
-			}
-
-			.customize-controls-close {
-
-				border-color: transparent;
-				color: $light-grey;
-
-				&:hover {
-
-					color: $white;
-
-				}
-
-			}
-
-			.wp-full-overlay-sidebar-content {
-
-				background-color: $dark-grey;
-
-			}
-
-			.collapse-sidebar-arrow {
-
-				&::before {
-
-					color: $dark-grey;
-
-				}
-
-			}
-
-			.collapse-sidebar {
-
-				span {
-
-					color: $light-grey;
-
-				}
 
 			}
 
 		}
 
-		.CodeMirror {
+		#customize-theme-controls {
 
-			background-color: $ultra-grey;
-			border-color: $ultra-grey;
+			.control-panel-themes > .accordion-section-title {
+
+				background-color: $base-grey;
+				border-color: $ultra-grey;
+				color: $light-grey;
+
+			}
+
+		}
+
+		#customize-header-actions,
+		.customize-controls-close {
+
+			background-color: $base-grey;
+			border-color: $base-grey;
 			color: $light-grey;
 
-			&-gutter {
+		}
 
-				background-color: $base-grey;
-				border-color: $ultra-grey;
+		.wp-full-overlay-footer {
 
-				&s {
+			background-color: $ultra-grey;
+			border-color: $base-grey;
+			color: $light-grey;
 
-					border-color: $base-grey;
+			.devices {
 
-				}
-
-			}
-
-			&-activeline-background {
-
-				background-color: $dark-grey;
-
-			}
-
-			&-linenumber {
-
-				color: $light-grey;
-
-			}
-
-			&-code {
-
-				.cm {
-
-					&-tag,
-					&-builtin,
-					&-qualifier {
-
-						color: $accent-green;
-
-					}
-
-					&-property {
-
-						color: $light-blue;
-
-					}
-
-					&-number {
-
-						color: $accent-purple;
-
-					}
-
-					&-error	{
-
-						color: $accent-red;
-
-					}
-
-					&-atom {
-
-						color: $accent-yellow;
-
-					}
-
-					&-comment {
-
-						color: $light-grey;
-
-					}
-
-					&-keyword {
-
-						color: $editor-lavender;
-
-					}
-
-					&-def {
-
-						color: $medium-blue;
-
-					}
-
-					&-variable_1,
-					&-variable_2 {
-
-						color: $editor-sunglo;
-
-					}
-
-					&-string {
-
-						color: $editor-olivine;
-
-					}
-
-				}
+				box-shadow: none;
 
 			}
 
 		}
 
-		.button,
-		.button-secondary {
+		.customize-controls-close {
 
-			background: $dark-silver;
-			border-color: $dark-grey;
-			box-shadow: 0 1px 0 $ultra-grey;
-			color: $white;
-			text-decoration: none;
-
-			&:hover,
-			&:focus,
-			&:active {
-
-				background: $heavy-grey;
-				border-color: $ultra-grey;
-				color: $white;
-
-			}
-
-			&:active {
-
-				background: $dark-grey;
-
-			}
-
-		}
-
-		.button-primary,
-		.page-title-action {
-
-			&.button-hero {
-
-				box-shadow: 0 2px 0 $ultra-blue !important;
-
-				&.active,
-				&:active {
-
-					box-shadow: inset 0 3px 0 $base-blue !important;
-
-				}
-
-			}
-
-			background: $light-blue;
-			border-color: $dark-blue $dark-grey $dark-grey;
-			color: $white;
-			box-shadow: 0 1px 0 $ultra-grey;
-			text-shadow: 0 -1px 1px $dark-grey, 1px 0 1px $dark-grey, 0 1px 1px $dark-grey, -1px 0 1px $dark-grey;
-
-			&:hover,
-			&:focus,
-			&:active {
-
-				background: $base-blue;
-				border-color: $dark-blue $dark-grey $dark-grey;
-				color: $white;
-				box-shadow: 0 1px 0 $ultra-grey;
-				text-shadow: 0 -1px 1px $dark-grey, 1px 0 1px $dark-grey, 0 1px 1px $dark-grey, -1px 0 1px $dark-grey;
-
-			}
-
-			&:active {
-
-				background: $dark-blue;
-
-			}
-
-		}
-
-		.button-disabled,
-		.button-secondary.disabled,
-		.button-secondary:disabled,
-		.button-secondary[disabled],
-		.button.disabled,
-		.button:disabled,
-		.button[disabled] {
-
-			background: $dark-grey !important;
-			border-color: $ultra-grey !important;
-			color: $light-grey !important;
-			text-shadow: none !important;
-			opacity: 0.65;
-
-		}
-
-		#titlediv #title,
-		input[type=text],
-		input[type=search],
-		input[type=radio],
-		input[type=tel],
-		input[type=time],
-		input[type=url],
-		input[type=week],
-		input[type=password],
-		input[type=checkbox],
-		input[type=color],
-		input[type=date],
-		input[type=datetime],
-		input[type=datetime-local],
-		input[type=email],
-		input[type=month],
-		input[type=number],
-		select,
-		textarea {
-
-			background-color: $dark-silver;
-			border-color: $ultra-grey;
-			color: $white;
-
-		}
-
-		input[type=checkbox]:checked:before {
-
-			color: $white;
-
-		}
-
-		input[type=radio]:checked:before {
-
-			background-color: $white;
-
-		}
-		
-		input[type=text],
-		input[type=search],
-		input[type=tel],
-		input[type=time],
-		input[type=url],
-		input[type=week],
-		input[type=password],
-		input[type=color],
-		input[type=date],
-		input[type=datetime],
-		input[type=datetime-local],
-		input[type=email],
-		input[type=month],
-		input[type=number] {
-
-			&:disabled {
-			
-	    		background-color: $dark-grey;
-	    		color: $light-grey;
-	    		opacity: 0.75;
-			
-			}
-
-		}
-
-		::-webkit-input-placeholder {
-
-			color: $white;
-
-		}
-
-		::-moz-placeholder {
-
-			color: $white;
-
-		}
-
-		:-ms-input-placeholder {
-
-			color: $white;
-
-		}
-
-		:-moz-placeholder {
-
-			color: $white;
-
-		}
-
-		a,
-		.button-link {
-
-			color: $bright-blue;
-			text-decoration: none;
+			border-color: transparent;
+			color: $light-grey;
 
 			&:hover {
 
-				color: $light-blue;
-				text-decoration: none;
+				color: $white;
 
 			}
 
-			&:focus {
+		}
 
-				color: $light-blue;
-				-webkit-box-shadow: 0 0 0 1px $light-blue, 0 0 2px 1px rgba(0, 160, 210, 0.8);
-				box-shadow: 0 0 0 1px $light-blue, 0 0 2px 1px rgba(0, 160, 210, 0.8);
+		.wp-full-overlay-sidebar-content {
+
+			background-color: $dark-grey;
+
+		}
+
+		.collapse-sidebar-arrow {
+
+			&::before {
+
+				color: $dark-grey;
+
+			}
+
+		}
+
+		.collapse-sidebar {
+
+			span {
+
+				color: $light-grey;
 
 			}
 
@@ -1585,10 +1296,436 @@ body {
 
 	}
 
+	.media-modal {
+
+		button.media-modal-close {
+
+			background-color: $ultra-grey;
+			border-color: $dark-silver;
+
+			&:hover {
+
+				background-color: $dark-silver;
+				border-color: $dark-silver;
+
+				span {
+
+					&::before {
+
+						color: $ultra-grey;
+
+					}
+
+				}
+
+			}
+
+			span {
+
+				&::before {
+
+					color: $light-grey;
+
+				}
+
+			}
+
+		}
+
+		&-content {
+
+			background-color: $base-grey;
+			border-color: $ultra-grey;
+
+			.media-frame {
+
+				&-title,
+				&-content {
+
+					background-color: $ultra-grey;
+					border-color: $dark-silver;
+					color: $light-grey;
+
+					h1 {
+
+						color: $light-grey;
+
+					}
+
+				}
+
+			}
+
+			.edit-media-header {
+
+				background-color: $ultra-grey;
+
+				button {
+
+					background-color: $ultra-grey;
+
+					&::before {
+
+						color: $light-grey;
+
+					}
+
+				}
+
+			}
+
+			.attachment-media-view {
+
+				background-color: $dark-grey;
+
+			}
+
+			.edit-attachment-frame {
+
+				.edit-media-header {
+
+					.left,
+					.right {
+
+						border-color: $dark-silver;
+
+					}
+
+				}
+
+				.attachment-info {
+
+					background-color: $ultra-grey;
+					border-color: $dark-silver;
+					color: $light-grey;
+
+					span,
+					.filename {
+
+						color: $light-grey;
+
+					}
+
+				}
+
+			}
+
+		}
+
+	}
+
+	#file-editor-warning {
+
+		background-color: $base-grey;
+		color: $light-grey;
+
+	}
+
 	#adminmenu a.wp-has-current-submenu:after,
 	#adminmenu > li.current > a.current:after {
 
 		border-right-color: $base-grey;
+
+	}
+
+	.CodeMirror {
+
+		background-color: $ultra-grey;
+		border-color: $ultra-grey;
+		color: $light-grey;
+
+		&-gutter {
+
+			background-color: $base-grey;
+			border-color: $ultra-grey;
+
+			&s {
+
+				border-color: $base-grey;
+
+			}
+
+		}
+
+		&-activeline-background {
+
+			background-color: $dark-grey;
+
+		}
+
+		&-linenumber {
+
+			color: $light-grey;
+
+		}
+
+		&-code {
+
+			.cm {
+
+				&-tag,
+				&-builtin,
+				&-qualifier {
+
+					color: $accent-green;
+
+				}
+
+				&-property {
+
+					color: $light-blue;
+
+				}
+
+				&-number {
+
+					color: $accent-purple;
+
+				}
+
+				&-error	{
+
+					color: $accent-red;
+
+				}
+
+				&-atom {
+
+					color: $accent-yellow;
+
+				}
+
+				&-comment {
+
+					color: $light-grey;
+
+				}
+
+				&-keyword {
+
+					color: $editor-lavender;
+
+				}
+
+				&-def {
+
+					color: $medium-blue;
+
+				}
+
+				&-variable_1,
+				&-variable_2 {
+
+					color: $editor-sunglo;
+
+				}
+
+				&-string {
+
+					color: $editor-olivine;
+
+				}
+
+			}
+
+		}
+
+	}
+
+	.button,
+	.button-secondary,
+	&.wp-core-ui .button,
+	&.wp-core-ui .button-secondary {
+
+		background: $dark-silver;
+		border-color: $dark-grey;
+		box-shadow: 0 1px 0 $ultra-grey;
+		color: $white;
+		text-decoration: none;
+
+		&:hover,
+		&:focus,
+		&:active {
+
+			background: $heavy-grey;
+			border-color: $ultra-grey;
+			color: $white;
+
+		}
+
+		&:active {
+
+			background: $dark-grey;
+
+		}
+
+	}
+
+	.button-primary,
+	.page-title-action {
+
+		&.button-hero {
+
+			box-shadow: 0 2px 0 $ultra-blue !important;
+
+			&.active,
+			&:active {
+
+				box-shadow: inset 0 3px 0 $base-blue !important;
+
+			}
+
+		}
+
+		background: $light-blue;
+		border-color: $dark-blue $dark-grey $dark-grey;
+		color: $white;
+		box-shadow: 0 1px 0 $ultra-grey;
+		text-shadow: 0 -1px 1px $dark-grey, 1px 0 1px $dark-grey, 0 1px 1px $dark-grey, -1px 0 1px $dark-grey;
+
+		&:hover,
+		&:focus,
+		&:active {
+
+			background: $base-blue;
+			border-color: $dark-blue $dark-grey $dark-grey;
+			color: $white;
+			box-shadow: 0 1px 0 $ultra-grey;
+			text-shadow: 0 -1px 1px $dark-grey, 1px 0 1px $dark-grey, 0 1px 1px $dark-grey, -1px 0 1px $dark-grey;
+
+		}
+
+		&:active {
+
+			background: $dark-blue;
+
+		}
+
+	}
+
+	.button-disabled,
+	.button-secondary.disabled,
+	.button-secondary:disabled,
+	.button-secondary[disabled],
+	.button.disabled,
+	.button:disabled,
+	.button[disabled] {
+
+		background: $dark-grey !important;
+		border-color: $ultra-grey !important;
+		color: $light-grey !important;
+		text-shadow: none !important;
+		opacity: 0.65;
+
+	}
+
+	#titlediv #title,
+	input[type=text],
+	input[type=search],
+	input[type=radio],
+	input[type=tel],
+	input[type=time],
+	input[type=url],
+	input[type=week],
+	input[type=password],
+	input[type=checkbox],
+	input[type=color],
+	input[type=date],
+	input[type=datetime],
+	input[type=datetime-local],
+	input[type=email],
+	input[type=month],
+	input[type=number],
+	select,
+	textarea {
+
+		background-color: $dark-silver;
+		border-color: $ultra-grey;
+		color: $white;
+
+	}
+
+	input[type=checkbox]:checked:before {
+
+		color: $white;
+
+	}
+
+	input[type=radio]:checked:before {
+
+		background-color: $white;
+
+	}
+	
+	input[type=text],
+	input[type=search],
+	input[type=tel],
+	input[type=time],
+	input[type=url],
+	input[type=week],
+	input[type=password],
+	input[type=color],
+	input[type=date],
+	input[type=datetime],
+	input[type=datetime-local],
+	input[type=email],
+	input[type=month],
+	input[type=number] {
+
+		&:disabled {
+		
+    		background-color: $dark-grey;
+    		color: $light-grey;
+    		opacity: 0.75;
+		
+		}
+
+	}
+
+	::-webkit-input-placeholder {
+
+		color: $white;
+
+	}
+
+	::-moz-placeholder {
+
+		color: $white;
+
+	}
+
+	:-ms-input-placeholder {
+
+		color: $white;
+
+	}
+
+	:-moz-placeholder {
+
+		color: $white;
+
+	}
+
+	a,
+	.button-link {
+
+		color: $bright-blue;
+		text-decoration: none;
+
+		&:hover {
+
+			color: $light-blue;
+			text-decoration: none;
+
+		}
+
+		&:focus {
+
+			color: $light-blue;
+			-webkit-box-shadow: 0 0 0 1px $light-blue, 0 0 2px 1px rgba(0, 160, 210, 0.8);
+			box-shadow: 0 0 0 1px $light-blue, 0 0 2px 1px rgba(0, 160, 210, 0.8);
+
+		}
 
 	}
 
