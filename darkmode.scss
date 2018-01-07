@@ -293,16 +293,16 @@ body {
 		}
 
 		.notice,
-		div.error,
-		div.updated,
-		div.update-nag {
+		.error,
+		.updated,
+		.update-nag {
 
-			background-color: $dark-grey;
+			background-color: $ultra-grey;
 
 		}
 
 		.notice p,
-		div.updated p,
+		.updated p,
 		.fileedit-sub,
 		.about-wrap h1,
 		.about-wrap .about-text,
