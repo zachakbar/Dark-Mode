@@ -3,7 +3,7 @@ Contributors: danieltj, munyagu, travel_girl, melchoyce, afercia, hedgefield, me
 Tags: dark, style, admin, dashboard, profile
 Requires at least: 4.0
 Tested up to: 4.9
-Stable tag: 1.6
+Stable tag: 1.7
 Requires PHP: 5.4
 License: GNU GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -56,6 +56,11 @@ The Feedback link will take a user to the GitHub repository and will only be sho
 4. The Dark Mode settings on a user's profile page.
 
 == Changelog ==
+
+= 1.7 =
+
+* Fixed a XSS vulnerability with the automatic start & end times. [Credit](https://github.com/d4wner/Vulnerabilities-Report/blob/master/dark-mode.md)
+* Fixed a bug with the start and end inputs sharing a label element.
 
 = 1.6 =
 

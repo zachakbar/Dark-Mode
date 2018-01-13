@@ -7,7 +7,7 @@
  * Author: Daniel James
  * Author URI: https://www.danieltj.co.uk/
  * Text Domain: dark-mode
- * Version: 1.6
+ * Version: 1.7
  */
 
 // No thank you
@@ -312,6 +312,8 @@ class Dark_Mode {
 					<p>
 						<label>
 							<?php _ex('From', 'Time frame starting at', 'dark-mode'); ?> <input type="time" name="dark_mode_start" id="dark_mode_start"<?php if ( false !== get_user_meta( $profileuser->data->ID, 'dark_mode_start', true ) ) : ?> value="<?php echo get_user_meta( $profileuser->data->ID, 'dark_mode_start', true ); ?>"<?php endif; ?> />
+						</label>
+						<label>
 							<?php _ex('To', 'Time frame ending at', 'dark-mode'); ?> <input type="time" name="dark_mode_end" id="dark_mode_end"<?php if ( false !== get_user_meta( $profileuser->data->ID, 'dark_mode_end', true ) ) : ?> value="<?php echo get_user_meta( $profileuser->data->ID, 'dark_mode_end', true ); ?>"<?php endif; ?> />
 						</label>
 					</p>
@@ -327,6 +329,7 @@ class Dark_Mode {
 	 * 
 	 * @since 1.0
 	 * @since 1.3 Added auto Dark Mode settings.
+	 * @since 1.7 Added sanitisation to fields not explicitly set.
 	 * 
 	 * @param string $user_id The user ID of someone.
 	 * 
@@ -335,7 +338,7 @@ class Dark_Mode {
 	public static function save_profile_fields( $user_id ) {
 
 		// Get the nonce input value
-		$dark_mode_nonce = isset( $_POST['dark_mode_nonce'] ) ? $_POST['dark_mode_nonce'] : '';
+		$dark_mode_nonce = isset( $_POST['dark_mode_nonce'] ) ? sanitize_text_field( $_POST['dark_mode_nonce'] ) : '';
 
 		// Verify the nonce is valid
 		if ( wp_verify_nonce( $dark_mode_nonce, 'dark_mode_nonce' ) ) {
@@ -343,8 +346,8 @@ class Dark_Mode {
 			// Set the value of the users choices
 			$dark_mode_core = isset ( $_POST['dark_mode'] ) ? 'on' : 'off';
 			$dark_mode_auto = isset ( $_POST['dark_mode_auto'] ) ? 'on' : 'off';
-			$dark_mode_start = isset ( $_POST['dark_mode_start'] ) ? $_POST['dark_mode_start'] : '';
-			$dark_mode_end = isset ( $_POST['dark_mode_end'] ) ? $_POST['dark_mode_end'] : '';
+			$dark_mode_start = isset ( $_POST['dark_mode_start'] ) ? sanitize_text_field( $_POST['dark_mode_start'] ) : '';
+			$dark_mode_end = isset ( $_POST['dark_mode_end'] ) ? sanitize_text_field( $_POST['dark_mode_end'] ) : '';
 
 			// Update the users meta data with the new values
 			update_user_meta( $user_id, 'dark_mode', $dark_mode_core );
