@@ -32,6 +32,7 @@ class Dark_Mode {
 	 * @since 1.0
 	 * @since 1.1 Changed admin_enqueue_scripts hook to 99 to override admin colour scheme styles.
 	 * @since 1.3 Added hook for the Feedback link in the toolbar.
+	 * @since 1.8 Added filter for the plugin table links and removed admin toolbar hook.
 	 * 
 	 * @return void
 	 */
@@ -39,10 +40,11 @@ class Dark_Mode {
 
 		add_action( 'plugins_loaded', array( __CLASS__, 'load_text_domain' ), 10, 0 );
 		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'load_dark_mode_css' ), 99, 0 );
-		add_action( 'admin_bar_menu', array( __CLASS__, 'add_feedback_link' ), 1250, 1 );
 		add_action( 'personal_options', array( __CLASS__, 'add_profile_fields' ), 10, 1 );
 		add_action( 'personal_options_update', array( __CLASS__, 'save_profile_fields' ), 10, 1 );
 		add_action( 'edit_user_profile_update', array( __CLASS__, 'save_profile_fields' ), 10, 1 );
+
+		add_filter('plugin_action_links', array( __CLASS__, 'add_plugin_links' ), 10, 2);
 
 	}
 
@@ -60,73 +62,31 @@ class Dark_Mode {
 	}
 
 	/**
-	 * Add feedback link to toolbar.
+	 * Add some useful links to the plugin table.
 	 * 
-	 * Only add the feedback link whilst the user has
-	 * Dark Mode turned on. This can be turned off globally
-	 * by defining the `DARK_MODE_FEEDBACK` constant to false.
+	 * @since 1.8
 	 * 
-	 * @since 1.3
-	 * @since 1.4 Updated the toolbar links.
+	 * @param array  $links The list of plugin links.
+	 * @param string $file  The current plugin.
 	 * 
-	 * @return void
+	 * @return array $links
 	 */
-	public static function add_feedback_link( $wp_admin_bar ) {
+	public static function add_plugin_links( $links, $file ) {
 
-		global $wp_admin_bar;
-		
-		// Get the current user id
-		$user_id = get_current_user_id();
-		
-		// Check the current user has Dark Mode on
-		if ( 'on' == get_user_meta( $user_id, 'dark_mode', true ) ) {
-		
-			// Set the menu class
-			$menu_class = 'dark_mode_link';
+		// Check Dark Mode is the next plugin
+		if ( 'dark-mode/dark-mode.php' == $file ) {
 
-			// Add an extra class when auto
-			if ( true === self::is_dark_mode_auto( $user_id ) && false !== self::is_using_dark_mode( $user_id, true ) ) {
+			// Create the two links
+			$settings_link = '<a href="' . admin_url( 'profile.php#dark-mode' ) . '">' . __('Settings', 'dark-mode') . '</a>';
+			$feedback_link = '<a href="https://github.com/danieltj27/Dark-Mode/issues" target="_blank">' . __('Feedback', 'dark-mode') . '</a>';
 
-				// Add the extra class
-				$menu_class = $menu_class . ' is_auto';
-
-			}
-
-			// Add Dark Mode to the toolbar
-			$args = array(
-				'id'     => 'dark_mode_link',
-				'title'  => _x('Dark Mode', 'Toolbar link text', 'dark-mode'),
-				'parent' => 'top-secondary',
-				'href'   => admin_url( 'profile.php' ),
-				'meta'   => array(
-					'class' => $menu_class,
-				),
-			);
-
-			// Add the link
-			$wp_admin_bar->add_node( $args );
-
-			// Should we add the feedback link to the toolbar
-			if ( ( ! defined( 'DARK_MODE_FEEDBACK' ) ) || ( defined( 'DARK_MODE_FEEDBACK' ) && false !== DARK_MODE_FEEDBACK ) ) {
-	
-				// Setup the feedback arguments
-				$args = array(
-					'id'     => 'dark_mode_feedback',
-					'title'  => _x('Feedback', 'Link to GitHub repository', 'dark-mode'),
-					'parent' => 'dark_mode_link',
-					'href'   => 'https://github.com/danieltj27/Dark-Mode/issues',
-					'meta'   => array(
-						'class'  => 'dark_mode_feedback',
-						'target' => '_blank',
-					)
-				);
-
-				// Add feedback link
-				$wp_admin_bar->add_node( $args );
-
-			}
+			// Add the links to the array
+			array_unshift( $links, $settings_link );
+			array_unshift( $links, $feedback_link );
 
 		}
+
+		return $links;
 
 	}
 
@@ -320,10 +280,10 @@ class Dark_Mode {
 					</p>
 					<p>
 						<label>
-							<?php _ex('From', 'Time frame starting at', 'dark-mode'); ?> <input type="time" name="dark_mode_start" id="dark_mode_start"<?php if ( false !== get_user_meta( $profileuser->data->ID, 'dark_mode_start', true ) ) : ?> value="<?php echo get_user_meta( $profileuser->data->ID, 'dark_mode_start', true ); ?>"<?php endif; ?> />
+							<?php _ex('From', 'Time frame starting at', 'dark-mode'); ?> <input type="time" name="dark_mode_start" id="dark_mode_start"<?php if ( false !== get_user_meta( $profileuser->data->ID, 'dark_mode_start', true ) ) : ?> placeholder="00:00" value="<?php echo get_user_meta( $profileuser->data->ID, 'dark_mode_start', true ); ?>"<?php endif; ?> />
 						</label>
 						<label>
-							<?php _ex('To', 'Time frame ending at', 'dark-mode'); ?> <input type="time" name="dark_mode_end" id="dark_mode_end"<?php if ( false !== get_user_meta( $profileuser->data->ID, 'dark_mode_end', true ) ) : ?> value="<?php echo get_user_meta( $profileuser->data->ID, 'dark_mode_end', true ); ?>"<?php endif; ?> />
+							<?php _ex('To', 'Time frame ending at', 'dark-mode'); ?> <input type="time" name="dark_mode_end" id="dark_mode_end"<?php if ( false !== get_user_meta( $profileuser->data->ID, 'dark_mode_end', true ) ) : ?> placeholder="00:00" value="<?php echo get_user_meta( $profileuser->data->ID, 'dark_mode_end', true ); ?>"<?php endif; ?> />
 						</label>
 					</p>
 					<input type="hidden" name="dark_mode_nonce" id="dark_mode_nonce" value="<?php echo $dark_mode_nonce; ?>" />

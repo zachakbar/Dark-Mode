@@ -347,6 +347,14 @@ body {
 
 		}
 
+		.spinner {
+
+			background-color: $white;
+			border: 1px solid $white;
+			border-radius: 100%;
+
+		}
+
 		code,
 		kbd {
 
@@ -880,7 +888,7 @@ body {
 		.wrap h2.nav-tab-wrapper,
 		h1.nav-tab-wrapper {
 
-			border-color: $dark-grey;
+			border-color: $light-grey;
 
 		}
 
@@ -893,7 +901,7 @@ body {
 			&:focus,
 			&:hover {
 
-				background-color: $light-grey;
+				background-color: $ultra-grey;
 
 			}
 
@@ -906,9 +914,9 @@ body {
 		.about-wrap h2 .nav-tab-active,
 		.media-modal-content {
 
-			background-color: $ultra-grey;
-			border-color: $dark-grey;
-			color: $light-grey;
+			background-color: $light-grey;
+			border-color: $light-grey;
+			color: $ultra-grey;
 
 		}
 
