@@ -766,48 +766,8 @@ body {
 
 		}
 
-		#plugin-information-scrollable {
-
-			#plugin-information-tabs a.current {
-
-				background-color: $black;
-				border-color: $ultra-grey;
-				color: $light-grey;
-
-			}
-
-			#plugin-information-content .fyi {
-
-				background: $ultra-grey !important;
-				border-color: $dark-grey !important;
-				color: $light-grey !important;
-
-				.counter-back {
-
-					background: $light-grey;
-
-				}
-
-				h3, strong {
-
-					color: $light-grey !important;
-
-				}
-
-			}
-
-		}
-
-		#plugin-information-footer {
-
-			background: $ultra-grey !important;
-			border-color: $dark-grey !important;
-
-		}
-
 		.wp-editor-expand #wp-content-editor-tools,
-		#wp-content-editor-tools,
-		#plugin-information-tabs {
+		#wp-content-editor-tools {
 
 			background-color: $base-grey;
 			border-color: $dark-grey;
@@ -1088,6 +1048,64 @@ body {
 			color: $light-grey;
 
 		}
+
+	}
+
+	#plugin-information-scrollable {
+
+		#plugin-information-tabs {
+
+			background-color: $ultra-grey;
+			border-color: $dark-grey;
+
+			a.current {
+
+				background-color: $base-grey;
+				border-color: $ultra-grey;
+				color: $light-grey;
+
+			}
+
+		}
+
+		#plugin-information-content {
+
+			background-color: $base-grey;
+
+			.wrap {
+
+				background-color: $base-grey;
+
+			}
+
+			.fyi {
+
+				background: $ultra-grey;
+				border-color: $dark-grey;
+				color: $light-grey;
+
+				.counter-back {
+
+					background: $light-grey;
+
+				}
+
+				h3, strong {
+
+					color: $light-grey !important;
+
+				}
+
+			}
+
+		}
+
+	}
+
+	#plugin-information-footer {
+
+		background: $ultra-grey !important;
+		border-color: $dark-grey !important;
 
 	}
 
