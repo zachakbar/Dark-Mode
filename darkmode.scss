@@ -1,27 +1,10 @@
-/*
- * Dark Mode
- * A feature plugin that might make it in WordPress core one day.
- * 
- * DEVELOPERS:
- * -----------
- * The Dark Mode stylesheet is built using the Sass CSS pre-processor. With this you will
- * need to have at least Sass version 3.x.x installed. To compile the stylesheet, please
- * use the following command line option:
- * 
- * sass --watch darkmode.scss:darkmode.css --style compressed
- * 
- * 
- * CONTRIBUTE:
- * -----------
- * Redesigning the WordPress admin area is no easy feat. If you want to get
- * involved and help out, you can help redesign the WordPress dashboard or
- * contribute code via GitHub ( https://github.com/danieltj27/Dark-Mode/ ).
- * 
- * 
- * COLOURS:
- * --------
- * The defined colours are loosely based on the official branding colours.
- * The Official WordPress Colours can be found here:
+/**
+ * DARK MODE
+ * A feature plugin that will hopefully be in WordPress core one day.
+ */
+
+/** 
+ * The colours below are loosely based on the WordPress branding colours.
  * https://make.wordpress.org/design/handbook/design-guide/foundations/colors/
  */
 $white:           #ffffff;
@@ -52,7 +35,9 @@ $editor-lavender: #c678dd;
 $editor-sunglo:   #e06c75;
 $editor-olivine:  #98c379;
 
-
+/**
+ * Start here.
+ */
 body {
 
 	background-color: $base-grey;

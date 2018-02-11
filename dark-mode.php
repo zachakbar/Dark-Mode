@@ -7,7 +7,7 @@
  * Author: Daniel James
  * Author URI: https://www.danieltj.co.uk/
  * Text Domain: dark-mode
- * Version: 1.7
+ * Version: 1.8
  */
 
 // No thank you
@@ -16,6 +16,15 @@ if ( ! defined( 'ABSPATH' ) ) die();
 new Dark_Mode;
 
 class Dark_Mode {
+
+	/**
+	 * Define the plugin version.
+	 * 
+	 * @since 1.8
+	 * 
+	 * @var string
+	 */
+	public static $version = '1.8';
 
 	/**
 	 * Function which hooks into WordPress Core.
@@ -28,12 +37,12 @@ class Dark_Mode {
 	 */
 	public function __construct() {
 
-		add_action('plugins_loaded', array( __CLASS__, 'load_text_domain' ), 10);
-		add_action('admin_enqueue_scripts', array( __CLASS__, 'load_dark_mode_css' ), 99);
-		add_action('admin_bar_menu', array( __CLASS__, 'add_feedback_link' ), 1250);
-		add_action('personal_options', array( __CLASS__, 'add_profile_fields' ), 10);
-		add_action('personal_options_update', array( __CLASS__, 'save_profile_fields' ), 10);
-		add_action('edit_user_profile_update', array( __CLASS__, 'save_profile_fields' ), 10);
+		add_action( 'plugins_loaded', array( __CLASS__, 'load_text_domain' ), 10, 0 );
+		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'load_dark_mode_css' ), 99, 0 );
+		add_action( 'admin_bar_menu', array( __CLASS__, 'add_feedback_link' ), 1250, 1 );
+		add_action( 'personal_options', array( __CLASS__, 'add_profile_fields' ), 10, 1 );
+		add_action( 'personal_options_update', array( __CLASS__, 'save_profile_fields' ), 10, 1 );
+		add_action( 'edit_user_profile_update', array( __CLASS__, 'save_profile_fields' ), 10, 1 );
 
 	}
 
@@ -88,7 +97,7 @@ class Dark_Mode {
 				'id'     => 'dark_mode_link',
 				'title'  => _x('Dark Mode', 'Toolbar link text', 'dark-mode'),
 				'parent' => 'top-secondary',
-				'href'   => admin_url('profile.php'),
+				'href'   => admin_url( 'profile.php' ),
 				'meta'   => array(
 					'class' => $menu_class,
 				),
@@ -113,7 +122,7 @@ class Dark_Mode {
 				);
 
 				// Add feedback link
-				$wp_admin_bar->add_node($args);
+				$wp_admin_bar->add_node( $args );
 
 			}
 
@@ -254,7 +263,7 @@ class Dark_Mode {
 			 *
 			 * @since 1.0
 			 */
-			do_action('doing_dark_mode');
+			do_action( 'doing_dark_mode' );
 
 			/**
 			 * Filters the Dark Mode stylesheet URL.
@@ -265,13 +274,13 @@ class Dark_Mode {
 			 * 
 			 * @return string $css_url
 			 */
-			$css_url = apply_filters( 'dark_mode_css', plugins_url('dark-mode', 'dark-mode') . '/darkmode.css' );
+			$css_url = apply_filters( 'dark_mode_css', plugins_url( 'dark-mode', 'dark-mode' ) . '/darkmode.css' );
 
 			// Register the dark mode stylesheet
-			wp_register_style('dark_mode', $css_url, array(), '1.6');
+			wp_register_style( 'dark_mode', $css_url, array(), self::$version );
 
 			// Enqueue the stylesheet
-			wp_enqueue_style('dark_mode');
+			wp_enqueue_style( 'dark_mode' );
 
 		}
 
@@ -291,7 +300,7 @@ class Dark_Mode {
 	public static function add_profile_fields( $profileuser ) {
 
 		// Setup a new nonce field for the Dark Mode options
-		$dark_mode_nonce = wp_create_nonce('dark_mode_nonce');
+		$dark_mode_nonce = wp_create_nonce( 'dark_mode_nonce' );
 
 		?>
 			<tr class="dark-mode user-dark-mode-option" id="dark-mode">
