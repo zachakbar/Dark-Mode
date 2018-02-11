@@ -44,7 +44,7 @@ You can set Dark Mode to come on automatically between two set times, or have it
 
 = Can I contribute to this plugin? =
 
-Yes, you can follow the Trac ticket for updates and get involved on GitHub with suggestions, feedback and code contributions.
+Yes, you can follow the [Trac ticket](https://core.trac.wordpress.org/ticket/41928) for updates and get involved on [GitHub](https://github.com/danieltj27/Dark-Mode) with suggestions, feedback and code contributions.
 
 == Screenshots ==
 
@@ -55,78 +55,14 @@ Yes, you can follow the Trac ticket for updates and get involved on GitHub with 
 
 == Changelog ==
 
-= 1.8 =
+= Version History =
 
-* Improvements made to coding standards and documentation.
-* Added placeholder text to the start and end input boxes for accessibility.
-* Changed the default plugin language from en_GB to en_US.
-* Removed the links in the toolbar for the profile & feedback pages.
-* Added profile and feedback link to the plugin table.
-* Style improvements made to the progress spinner element.
-
-= 1.7 =
-
-* Fixed a XSS vulnerability with the automatic start & end times. [Credit](https://github.com/d4wner/Vulnerabilities-Report/blob/master/dark-mode.md)
-* Fixed a bug with the start and end inputs sharing a label element.
-
-= 1.6 =
-
-* Fixed a problem with automatic Dark Mode not activating correctly.
-* Fixed issue with PHP 5.4 installs not supporting empty if statements.
-* Added the requires PHP header and set it to 5.4 for compatibility.
-* Improved the CSS for many widget related styling bugs.
-* Fixed issue with UI notices having an incorrect background color.
-* Added styling to the media attachment modal popup.
-* Fixed CSS conflicts causing the customiser to not be styled.
-* Fixed a variety of smaller UI elements that had incorrect styles.
-
-= 1.5 =
-
-* Added support for Code Mirror editor styles.
-* Fixed a bug where automatic Dark Mode was set incorrectly.
-* Improvements to how some core functions worked.
-* Improvements to translation strings.
-
-= 1.4 =
-
-* Updated the stylesheet to now include new Customiser styles.
-* Further updates to the readme.txt file to address typos and updates.
-* Moved the toolbar links to the right and added feedback to a drop down.
-* Fixed an issue with Dark Mode being automatically turned on or off.
-
-= 1.3 =
-
-* Added link to GitHub repository for people to provide feedback.
-* Added the ability to schedule Dark Mode to come on between certain times.
-* Improved the implementation of certain core functions for better control.
-* Updated the styles to include more areas that were previously unstyled.
-
-= 1.2 =
-
-* Added CSS source maps to files making it easier to develop the stylesheet further.
-* Updated a translation string for better clarity.
-* Updated the documentation comments for a few functions.
-* Fixed more issues with elements that are not styled. Thanks to all those who spotted them!
-* Minor optimisations made to the stylesheet to help reduce the file size.
-
-= 1.1.2 =
-
-* Further updates to the color palette used in the new design.
-* More elements within the dashboard have been styled.
-
-= 1.1.1 =
-
-* Updated the readme.txt file information.
-* Minor improvements to code documentation blocks.
-* Restyled the new Try Gutenberg banner on the dashboard index.
-* Updated the color palette and swapped blue for purple!
-
-= 1.1 =
-
-* Redesigned (most of) the admin dashboard into a darker design.
-* Added a filter hook to change the URL of the Dark Mode stylesheet.
-* Minor improvements to the code.
-
-= 1.0 =
-
-* Initial version.
+* [Version 1.8](https://github.com/danieltj27/Dark-Mode/milestone/10)
+* [Version 1.7](https://github.com/danieltj27/Dark-Mode/milestone/11)
+* [Version 1.6](https://github.com/danieltj27/Dark-Mode/milestone/9)
+* [Version 1.5](https://github.com/danieltj27/Dark-Mode/milestone/7)
+* [Version 1.4](https://github.com/danieltj27/Dark-Mode/milestone/6)
+* [Version 1.3](https://github.com/danieltj27/Dark-Mode/milestone/5)
+* [Version 1.2](https://github.com/danieltj27/Dark-Mode/milestone/4)
+* [Version 1.1](https://github.com/danieltj27/Dark-Mode/milestone/2)
+* [Version 1.0](https://github.com/danieltj27/Dark-Mode/milestone/1)
