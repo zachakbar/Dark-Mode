@@ -44,7 +44,6 @@ $ultra-grey:      #191f25;
 $dark-silver:     #50626f;
 $base-blue:       #2e74aa;
 $light-blue:      #4092d2;
-$focus-blue:      #5b9dd9;
 $dark-blue:       #2c5f88;
 $ultra-blue:      #1f3f58;
 $bright-blue:     #30ceff;
@@ -1399,7 +1398,7 @@ body {
 			.attachment:focus,
 			.attachment.details {
 
-				box-shadow: inset 0 0 2px 3px $dark-silver, inset 0 0 0 7px $focus-blue;
+				box-shadow: inset 0 0 2px 3px $dark-silver, inset 0 0 0 7px $light-blue;
 
 			}
 			
