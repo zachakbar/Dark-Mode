@@ -921,6 +921,12 @@ body {
 
 			}
 
+			.screenshot {
+
+				border-color: $ultra-grey;
+
+			}
+
 			.current-label {
 
 				background: $dark-grey;
@@ -1585,7 +1591,7 @@ body {
 		&:active {
 
 			background: $heavy-grey;
-			border-color: $ultra-grey;
+			border-color: $dark-grey;
 			color: $white;
 
 		}
