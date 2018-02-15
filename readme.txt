@@ -57,4 +57,4 @@ Yes, you can follow the [Trac ticket](https://core.trac.wordpress.org/ticket/419
 
 = Version History =
 
-Please refer to the [GitHub repository](https://github.com/danieltj27/Dark-Mode/commits) for more information about the changes to the latest version.
+Refer to the [GitHub commit logs](https://github.com/danieltj27/Dark-Mode/commits) for more information regarding the latest changes.
