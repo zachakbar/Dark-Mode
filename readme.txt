@@ -57,12 +57,4 @@ Yes, you can follow the [Trac ticket](https://core.trac.wordpress.org/ticket/419
 
 = Version History =
 
-* [Version 1.8](https://github.com/danieltj27/Dark-Mode/milestone/10)
-* [Version 1.7](https://github.com/danieltj27/Dark-Mode/milestone/11)
-* [Version 1.6](https://github.com/danieltj27/Dark-Mode/milestone/9)
-* [Version 1.5](https://github.com/danieltj27/Dark-Mode/milestone/7)
-* [Version 1.4](https://github.com/danieltj27/Dark-Mode/milestone/6)
-* [Version 1.3](https://github.com/danieltj27/Dark-Mode/milestone/5)
-* [Version 1.2](https://github.com/danieltj27/Dark-Mode/milestone/4)
-* [Version 1.1](https://github.com/danieltj27/Dark-Mode/milestone/2)
-* [Version 1.0](https://github.com/danieltj27/Dark-Mode/milestone/1)
+Please refer to the [GitHub repository](https://github.com/danieltj27/Dark-Mode/commits) for more information about the changes to the latest version.

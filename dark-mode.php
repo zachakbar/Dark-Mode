@@ -7,7 +7,7 @@
  * Author: Daniel James
  * Author URI: https://www.danieltj.co.uk/
  * Text Domain: dark-mode
- * Version: 1.8
+ * Version: 1.8.1
  */
 
 // No thank you
@@ -24,7 +24,7 @@ class Dark_Mode {
 	 * 
 	 * @var string
 	 */
-	public static $version = '1.8';
+	public static $version = '1.8.1';
 
 	/**
 	 * Function which hooks into WordPress Core.
@@ -250,8 +250,9 @@ class Dark_Mode {
 	 * Create the HTML markup for the profile setting.
 	 * 
 	 * @since 1.0
-	 * @since 1.3 Added automatic Dark Mode markup.
-	 * @since 1.4 Added id attribute to element.
+	 * @since 1.3   Added automatic Dark Mode markup.
+	 * @since 1.4   Added id attribute to element.
+	 * @since 1.8.1 Removed default value from get_user_meta and added escaping to values.
 	 * 
 	 * @param object $profileuser WP_User object data.
 	 * 
@@ -268,22 +269,22 @@ class Dark_Mode {
 				<td>
 					<p>
 						<label for="dark_mode">
-							<input type="checkbox" id="dark_mode" name="dark_mode" class="dark_mode"<?php if ( 'on' == get_user_meta( $profileuser->data->ID, 'dark_mode', true ) ) : ?> checked="checked"<?php endif; ?> />
+							<input type="checkbox" id="dark_mode" name="dark_mode" class="dark_mode"<?php if ( 'on' == get_user_meta( $profileuser->data->ID, 'dark_mode' ) ) : ?> checked="checked"<?php endif; ?> />
 							<?php _e('Enable Dark Mode on the admin dashboard', 'dark-mode'); ?>
 						</label>
 					</p>
 					<p>
 						<label for="dark_mode_auto">
-							<input type="checkbox" id="dark_mode_auto" name="dark_mode_auto" class="dark_mode_auto"<?php if ( 'on' == get_user_meta( $profileuser->data->ID, 'dark_mode_auto', true ) ) : ?> checked="checked"<?php endif; ?> />
+							<input type="checkbox" id="dark_mode_auto" name="dark_mode_auto" class="dark_mode_auto"<?php if ( 'on' == get_user_meta( $profileuser->data->ID, 'dark_mode_auto' ) ) : ?> checked="checked"<?php endif; ?> />
 							<?php _e('Automatically enable Dark Mode over night between these times:', 'dark-mode'); ?>
 						</label>
 					</p>
 					<p>
 						<label>
-							<?php _ex('From', 'Time frame starting at', 'dark-mode'); ?> <input type="time" name="dark_mode_start" id="dark_mode_start"<?php if ( false !== get_user_meta( $profileuser->data->ID, 'dark_mode_start', true ) ) : ?> placeholder="00:00" value="<?php echo get_user_meta( $profileuser->data->ID, 'dark_mode_start', true ); ?>"<?php endif; ?> />
+							<?php _ex('From', 'Time frame starting at', 'dark-mode'); ?> <input type="time" name="dark_mode_start" id="dark_mode_start"<?php if ( false !== get_user_meta( $profileuser->data->ID, 'dark_mode_start' ) ) : ?> placeholder="00:00" value="<?php echo esc_attr( get_user_meta( $profileuser->data->ID, 'dark_mode_start', true ) ); ?>"<?php endif; ?> />
 						</label>
 						<label>
-							<?php _ex('To', 'Time frame ending at', 'dark-mode'); ?> <input type="time" name="dark_mode_end" id="dark_mode_end"<?php if ( false !== get_user_meta( $profileuser->data->ID, 'dark_mode_end', true ) ) : ?> placeholder="00:00" value="<?php echo get_user_meta( $profileuser->data->ID, 'dark_mode_end', true ); ?>"<?php endif; ?> />
+							<?php _ex('To', 'Time frame ending at', 'dark-mode'); ?> <input type="time" name="dark_mode_end" id="dark_mode_end"<?php if ( false !== get_user_meta( $profileuser->data->ID, 'dark_mode_end' ) ) : ?> placeholder="00:00" value="<?php echo esc_attr( get_user_meta( $profileuser->data->ID, 'dark_mode_end', true ) ); ?>"<?php endif; ?> />
 						</label>
 					</p>
 					<input type="hidden" name="dark_mode_nonce" id="dark_mode_nonce" value="<?php echo $dark_mode_nonce; ?>" />

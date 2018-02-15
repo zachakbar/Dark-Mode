@@ -1061,7 +1061,8 @@ body {
 			a.current {
 
 				background-color: $base-grey;
-				border-color: $ultra-grey;
+				border-color: $dark-grey;
+				border-bottom-color: $base-grey;
 				color: $light-grey;
 
 			}
