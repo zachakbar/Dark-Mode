@@ -3,7 +3,7 @@ Contributors: danieltj, munyagu, travel_girl, melchoyce, afercia, hedgefield, me
 Tags: dark, style, admin, dashboard, profile
 Requires at least: 4.0
 Tested up to: 4.9
-Stable tag: 1.8
+Stable tag: 1.8.2
 Requires PHP: 5.4
 License: GNU GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -57,12 +57,4 @@ Yes, you can follow the [Trac ticket](https://core.trac.wordpress.org/ticket/419
 
 = Version History =
 
-* [Version 1.8](https://github.com/danieltj27/Dark-Mode/milestone/10)
-* [Version 1.7](https://github.com/danieltj27/Dark-Mode/milestone/11)
-* [Version 1.6](https://github.com/danieltj27/Dark-Mode/milestone/9)
-* [Version 1.5](https://github.com/danieltj27/Dark-Mode/milestone/7)
-* [Version 1.4](https://github.com/danieltj27/Dark-Mode/milestone/6)
-* [Version 1.3](https://github.com/danieltj27/Dark-Mode/milestone/5)
-* [Version 1.2](https://github.com/danieltj27/Dark-Mode/milestone/4)
-* [Version 1.1](https://github.com/danieltj27/Dark-Mode/milestone/2)
-* [Version 1.0](https://github.com/danieltj27/Dark-Mode/milestone/1)
+Refer to the [GitHub commit logs](https://github.com/danieltj27/Dark-Mode/commits) for more information regarding the latest changes.

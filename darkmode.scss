@@ -921,6 +921,12 @@ body {
 
 			}
 
+			.screenshot {
+
+				border-color: $ultra-grey;
+
+			}
+
 			.current-label {
 
 				background: $dark-grey;
@@ -1061,7 +1067,8 @@ body {
 			a.current {
 
 				background-color: $base-grey;
-				border-color: $ultra-grey;
+				border-color: $dark-grey;
+				border-bottom-color: $base-grey;
 				color: $light-grey;
 
 			}
@@ -1689,12 +1696,23 @@ body {
 		color: $white;
 		text-decoration: none;
 
+		span {
+
+			&,
+			&::before {
+
+				color: $white;
+
+			}
+
+		}
+
 		&:hover,
 		&:focus,
 		&:active {
 
 			background: $heavy-grey;
-			border-color: $ultra-grey;
+			border-color: $dark-grey;
 			color: $white;
 
 		}
