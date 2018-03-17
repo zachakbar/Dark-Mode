@@ -77,7 +77,7 @@ class Dark_Mode {
 		if ( 'dark-mode/dark-mode.php' == $file ) {
 
 			// Create the two links
-			$settings_link = '<a href="' . admin_url( 'profile.php#dark-mode' ) . '">' . __('Settings', 'dark-mode') . '</a>';
+			$settings_link = '<a href="' . esc_url( admin_url( 'profile.php#dark-mode' ) ) . '">' . __('Settings', 'dark-mode') . '</a>';
 			$feedback_link = '<a href="https://github.com/danieltj27/Dark-Mode/issues" target="_blank">' . __('Feedback', 'dark-mode') . '</a>';
 
 			// Add the links to the array
@@ -108,9 +108,9 @@ class Dark_Mode {
 	 */
 	public static function is_using_dark_mode( $user_id = 0, $check_auto = false ) {
 
-		// Check we've got a user id
-		if ( false === $user_id ) {
+		if ( 0 == $user_id ) {
 
+			// Default to the current user
 			$user_id = get_current_user_id();
 
 		}
@@ -162,22 +162,22 @@ class Dark_Mode {
 	 * of `is_using_dark_mode()` and only checks the auto value is set.
 	 * 
 	 * @access private
+	 * 
 	 * @see (function) is_using_dark_mode
 	 * 
 	 * @since 1.3
 	 * @since 1.5 Access was changed to private.
 	 * @since 1.6 Changed default value of user id to false.
 	 * 
-	 * @param string $user_id User ID
+	 * @param int $user_id The user id to check.
 	 * 
 	 * @return boolean
 	 */
-	private static function is_dark_mode_auto( $user_id = false ) {
+	private static function is_dark_mode_auto( $user_id = 0 ) {
 
-		// Have we been given a user ID
-		if ( false === $user_id ) {
+		if ( 0 == $user_id ) {
 
-			// Get the current user id
+			// Default to the current user
 			$user_id = get_current_user_id();
 
 		}
@@ -204,10 +204,10 @@ class Dark_Mode {
 	 */
 	public static function load_dark_mode_css() {
 
-		// Get the current user ID
+		// Get the current user id
 		$user_id = get_current_user_id();
 
-		// Is the current user using Dark Mode?
+		// Check the user is using Dark Mode
 		if ( false !== self::is_using_dark_mode( $user_id, true ) ) {
 
 			/**
@@ -277,13 +277,13 @@ class Dark_Mode {
 					</p>
 					<p>
 						<label>
-							<?php _ex('From', 'Time frame starting at', 'dark-mode'); ?> <input type="time" name="dark_mode_start" id="dark_mode_start"<?php if ( false !== get_user_meta( $profileuser->data->ID, 'dark_mode_start' ) ) : ?> placeholder="00:00" value="<?php echo esc_attr( get_user_meta( $profileuser->data->ID, 'dark_mode_start', true ) ); ?>"<?php endif; ?> />
+							<?php _ex('From', 'Time frame starting at', 'dark-mode'); ?> <input type="time" name="dark_mode_start" id="dark_mode_start" placeholder="00:00"<?php if ( false !== get_user_meta( $profileuser->data->ID, 'dark_mode_start' ) ) : ?> value="<?php echo esc_attr( get_user_meta( $profileuser->data->ID, 'dark_mode_start', true ) ); ?>"<?php endif; ?> />
 						</label>
 						<label>
-							<?php _ex('To', 'Time frame ending at', 'dark-mode'); ?> <input type="time" name="dark_mode_end" id="dark_mode_end"<?php if ( false !== get_user_meta( $profileuser->data->ID, 'dark_mode_end' ) ) : ?> placeholder="00:00" value="<?php echo esc_attr( get_user_meta( $profileuser->data->ID, 'dark_mode_end', true ) ); ?>"<?php endif; ?> />
+							<?php _ex('To', 'Time frame ending at', 'dark-mode'); ?> <input type="time" name="dark_mode_end" id="dark_mode_end" placeholder="00:00"<?php if ( false !== get_user_meta( $profileuser->data->ID, 'dark_mode_end' ) ) : ?> value="<?php echo esc_attr( get_user_meta( $profileuser->data->ID, 'dark_mode_end', true ) ); ?>"<?php endif; ?> />
 						</label>
 					</p>
-					<input type="hidden" name="dark_mode_nonce" id="dark_mode_nonce" value="<?php echo $dark_mode_nonce; ?>" />
+					<input type="hidden" name="dark_mode_nonce" id="dark_mode_nonce" value="<?php echo esc_attr( $dark_mode_nonce ); ?>" />
 				</td>
 			</tr>
 		<?php
@@ -297,7 +297,7 @@ class Dark_Mode {
 	 * @since 1.3 Added auto Dark Mode settings.
 	 * @since 1.7 Added sanitisation to fields not explicitly set.
 	 * 
-	 * @param string $user_id The user ID of someone.
+	 * @param int $user_id The user id.
 	 * 
 	 * @return void
 	 */
