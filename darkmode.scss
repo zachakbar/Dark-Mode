@@ -35,9 +35,6 @@ $editor-lavender: #c678dd;
 $editor-sunglo:   #e06c75;
 $editor-olivine:  #98c379;
 
-/**
- * Start here.
- */
 body {
 
 	background-color: $base-grey;
@@ -1310,14 +1307,60 @@ body {
 
 	.media-modal {
 
+		button.media-modal-close {
+
+			background-color: $ultra-grey;
+			border-color: $dark-silver;
+
+			&:hover {
+
+				background-color: $dark-silver;
+				border-color: $dark-silver;
+
+				span {
+
+					&::before {
+
+						color: $ultra-grey;
+
+					}
+
+				}
+
+			}
+
+			span {
+
+				&::before {
+
+					color: $light-grey;
+
+				}
+
+			}
+
+		}
+
 		.media-menu {
-			
+
 			background: $ultra-grey;
-			border-color:  $ultra-grey;
-			
+			border-color: $ultra-grey;
+
+			a {
+
+				color: $light-blue;
+
+				&:hover {
+
+					color: $blue;
+
+				}
+
+			}
+
 			.separator {
 
-				border-color: $white;
+				border-color: $light-grey;
 
 			}
 
@@ -1327,9 +1370,22 @@ body {
 				color: $white;
 
 			}
+
 		}
 
 		.media-router {
+
+			a {
+
+				color: $light-blue;
+
+				&:hover {
+
+					color: $blue;
+
+				}
+
+			}
 
 			.active {
 
@@ -1338,12 +1394,6 @@ body {
 				border-color: $ultra-grey;
 
 			}
-		}
-
-		.media-frame-toolbar .media-toolbar {
-
-			border-color:  $ultra-grey;
-
 		}
 
 		.media-sidebar {
@@ -1392,58 +1442,6 @@ body {
 
 		}
 
-		.wp-core-ui {
-			
-			.attachment-preview {
-
-				background: $heavy-grey;
-				box-shadow: inset 0 0 15px rgba( 0, 0, 0, 0.2 ), inset 0 0 0 1px rgba( 0, 0, 0, 0.05 );
-
-			}
-
-			.attachment.selected {
-
-				box-shadow: inset 0 0 0 5px $dark-silver, inset 0 0 0 7px #ccc;
-
-			}
-
-			.attachment:focus,
-			.attachment.details {
-
-				box-shadow: inset 0 0 2px 3px $dark-silver, inset 0 0 0 7px $light-blue;
-
-			}
-			
-		}
-
-		button.media-modal-close {
-
-			&:hover {
-
-				span {
-
-					&::before {
-
-						color: $ultra-grey;
-
-					}
-
-				}
-
-			}
-
-			span {
-
-				&::before {
-
-					color: $light-grey;
-
-				}
-
-			}
-
-		}
-
 		&-content {
 
 			background-color: $base-grey;
@@ -1454,7 +1452,7 @@ body {
 				&-title,
 				&-content {
 
-					background-color: $dark-silver;
+					background-color: $base-grey;
 					border-color: $ultra-grey;
 					color: $light-grey;
 
@@ -1466,8 +1464,53 @@ body {
 
 				}
 
-				&-title {
-					background-color: $base-grey;
+				&-content {
+
+					.setting {
+
+						span {
+
+							color: $light-grey;
+
+						}
+
+					}
+
+					.upload-ui {
+
+						h2,
+						p {
+
+							color: $light-grey;
+
+						}
+
+					}
+
+				}
+
+				&-toolbar {
+
+					.media-toolbar {
+
+						border-color: $ultra-grey;
+
+					}
+
+				}
+
+				&.hide-router {
+
+					.media-frame {
+
+						&-title {
+
+							border-bottom: none;
+
+						}
+
+					}
+
 				}
 
 			}
@@ -1520,6 +1563,7 @@ body {
 					.left,
 					.right {
 
+						background-color: $ultra-grey;
 						border-color: $dark-silver;
 
 					}
@@ -1543,6 +1587,30 @@ body {
 
 			}
 
+		}
+
+		.wp-core-ui {
+			
+			.attachment-preview {
+
+				background: $heavy-grey;
+				box-shadow: inset 0 0 15px rgba( 0, 0, 0, 0.2 ), inset 0 0 0 1px rgba( 0, 0, 0, 0.05 );
+
+			}
+
+			.attachment.selected {
+
+				box-shadow: inset 0 0 0 5px $dark-silver, inset 0 0 0 7px #ccc;
+
+			}
+
+			.attachment:focus,
+			.attachment.details {
+
+				box-shadow: inset 0 0 2px 3px $dark-silver, inset 0 0 0 7px $light-blue;
+
+			}
+			
 		}
 
 		.embed-url {
@@ -1679,6 +1747,32 @@ body {
 
 	}
 
+	.wp-editor-wrap {
+
+		.wp-editor-tabs {
+
+			button {
+
+				background-color: $dark-silver;
+				border-color: $dark-grey;
+				color: $light-grey;
+
+			}
+
+		}
+
+	}
+
+	.html-active .switch-html,
+	.tmce-active .switch-tmce {
+
+		background: $dark-grey;
+		border-color: $ultra-grey;
+		border-bottom-color: $dark-grey;
+		color: $white;
+
+	}
+
 	h1, h2, h3, h4, h5, h6 {
 
 		color: $light-grey;
@@ -1788,7 +1882,6 @@ body {
 	.button-secondary[disabled],
 	.button.disabled,
 	.button:disabled,
-	.wp-core-ui .button:disabled,
 	.button[disabled] {
 
 		background: $dark-grey !important;
@@ -1810,13 +1903,16 @@ body {
 		select,
 		textarea {
 
-			color: $white;
 			background-color: $dark-silver;
 			border-color: $ultra-grey;
+			color: $white;
 
 			&::placeholder {
+
 				color: $light-grey;
+
 			}
+
 		}
 
 	}
@@ -1874,6 +1970,7 @@ body {
 	input[type=month],
 	input[type=number] {
 
+		&:readonly,
 		&:disabled {
 		
     		background-color: $dark-grey;

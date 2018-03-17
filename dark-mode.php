@@ -7,7 +7,7 @@
  * Author: Daniel James
  * Author URI: https://www.danieltj.co.uk/
  * Text Domain: dark-mode
- * Version: 1.8.3
+ * Version: 1.8.4
  */
 
 // No thank you
@@ -24,7 +24,7 @@ class Dark_Mode {
 	 * 
 	 * @var string
 	 */
-	public static $version = '1.8.3';
+	public static $version = '1.8.4';
 
 	/**
 	 * Function which hooks into WordPress Core.
@@ -101,12 +101,12 @@ class Dark_Mode {
 	 * @since 1.0
 	 * @since 1.6 Major rewrite to properly address automatic Dark Mode.
 	 * 
-	 * @param string  $user_id    User ID of given person.
-	 * @param boolean $check_auto Check for auto mode or not.
+	 * @param int     $user_id    The user id to check.
+	 * @param boolean $check_auto The flag to check auto mode.
 	 * 
 	 * @return boolean
 	 */
-	public static function is_using_dark_mode( $user_id = false, $check_auto = false ) {
+	public static function is_using_dark_mode( $user_id = 0, $check_auto = false ) {
 
 		// Check we've got a user id
 		if ( false === $user_id ) {
@@ -125,12 +125,7 @@ class Dark_Mode {
 				$auto_start = date_i18n( 'Y-m-d H:i:s', strtotime( get_user_meta( $user_id, 'dark_mode_start', true ) ) );
 				$auto_end = date_i18n( 'Y-m-d H:i:s', strtotime( get_user_meta( $user_id, 'dark_mode_end', true ) ) );
 
-				/**
-				 * Check if the end time is smaller then the start time
-				 * because if the start time is 8pm and the end time is
-				 * 6am, without adding 1 day to the end date, the time frame
-				 * will actually be 8pm to 6am on the same day which is backwards.
-				 */
+				// Check the start time is greater than the end time
 				if ( $auto_start > $auto_end ) {
 
 					$auto_end = date_i18n( 'Y-m-d H:i:s', strtotime( '+1 day', strtotime( get_user_meta( $user_id, 'dark_mode_end', true ) ) ) );
