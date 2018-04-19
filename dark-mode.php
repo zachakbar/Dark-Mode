@@ -236,7 +236,7 @@ class Dark_Mode {
 			 * @param string $option  The user's option choice.
 			 * @param int    $user_id The current user's id.
 			 */
-			$option = apply_filters( 'pre_dark_mode_setting_save', $option, $user_id );
+			$option = apply_filters( 'before_dark_mode_saved', $option, $user_id );
 
 			// Update the users meta
 			update_user_meta( $user_id, 'dark_mode', $option );
