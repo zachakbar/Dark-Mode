@@ -38,9 +38,17 @@ Whilst Dark Mode has been translated into a few different languages already, we 
 
 By default, WordPress has a very bright color scheme which means working at night time can be difficult. Dark Mode allows you to change the overall design to a much darker and subtle design making it more visually pleasing when working late.
 
-= When does Dark Mode start working? =
+= Does this support multi sites? =
 
-You can set Dark Mode to come on automatically between two set times, or have it enabled all the time. Go to your profile page and edit your settings accordingly.
+Yes, the network administration areas have been styled accordingly to ensure a smooth, darker interface across your WordPress experience.
+
+= Can I set it to come on automatically? =
+
+Having Dark Mode come on automatically between certin times was a feature in this plugin that has since been removed as of version 2.0. Don't worry though, there is a helper plugin available here which brings this functionality back.
+
+= Why was the automatic feature removed? =
+
+A lot more work was needed to ensure that it is stable, and it didn't fit in with the original plan of the Dark Mode feature. It is still available as an additional plugin if you'd like it back though.
 
 = Can I contribute to this plugin? =
 

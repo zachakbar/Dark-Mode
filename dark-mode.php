@@ -10,10 +10,11 @@
  * Version: 2.0
  */
 
-// No thank you
-if ( ! defined( 'ABSPATH' ) ) die();
+if ( ! defined( 'ABSPATH' ) ) {
+	die();
+}
 
-$Dark_mode = new Dark_Mode::init();
+$dark_mode = new Dark_Mode;
 
 class Dark_Mode {
 
@@ -33,11 +34,10 @@ class Dark_Mode {
 	 * @since 1.1 Changed admin_enqueue_scripts hook to 99 to override admin colour scheme styles.
 	 * @since 1.3 Added hook for the Feedback link in the toolbar.
 	 * @since 1.8 Added filter for the plugin table links and removed admin toolbar hook.
-	 * @since 2.0 Replaces the old `__construct` method.
 	 * 
 	 * @return void
 	 */
-	public static function init() {
+	public function __construct() {
 
 		add_action( 'plugins_loaded', array( __CLASS__, 'load_text_domain' ), 10, 0 );
 		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'load_dark_mode_css' ), 99, 0 );
@@ -45,12 +45,12 @@ class Dark_Mode {
 		add_action( 'personal_options_update', array( __CLASS__, 'save_profile_fields' ), 10, 1 );
 		add_action( 'edit_user_profile_update', array( __CLASS__, 'save_profile_fields' ), 10, 1 );
 
-		add_filter('plugin_action_links', array( __CLASS__, 'add_plugin_links' ), 10, 2);
+		add_filter( 'plugin_action_links', array( __CLASS__, 'add_plugin_links' ), 10, 2 );
 
 	}
 
 	/**
-	 * Load the plugin text domain for l10n.
+	 * Load the plugin text domain.
 	 * 
 	 * @since 1.0
 	 * 
@@ -59,35 +59,6 @@ class Dark_Mode {
 	public static function load_text_domain() {
 
 		load_plugin_textdomain( 'dark-mode', false, untrailingslashit( dirname( __FILE__ ) ) . '/languages' );
-
-	}
-
-	/**
-	 * Add some useful links to the plugin table.
-	 * 
-	 * @since 1.8
-	 * 
-	 * @param array  $links The list of plugin links.
-	 * @param string $file  The current plugin.
-	 * 
-	 * @return array $links
-	 */
-	public static function add_plugin_links( $links, $file ) {
-
-		// Check Dark Mode is the next plugin
-		if ( 'dark-mode/dark-mode.php' == $file ) {
-
-			// Create the two links
-			$settings_link = '<a href="' . esc_url( admin_url( 'profile.php#dark-mode' ) ) . '">' . __('Settings', 'dark-mode') . '</a>';
-			$feedback_link = '<a href="https://github.com/danieltj27/Dark-Mode/issues" target="_blank">' . __('Feedback', 'dark-mode') . '</a>';
-
-			// Add the links to the array
-			array_unshift( $links, $settings_link );
-			array_unshift( $links, $feedback_link );
-
-		}
-
-		return $links;
 
 	}
 
@@ -101,13 +72,13 @@ class Dark_Mode {
 	 * 
 	 * @since 1.0
 	 * @since 1.6 Major rewrite to properly address automatic Dark Mode.
+	 * @since 2.0 Removed the automatic checks and added filters.
 	 * 
-	 * @param int     $user_id    The user id to check.
-	 * @param boolean $check_auto The flag to check auto mode.
+	 * @param int $user_id The user id to check.
 	 * 
 	 * @return boolean
 	 */
-	public static function is_using_dark_mode( $user_id = 0, $check_auto = false ) {
+	public static function is_using_dark_mode( $user_id = 0 ) {
 
 		if ( 0 == $user_id ) {
 
@@ -119,78 +90,27 @@ class Dark_Mode {
 		// Check if the user is using Dark Mode
 		if ( 'on' == get_user_meta( $user_id, 'dark_mode', true ) ) {
 
-			// Should we check for auto mode
-			if ( true === self::is_dark_mode_auto( $user_id ) && true === $check_auto ) {
-
-				// Get the time frames for auto mode
-				$auto_start = date_i18n( 'Y-m-d H:i:s', strtotime( get_user_meta( $user_id, 'dark_mode_start', true ) ) );
-				$auto_end = date_i18n( 'Y-m-d H:i:s', strtotime( get_user_meta( $user_id, 'dark_mode_end', true ) ) );
-
-				// Check the start time is greater than the end time
-				if ( $auto_start > $auto_end ) {
-
-					$auto_end = date_i18n( 'Y-m-d H:i:s', strtotime( '+1 day', strtotime( get_user_meta( $user_id, 'dark_mode_end', true ) ) ) );
-
-				}
-
-				// Get the current time
-				$current_time = date_i18n( 'Y-m-d H:i:s' );
-
-				// Check the current time is between the start and end time
-				if ( $current_time >= $auto_start && $current_time <= $auto_end ) {
-
-					return true;
-
-				}
-
-			} else {
-
-				return true;
-
-			}
+			/**
+			 * Filters when Dark Mode is on.
+			 * 
+			 * @since 2.0
+			 * 
+			 * @param boolean          Defaults to true.
+			 * @param int     $user_id The current user id.
+			 */
+			return apply_filters( 'is_using_dark_mode', true, $user_id );
 
 		}
 
-		return false;
-
-	}
-
-	/**
-	 * Checks if the user is using automatic Dark Mode.
-	 * 
-	 * This checks if Dark Mode is set to come on automatically
-	 * for a given user. This is set to private as it's an extension
-	 * of `is_using_dark_mode()` and only checks the auto value is set.
-	 * 
-	 * @access private
-	 * 
-	 * @see (function) is_using_dark_mode
-	 * 
-	 * @since 1.3
-	 * @since 1.5 Access was changed to private.
-	 * @since 1.6 Changed default value of user id to false.
-	 * 
-	 * @param int $user_id The user id to check.
-	 * 
-	 * @return boolean
-	 */
-	private static function is_dark_mode_auto( $user_id = 0 ) {
-
-		if ( 0 == $user_id ) {
-
-			// Default to the current user
-			$user_id = get_current_user_id();
-
-		}
-
-		// Has automatic Dark Mode been turned on
-		if ( 'on' == get_user_meta( $user_id, 'dark_mode_auto', true ) ) {
-
-			return true;
-
-		}
-
-		return false;
+		/**
+		 * Filters when Dark Mode is off.
+		 * 
+		 * @since 2.0
+		 * 
+		 * @param boolean          Defaults to true.
+		 * @param int     $user_id The current user id.
+		 */
+		return apply_filters( 'not_using_dark_mode', false, $user_id );
 
 	}
 
@@ -207,13 +127,10 @@ class Dark_Mode {
 		$user_id = get_current_user_id();
 
 		// Check the user is using Dark Mode
-		if ( false !== self::is_using_dark_mode( $user_id, true ) ) {
+		if ( false !== self::is_using_dark_mode( $user_id ) ) {
 
 			/**
-			 * Hook for when Dark Mode is running.
-			 * 
-			 * This hook is run at the start of Dark Mode initialising
-			 * the stylesheet but before it is enqueued.
+			 * Fires just before the stylesheet is included.
 			 *
 			 * @since 1.0
 			 */
@@ -247,12 +164,13 @@ class Dark_Mode {
 	 * @since 1.3   Added automatic Dark Mode markup.
 	 * @since 1.4   Added id attribute to element.
 	 * @since 1.8.1 Removed default value from get_user_meta and added escaping to values.
+	 * @since 2.0   Removed the automatic settings and added action hook and renamed variable.
 	 * 
-	 * @param object $profileuser WP_User object data.
+	 * @param object $user WP_User object data.
 	 * 
 	 * @return mixed
 	 */
-	public static function add_profile_fields( $profileuser ) {
+	public static function add_profile_fields( $user ) {
 
 		// Setup a new nonce field for the Dark Mode options
 		$dark_mode_nonce = wp_create_nonce( 'dark_mode_nonce' );
@@ -264,24 +182,22 @@ class Dark_Mode {
 				<td>
 					<p>
 						<label for="dark_mode">
-							<input type="checkbox" id="dark_mode" name="dark_mode" class="dark_mode"<?php if ( 'on' == get_user_meta( $profileuser->data->ID, 'dark_mode', true ) ) : ?> checked="checked"<?php endif; ?> />
-							<?php _e('Enable Dark Mode on the admin dashboard', 'dark-mode'); ?>
+							<input type="checkbox" id="dark_mode" name="dark_mode" class="dark_mode"<?php if ( 'on' == get_user_meta( $user->data->ID, 'dark_mode', true ) ) : ?> checked="checked"<?php endif; ?> />
+							<?php _e('Enable Dark Mode in the dashboard', 'dark-mode'); ?>
 						</label>
 					</p>
-					<p>
-						<label for="dark_mode_auto">
-							<input type="checkbox" id="dark_mode_auto" name="dark_mode_auto" class="dark_mode_auto"<?php if ( 'on' == get_user_meta( $profileuser->data->ID, 'dark_mode_auto', true ) ) : ?> checked="checked"<?php endif; ?> />
-							<?php _e('Automatically enable Dark Mode over night between these times:', 'dark-mode'); ?>
-						</label>
-					</p>
-					<p>
-						<label>
-							<?php _ex('From', 'Time frame starting at', 'dark-mode'); ?> <input type="time" name="dark_mode_start" id="dark_mode_start" placeholder="00:00"<?php if ( false !== get_user_meta( $profileuser->data->ID, 'dark_mode_start' ) ) : ?> value="<?php echo esc_attr( get_user_meta( $profileuser->data->ID, 'dark_mode_start', true ) ); ?>"<?php endif; ?> />
-						</label>
-						<label>
-							<?php _ex('To', 'Time frame ending at', 'dark-mode'); ?> <input type="time" name="dark_mode_end" id="dark_mode_end" placeholder="00:00"<?php if ( false !== get_user_meta( $profileuser->data->ID, 'dark_mode_end' ) ) : ?> value="<?php echo esc_attr( get_user_meta( $profileuser->data->ID, 'dark_mode_end', true ) ); ?>"<?php endif; ?> />
-						</label>
-					</p>
+					<?php
+
+						/**
+						 * Fires after the main setting but before the nonce.
+						 * 
+						 * @since 2.0
+						 * 
+						 * @param object $user WP_User object of the current user.
+						 */
+						do_action( 'dark_mode_profile_settings', $user );
+
+					?>
 					<input type="hidden" name="dark_mode_nonce" id="dark_mode_nonce" value="<?php echo esc_attr( $dark_mode_nonce ); ?>" />
 				</td>
 			</tr>
@@ -295,6 +211,7 @@ class Dark_Mode {
 	 * @since 1.0
 	 * @since 1.3 Added auto Dark Mode settings.
 	 * @since 1.7 Added sanitisation to fields not explicitly set.
+	 * @since 2.0 Removed the automatic settings.
 	 * 
 	 * @param int $user_id The user id.
 	 * 
@@ -302,26 +219,69 @@ class Dark_Mode {
 	 */
 	public static function save_profile_fields( $user_id ) {
 
-		// Get the nonce input value
+		// Get the nonce
 		$dark_mode_nonce = isset( $_POST['dark_mode_nonce'] ) ? sanitize_text_field( $_POST['dark_mode_nonce'] ) : '';
 
-		// Verify the nonce is valid
+		// Verify the nonce
 		if ( wp_verify_nonce( $dark_mode_nonce, 'dark_mode_nonce' ) ) {
 
-			// Set the value of the users choices
-			$dark_mode_core = isset ( $_POST['dark_mode'] ) ? 'on' : 'off';
-			$dark_mode_auto = isset ( $_POST['dark_mode_auto'] ) ? 'on' : 'off';
-			$dark_mode_start = isset ( $_POST['dark_mode_start'] ) ? sanitize_text_field( $_POST['dark_mode_start'] ) : '';
-			$dark_mode_end = isset ( $_POST['dark_mode_end'] ) ? sanitize_text_field( $_POST['dark_mode_end'] ) : '';
+			// Set the values
+			$option = isset ( $_POST['dark_mode'] ) ? 'on' : 'off';
 
-			// Update the users meta data with the new values
-			update_user_meta( $user_id, 'dark_mode', $dark_mode_core );
-			update_user_meta( $user_id, 'dark_mode_auto', $dark_mode_auto );
-			update_user_meta( $user_id, 'dark_mode_start', $dark_mode_start );
-			update_user_meta( $user_id, 'dark_mode_end', $dark_mode_end );
+			/**
+			 * Filter the user's Dark Mode choice.
+			 * 
+			 * @since 2.0
+			 * 
+			 * @param string $option  The user's option choice.
+			 * @param int    $user_id The current user's id.
+			 */
+			$option = apply_filters( 'pre_dark_mode_setting_save', $option, $user_id );
+
+			// Update the users meta
+			update_user_meta( $user_id, 'dark_mode', $option );
+
+			/**
+			 * Fires after the Dark Mode option has been saved.
+			 * 
+			 * @since 2.0
+			 * 
+			 * @param string $option  The user's option choice.
+			 * @param int    $user_id The current user's id.
+			 */
+			do_action( 'after_dark_mode_saved', $option, $user_id );
 
 		}
 	
+	}
+
+	/**
+	 * Add some useful links to the plugin table.
+	 * 
+	 * @since 1.8
+	 * 
+	 * @param array  $links The list of plugin links.
+	 * @param string $file  The current plugin.
+	 * 
+	 * @return array $links
+	 */
+	public static function add_plugin_links( $links, $file ) {
+
+		// Check Dark Mode is the next plugin
+		if ( 'dark-mode/dark-mode.php' == $file ) {
+
+			// Create the two links
+			$settings_link = '<a href="' . esc_url( admin_url( 'profile.php#dark-mode' ) ) . '">' . __('Settings', 'dark-mode') . '</a>';
+			$feedback_link = '<a href="https://github.com/danieltj27/Dark-Mode/issues" target="_blank">' . __('Feedback', 'dark-mode') . '</a>';
+
+			// Add the links to the array
+			array_unshift( $links, $settings_link );
+			array_unshift( $links, $feedback_link );
+
+		}
+
+		return $links;
+
 	}
 
 }
