@@ -20,11 +20,15 @@ For information on the progress of this plugin, please refer to the [Trac ticket
 
 = Developers =
 
-As some plugins make use of custom stylesheets, you can use the `doing_dark_mode` action hook to include a custom stylesheet that supports Dark Mode for your own plugin interfaces when it's enabled. Alternatively you can use the `dark_mode_css` filter hook to change the Dark Mode stylesheet for your own version if you'd prefer.
+There are many hooks and filters available within the Dark Mode plugin which allow you to extend it's capabilities with small amounts of code. Please see the GitHub wiki pages for more information.
 
 = Translators =
 
 Whilst Dark Mode has been translated into a few different languages already, we need your help! If you have just five minutes to spare, please consider [translating Dark Mode](https://translate.wordpress.org/projects/wp-plugins/dark-mode) into your language today.
+
+= Automatic Dark Mode =
+
+Automatic Dark Mode was removed from the plugin in version 2.0 but don't worry, it's still [available on GitHub](https://gist.github.com/danieltj27/8624d57c5e0f30465f963bc7838bbb7f) for those that want it back.
 
 == Installation ==
 
@@ -44,7 +48,7 @@ Yes, the network administration areas have been styled accordingly to ensure a s
 
 = Can I set it to come on automatically? =
 
-Having Dark Mode come on automatically between certin times was a feature in this plugin that has since been removed as of version 2.0. Don't worry though, there is a helper plugin available here which brings this functionality back.
+Having Dark Mode come on automatically between certin times was a feature in this plugin that has since been removed as of version 2.0. Don't worry though, there is [a helper plugin](https://gist.github.com/danieltj27/8624d57c5e0f30465f963bc7838bbb7f) available which brings this functionality back.
 
 = Why was the automatic feature removed? =
 
