@@ -1941,6 +1941,24 @@ body {
 		border-color: $ultra-grey;
 		color: $white;
 
+		&.readonly,
+		&.disabled {
+		
+			background-color: $dark-grey;
+			color: $light-grey;
+			opacity: 0.75;
+		
+		}
+
+		&[readonly],
+		&[disabled] {
+		
+			background-color: $dark-grey;
+			color: $light-grey;
+			opacity: 0.75;
+		
+		}
+
 	}
 
 	input[type=checkbox]:checked:before {
@@ -1952,32 +1970,6 @@ body {
 	input[type=radio]:checked:before {
 
 		background-color: $white;
-
-	}
-	
-	input[type=text],
-	input[type=search],
-	input[type=tel],
-	input[type=time],
-	input[type=url],
-	input[type=week],
-	input[type=password],
-	input[type=color],
-	input[type=date],
-	input[type=datetime],
-	input[type=datetime-local],
-	input[type=email],
-	input[type=month],
-	input[type=number] {
-
-		&:readonly,
-		&:disabled {
-		
-    		background-color: $dark-grey;
-    		color: $light-grey;
-    		opacity: 0.75;
-		
-		}
 
 	}
 
@@ -2027,6 +2019,12 @@ body {
 		}
 
 	}
+
+}
+
+input.readonly, input[readonly], textarea.readonly, textarea[readonly] {
+
+	background-color: $dark-grey;
 
 }
 
