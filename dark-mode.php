@@ -7,13 +7,13 @@
  * Author: Daniel James
  * Author URI: https://www.danieltj.co.uk/
  * Text Domain: dark-mode
- * Version: 1.8.4
+ * Version: 2.0
  */
 
 // No thank you
 if ( ! defined( 'ABSPATH' ) ) die();
 
-new Dark_Mode;
+$Dark_mode = new Dark_Mode::init();
 
 class Dark_Mode {
 
@@ -24,19 +24,20 @@ class Dark_Mode {
 	 * 
 	 * @var string
 	 */
-	public static $version = '1.8.4';
+	public static $version = '2.0';
 
 	/**
-	 * Function which hooks into WordPress Core.
+	 * Make WordPress Dark.
 	 * 
 	 * @since 1.0
 	 * @since 1.1 Changed admin_enqueue_scripts hook to 99 to override admin colour scheme styles.
 	 * @since 1.3 Added hook for the Feedback link in the toolbar.
 	 * @since 1.8 Added filter for the plugin table links and removed admin toolbar hook.
+	 * @since 2.0 Replaces the old `__construct` method.
 	 * 
 	 * @return void
 	 */
-	public function __construct() {
+	public static function init() {
 
 		add_action( 'plugins_loaded', array( __CLASS__, 'load_text_domain' ), 10, 0 );
 		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'load_dark_mode_css' ), 99, 0 );
@@ -187,11 +188,9 @@ class Dark_Mode {
 
 			return true;
 
-		} else {
-
-			return false;
-
 		}
+
+		return false;
 
 	}
 
