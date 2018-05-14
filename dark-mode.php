@@ -118,6 +118,7 @@ class Dark_Mode {
 	 * Add the stylesheet to the dashboard if enabled.
 	 * 
 	 * @since 1.0
+	 * @since 2.1 Removed the register stylesheet function.
 	 * 
 	 * @return void
 	 */
