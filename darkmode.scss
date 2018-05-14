@@ -849,7 +849,13 @@ body {
 
 		}
 
-		.wp-editor-expand #post-status-info,
+		.wp-editor-container,
+		.wp-editor-expand #post-status-info {
+
+			border-color: $dark-grey;
+
+		}
+
 		.nav-tab-wrapper,
 		.wrap h2.nav-tab-wrapper,
 		h1.nav-tab-wrapper {
@@ -1038,6 +1044,122 @@ body {
 		#the-comment-list .approve a {
 
 			color: $accent-green;
+
+		}
+
+	}
+
+	#wp-link {
+
+		h1 {
+
+			background-color: $base-grey;
+			border-color: $ultra-grey;
+			color: $light-grey;
+
+		}
+
+		#link-selector {
+
+			background-color: $dark-grey;
+
+			.howto {
+
+				color: $light-grey;
+
+			}
+
+			.query-results {
+
+				background-color: $dark-grey;
+				border-color: $ultra-grey;
+
+			}
+
+			.query-notice {
+
+				border-bottom-color: $ultra-grey;
+
+				.query-notice-default,
+				.query-notice-hint {
+
+					background-color: $dark-grey;
+					color: $white;
+
+				}
+
+			}
+
+			ul {
+
+				li {
+
+					background-color: $dark-grey;
+					border-color: $ultra-grey;
+					color: $light-grey;
+
+					span {
+
+						color: $light-grey;
+
+					}
+
+					&.selected,
+					&:hover,
+					&:focus {
+
+						background-color: $base-grey;
+						color: $white;
+
+					}
+
+				}
+
+			}
+
+		}
+
+		.submitbox {
+
+			background-color: $base-grey;
+			border-color: $ultra-grey;
+
+		}
+
+	}
+
+	div.mce-inline-toolbar-grp {
+
+		.wp-link-preview {
+
+			a {
+
+				color: $bright-blue;
+
+				&:hover,
+				&:focus {
+
+					color: $blue;
+
+				}
+
+			}
+
+		}
+
+		&.mce-arrow-up {
+
+			&::before {
+
+				border-bottom-color: $ultra-grey;
+
+			}
+
+			&::after {
+
+				border-bottom-color: $dark-grey;
+
+			}
 
 		}
 
@@ -1658,6 +1780,209 @@ body {
 
 	}
 
+	.wp-editor-tabs {
+
+		button {
+
+			background-color: $dark-silver;
+			border-color: $ultra-grey;
+			border-bottom: none;
+			color: $light-grey;
+
+			&:hover,
+			&:focus {
+
+				background-color: $dark-grey;
+				border-color: $dark-grey;
+				color: $white;
+
+			}
+
+		}
+
+	}
+
+	.html-active {
+
+		.wp-editor-tabs {
+
+			button.switch-html {
+
+				background-color: $dark-grey;
+				border-color: $dark-grey;
+				color: $white;
+
+			}
+
+		}
+
+	}
+
+	.tmce-active {
+
+		.wp-editor-tabs {
+
+			button.switch-tmce {
+
+				background-color: $dark-grey;
+				border-color: $dark-grey;
+				color: $white;
+
+			}
+
+		}
+
+	}
+
+	div.mce {
+
+		&-toolbar {
+
+			&-grp {
+
+				background-color: $dark-grey;
+				border-color: $ultra-grey;
+				color: $light-grey;
+
+			}
+
+			.mce-btn-group {
+
+				.mce-btn {
+
+					background: $clear;
+					border-color: $clear;
+
+					i {
+
+						color: $light-grey;
+
+					}
+
+					&.mce-disabled {
+
+						&:hover,
+						&:focus {
+
+							border-color: $ultra-grey;
+
+						}
+
+					}
+
+					&.mce-listbox {
+
+						background-color: $base-grey;
+						border-color: $ultra-grey;
+
+						span {
+
+							color: $light-grey;
+
+						}
+
+						i {
+
+							border-top-color: $light-grey;
+
+						}
+
+						&.mce-active,
+						&:hover,
+						&:focus {
+
+							background-color: $dark-grey;
+							border-color: $ultra-grey;
+
+							span {
+
+								color: $white;
+
+							}
+
+							i {
+
+								border-top-color: $light-grey;
+
+							}
+
+						}
+
+						&.mce-active {
+
+							i {
+
+								border-bottom-color: $light-grey;
+
+							}
+
+						}
+
+					}
+
+					&.mce-active,
+					&:hover,
+					&:focus {
+
+						background: $base-grey;
+						border-color: $ultra-grey;
+						box-shadow: none;
+
+						i {
+
+							color: $white;
+
+						}
+
+					}
+
+				}
+
+			}
+
+		}
+
+		&-panel {
+
+			background: $dark-grey;
+
+			&.mce-menu {
+
+				border-color: $ultra-grey;
+
+			}
+
+			.mce-menu-item {
+
+				.mce-ico,
+				.mce-text {
+
+					color: $light-grey;
+
+				}
+
+				&.mce-active,
+				&.mce-selected,
+				&:focus,
+				&:hover {
+
+					background-color: $blue;
+
+					.mce-ico,
+					.mce-text {
+
+						color: $white;
+
+					}
+
+				}
+
+			}
+
+		}
+
+	}
+
 	.CodeMirror {
 
 		background-color: $ultra-grey;
@@ -1759,32 +2084,6 @@ body {
 			}
 
 		}
-
-	}
-
-	.wp-editor-wrap {
-
-		.wp-editor-tabs {
-
-			button {
-
-				background-color: $dark-silver;
-				border-color: $dark-grey;
-				color: $light-grey;
-
-			}
-
-		}
-
-	}
-
-	.html-active .switch-html,
-	.tmce-active .switch-tmce {
-
-		background: $dark-grey;
-		border-color: $ultra-grey;
-		border-bottom-color: $dark-grey;
-		color: $white;
 
 	}
 
