@@ -133,8 +133,11 @@ class Dark_Mode {
 			 * Fires just before the stylesheet is included.
 			 *
 			 * @since 1.0
+			 * @since 2.1 Added `$user_id` integer.
+			 * 
+			 * @param int $user_id The current user id.
 			 */
-			do_action( 'doing_dark_mode' );
+			do_action( 'doing_dark_mode', $user_id );
 
 			/**
 			 * Filters the Dark Mode stylesheet URL.
