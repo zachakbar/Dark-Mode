@@ -1,6 +1,5 @@
 /**
- * DARK MODE
- * A feature plugin that will hopefully be in WordPress core one day.
+ * Dark Mode CSS
  */
 
 /** 
@@ -620,6 +619,22 @@ body {
 			span {
 
 				color: $light-grey;
+
+			}
+
+		}
+
+		.card {
+
+			table,
+			thead,
+			tbody,
+			tfoot,
+			tr,
+			th,
+			td {
+
+				background-color: $clear;
 
 			}
 
