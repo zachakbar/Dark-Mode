@@ -2,7 +2,7 @@
 /**
  * File holding the main class of the plugin.
  *
- * @since 2.0 Refactored the class to separate file.
+ * @since 2.1 Refactored the class to separate file.
  * @package dark-mode
  */
 
