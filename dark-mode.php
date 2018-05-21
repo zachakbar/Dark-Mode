@@ -6,7 +6,7 @@
  * Author: Daniel James
  * Author URI: https://www.danieltj.co.uk/
  * Text Domain: dark-mode
- * Version: 2.1
+ * Version: 3.0
  *
  * @package dark-mode
  */
@@ -15,6 +15,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die();
 }
 
-require 'class-dark-mode.php';
+require( 'class-dark-mode.php' );
 
 $dark_mode = new Dark_Mode();

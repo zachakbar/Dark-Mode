@@ -1,8 +1,8 @@
 <?php
 /**
- * File holding the main class of the plugin.
+ * The core Dark Mode class.
  *
- * @since 2.1 Refactored the class to separate file.
+ * @since 3.0 Refactored the class to separate file.
  * @package dark-mode
  */
 
@@ -13,7 +13,7 @@ class Dark_Mode {
 	/**
 	 * Plugin version constant
 	 */
-	const PLUGIN_VERSION = '2.1';
+	const PLUGIN_VERSION = '3.0';
 
 	/**
 	 * Make WordPress Dark.
@@ -64,7 +64,6 @@ class Dark_Mode {
 	 */
 	public static function is_using_dark_mode( $user_id = 0 ) {
 		if ( 0 === $user_id ) {
-			// Default to the current user.
 			$user_id = get_current_user_id();
 		}
 
@@ -103,7 +102,6 @@ class Dark_Mode {
 	 * @return void
 	 */
 	public static function load_dark_mode_css() {
-		// Get the current user id.
 		$user_id = get_current_user_id();
 
 		// Check the user is using Dark Mode.
