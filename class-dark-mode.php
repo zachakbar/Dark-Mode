@@ -11,7 +11,9 @@
  */
 class Dark_Mode {
 	/**
-	 * Plugin version constant
+	 * Plugin version constant.
+	 *
+	 * @since 3.0 Add plugin version constant.
 	 */
 	const PLUGIN_VERSION = '3.0';
 
