@@ -48,7 +48,7 @@ Yes, the network administration areas have been styled accordingly to ensure a s
 
 = Can I set it to come on automatically? =
 
-Having Dark Mode come on automatically between certin times was a feature in this plugin that has since been removed as of version 2.0. Don't worry though, there is [a helper plugin](https://gist.github.com/danieltj27/8624d57c5e0f30465f963bc7838bbb7f) available which brings this functionality back.
+Having Dark Mode come on automatically between certain times was a feature in this plugin that has since been removed as of version 2.0. Don't worry though, there is [a helper plugin](https://gist.github.com/danieltj27/8624d57c5e0f30465f963bc7838bbb7f) available which brings this functionality back.
 
 = Why was the automatic feature removed? =
 
