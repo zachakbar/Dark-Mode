@@ -1983,6 +1983,66 @@ body {
 
 	}
 
+	.wp-pointer {
+
+		&-content {
+
+			background-color: $dark-grey;
+			border-color: $ultra-grey;
+			color: $light-grey;
+
+			h3 {
+
+				border-color: $ultra-grey;
+
+			}
+
+		}
+
+		&-buttons {
+
+			a.close {
+
+				&,
+				&::before {
+
+					color: $light-blue;
+
+				}
+
+				&:hover {
+
+					&,
+					&::before {
+
+						color: $white;
+
+					}
+
+				}
+
+			}
+
+		}
+
+		&-left {
+
+			.wp-pointer-arrow {
+
+				border-right-color: $ultra-grey;
+
+				&-inner {
+
+					border-right-color: $dark-grey;
+
+				}
+
+			}
+
+		}
+
+	}
+
 	.CodeMirror {
 
 		background-color: $ultra-grey;
