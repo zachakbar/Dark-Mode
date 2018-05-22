@@ -25,3 +25,5 @@ Thank you to the list of people below for helping with the project. Should you b
 | Will Radford          | willrad                |
 | Louis-Michel Raynauld | loumray                |
 | Frank Bültge          | bueltge                |
+| Denis Žoljom          | dingo_bastard          |
+| YuanHao Chiang        | yuanhao                |

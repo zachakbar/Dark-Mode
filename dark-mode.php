@@ -7,8 +7,6 @@
  * Author URI: https://www.danieltj.co.uk/
  * Text Domain: dark-mode
  * Version: 3.0
- *
- * @package dark-mode
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

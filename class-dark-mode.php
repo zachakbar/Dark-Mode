@@ -2,18 +2,19 @@
 /**
  * The core Dark Mode class.
  *
- * @since 3.0 Refactored the class to separate file.
  * @package dark-mode
+ * 
+ * @since 3.0
  */
 
 /**
- * Main plugin class
+ * Core plugin class.
  */
 class Dark_Mode {
 	/**
 	 * Plugin version constant.
 	 *
-	 * @since 3.0 Add plugin version constant.
+	 * @since 3.0
 	 */
 	const PLUGIN_VERSION = '3.0';
 
@@ -124,12 +125,13 @@ class Dark_Mode {
 			 *
 			 * @since 1.1
 			 * @since 2.1 Removed second parameter from `plugins_url()`.
+			 * @since 3.0 Changed CSS file to include hyphen in name.
 			 *
 			 * @param string $css_url Default CSS file path for Dark Mode.
 			 *
 			 * @return string $css_url
 			 */
-			$css_url = apply_filters( 'dark_mode_css', plugins_url( 'dark-mode' ) . '/darkmode.css' );
+			$css_url = apply_filters( 'dark_mode_css', plugins_url( 'dark-mode' ) . '/dark-mode.css' );
 
 			// Enqueue the stylesheet.
 			wp_enqueue_style( 'dark_mode', $css_url, array(), self::PLUGIN_VERSION );
@@ -152,6 +154,7 @@ class Dark_Mode {
 	public static function add_profile_fields( $user ) {
 		// Setup a new nonce field for the Dark Mode options.
 		$dark_mode_nonce = wp_create_nonce( 'dark_mode_nonce' );
+
 		?>
 		<tr class="dark-mode user-dark-mode-option" id="dark-mode">
 			<th scope="row"><?php esc_html_e( 'Dark Mode', 'dark-mode' ); ?></th>
@@ -188,42 +191,40 @@ class Dark_Mode {
 	 * @since 1.3 Added auto Dark Mode settings.
 	 * @since 1.7 Added sanitisation to fields not explicitly set.
 	 * @since 2.0 Removed the automatic settings.
+	 * @since 3.0 Updated the nonce check for the save event.
 	 *
 	 * @param int $user_id The user id.
 	 *
 	 * @return void
 	 */
 	public static function save_profile_fields( $user_id ) {
-		// Verify the nonce.
-		if ( ! isset( $_POST['dark_mode_nonce'] ) && ! wp_verify_nonce( sanitize_key( $_POST['dark_mode_nonce'] ), 'dark_mode_nonce' ) ) {
-			return;
+		if ( wp_verify_nonce( sanitize_key( $_POST['dark_mode_nonce'] ), 'dark_mode_nonce' ) ) {
+			// Set the option value.
+			$option = isset( $_POST['dark_mode'] ) ? 'on' : 'off';
+
+			/**
+			 * Filter the user's Dark Mode choice.
+			 *
+			 * @since 2.0
+			 *
+			 * @param string $option  The user's option choice.
+			 * @param int    $user_id The current user's id.
+			 */
+			$option = apply_filters( 'before_dark_mode_saved', $option, $user_id );
+
+			// Update the users meta.
+			update_user_meta( $user_id, 'dark_mode', $option );
+
+			/**
+			 * Fires after the Dark Mode option has been saved.
+			 *
+			 * @since 2.0
+			 *
+			 * @param string $option  The user's option choice.
+			 * @param int    $user_id The current user's id.
+			 */
+			do_action( 'after_dark_mode_saved', $option, $user_id );
 		}
-
-		// Set the values.
-		$option = isset( $_POST['dark_mode'] ) ? 'on' : 'off';
-
-		/**
-		 * Filter the user's Dark Mode choice.
-		 *
-		 * @since 2.0
-		 *
-		 * @param string $option  The user's option choice.
-		 * @param int    $user_id The current user's id.
-		 */
-		$option = apply_filters( 'before_dark_mode_saved', $option, $user_id );
-
-		// Update the users meta.
-		update_user_meta( $user_id, 'dark_mode', $option );
-
-		/**
-		 * Fires after the Dark Mode option has been saved.
-		 *
-		 * @since 2.0
-		 *
-		 * @param string $option  The user's option choice.
-		 * @param int    $user_id The current user's id.
-		 */
-		do_action( 'after_dark_mode_saved', $option, $user_id );
 	}
 
 	/**

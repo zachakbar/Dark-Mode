@@ -1,9 +1,9 @@
 === Dark Mode ===
-Contributors: danieltj, munyagu, travel_girl, melchoyce, afercia, hedgefield, megane9988, presskopp, willrad, loumray, bueltge
+Contributors: danieltj, munyagu, travel_girl, melchoyce, afercia, hedgefield, megane9988, presskopp, willrad, loumray, bueltge, dingo_bastard, yuanhao
 Tags: dark, style, admin, dashboard, profile
 Requires at least: 4.0
 Tested up to: 4.9
-Stable tag: 2.1
+Stable tag: 3.0
 Requires PHP: 5.4
 License: GNU GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
