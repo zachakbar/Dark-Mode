@@ -6,10 +6,6 @@
  * 
  * @since 3.0
  */
-
-/**
- * Core plugin class.
- */
 class Dark_Mode {
 	/**
 	 * Plugin version constant.
