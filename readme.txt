@@ -1,5 +1,5 @@
 === Dark Mode ===
-Contributors: danieltj, munyagu, travel_girl, melchoyce, afercia, hedgefield, megane9988, presskopp, willrad, loumray, bueltge, dingo_bastard, yuanhao
+Contributors: danieltj, munyagu, travel_girl, melchoyce, afercia, hedgefield, megane9988, presskopp, willrad, loumray, bueltge, dingo_bastard, yuanhao, leetaylor5455
 Tags: dark, style, admin, dashboard, profile
 Requires at least: 4.0
 Tested up to: 4.9
