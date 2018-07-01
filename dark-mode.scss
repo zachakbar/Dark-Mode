@@ -2220,7 +2220,14 @@ body {
 
 	.button-primary,
 	.page-title-action,
-	&.wp-core-ui .button-primary {
+	&.wp-core-ui .button-primary,
+	.wrap a.page-title-action {
+
+		background: $light-blue;
+		border-color: $dark-blue $dark-grey $dark-grey;
+		color: $white;
+		box-shadow: 0 1px 0 $ultra-grey;
+		text-shadow: 0 -1px 1px $dark-grey, 1px 0 1px $dark-grey, 0 1px 1px $dark-grey, -1px 0 1px $dark-grey;
 
 		&.button-hero {
 
@@ -2234,12 +2241,6 @@ body {
 			}
 
 		}
-
-		background: $light-blue;
-		border-color: $dark-blue $dark-grey $dark-grey;
-		color: $white;
-		box-shadow: 0 1px 0 $ultra-grey;
-		text-shadow: 0 -1px 1px $dark-grey, 1px 0 1px $dark-grey, 0 1px 1px $dark-grey, -1px 0 1px $dark-grey;
 
 		&:hover,
 		&:focus,
