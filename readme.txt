@@ -3,7 +3,7 @@ Contributors: danieltj, munyagu, travel_girl, melchoyce, afercia, hedgefield, me
 Tags: dark, style, admin, dashboard, profile
 Requires at least: 4.0
 Tested up to: 4.9
-Stable tag: 3.0
+Stable tag: 3.0.1
 Requires PHP: 5.4
 License: GNU GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -20,7 +20,7 @@ For information on the progress of this plugin, please refer to the [Trac ticket
 
 = Developers =
 
-There are many hooks and filters available within the Dark Mode plugin which allow you to extend it's capabilities with small amounts of code. Please see the GitHub wiki pages for more information.
+There are many hooks and filters available within the Dark Mode plugin which allow you to extend it's capabilities with small amounts of code. Please see the [GitHub wiki](https://github.com/danieltj27/Dark-Mode/wiki) pages for more information.
 
 = Translators =
 
