@@ -1185,62 +1185,66 @@ body {
 
 	}
 
-	#plugin-information-scrollable {
+	#plugin-information {
 
-		#plugin-information-tabs {
+		&-scrollable {
 
-			background-color: $ultra-grey;
-			border-color: $dark-grey;
+			#plugin-information-tabs {
 
-			a.current {
-
-				background-color: $base-grey;
+				background-color: $ultra-grey;
 				border-color: $dark-grey;
-				border-bottom-color: $base-grey;
-				color: $light-grey;
 
-			}
+				a.current {
 
-		}
-
-		#plugin-information-content {
-
-			background-color: $base-grey;
-
-			.wrap {
-
-				background-color: $base-grey;
-
-			}
-
-			.fyi {
-
-				background: $ultra-grey;
-				border-color: $dark-grey;
-				color: $light-grey;
-
-				.counter-back {
-
-					background: $light-grey;
-
-				}
-
-				h3, strong {
-
-					color: $light-grey !important;
+					background-color: $base-grey;
+					border-color: $dark-grey;
+					border-bottom-color: $base-grey;
+					color: $light-grey;
 
 				}
 
 			}
 
+			#plugin-information-content {
+
+				background-color: $base-grey;
+
+				.wrap {
+
+					background-color: $base-grey;
+
+				}
+
+				.fyi {
+
+					background: $ultra-grey;
+					border-color: $dark-grey;
+					color: $light-grey;
+
+					.counter-back {
+
+						background: $light-grey;
+
+					}
+
+					h3, strong {
+
+						color: $light-grey !important;
+
+					}
+
+				}
+
+			}
+
 		}
 
-	}
+		&-footer {
 
-	#plugin-information-footer {
+			background: $ultra-grey !important;
+			border-color: $dark-grey !important;
 
-		background: $ultra-grey !important;
-		border-color: $dark-grey !important;
+		}
 
 	}
 
@@ -2150,6 +2154,12 @@ body {
 	h1, h2, h3, h4, h5, h6 {
 
 		color: $light-grey;
+
+	}
+
+	iframe {
+
+		background: $dark-grey;
 
 	}
 
