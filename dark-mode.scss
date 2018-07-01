@@ -2251,19 +2251,22 @@ body {
 
 	}
 
-	.button-disabled,
-	.button-secondary.disabled,
-	.button-secondary:disabled,
-	.button-secondary[disabled],
-	.button.disabled,
-	.button:disabled,
-	.button[disabled] {
+	&.wp-core-ui {
 
-		background: $dark-grey !important;
-		border-color: $ultra-grey !important;
-		color: $light-grey !important;
-		text-shadow: none !important;
-		opacity: 0.65;
+		.button-disabled,
+		.button-secondary.disabled,
+		.button-secondary:disabled,
+		.button-secondary[disabled],
+		.button.disabled,
+		.button:disabled,
+		.button[disabled] {
+
+			background: $dark-grey !important;
+			border-color: $ultra-grey !important;
+			color: $light-grey !important;
+			text-shadow: none !important;
+
+		}
 
 	}
 
