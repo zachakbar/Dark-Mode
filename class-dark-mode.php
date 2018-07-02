@@ -106,6 +106,8 @@ class Dark_Mode {
 		// Has the user enabled Dark Mode?
 		if ( false !== self::is_using_dark_mode() ) {
 
+			$user_id = get_current_user_id();
+
 			/**
 			 * Fires just before the stylesheet is included.
 			 *
