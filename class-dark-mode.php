@@ -105,7 +105,6 @@ class Dark_Mode {
 	public static function load_dark_mode_css() {
 		// Has the user enabled Dark Mode?
 		if ( false !== self::is_using_dark_mode() ) {
-
 			$user_id = get_current_user_id();
 
 			/**
