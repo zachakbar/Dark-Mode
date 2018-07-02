@@ -21,6 +21,7 @@ class Dark_Mode {
 	 * @since 1.1 Changed admin_enqueue_scripts hook to 99 to override admin colour scheme styles.
 	 * @since 1.3 Added hook for the Feedback link in the toolbar.
 	 * @since 1.8 Added filter for the plugin table links and removed admin toolbar hook.
+	 * @since 3.1 Added the admin body class filter.
 	 *
 	 * @return void
 	 */
@@ -32,6 +33,7 @@ class Dark_Mode {
 		add_action( 'edit_user_profile_update', array( __CLASS__, 'save_profile_fields' ), 10, 1 );
 
 		add_filter( 'plugin_action_links', array( __CLASS__, 'add_plugin_links' ), 10, 2 );
+		add_filter( 'admin_body_class', array( __CLASS__, 'add_body_class' ), 10, 1 );
 	}
 
 	/**
@@ -150,7 +152,6 @@ class Dark_Mode {
 	public static function add_profile_fields( $user ) {
 		// Setup a new nonce field for the Dark Mode options.
 		$dark_mode_nonce = wp_create_nonce( 'dark_mode_nonce' );
-
 		?>
 		<tr class="dark-mode user-dark-mode-option" id="dark-mode">
 			<th scope="row"><?php esc_html_e( 'Dark Mode', 'dark-mode' ); ?></th>
@@ -163,7 +164,6 @@ class Dark_Mode {
 					</label>
 				</p>
 				<?php
-
 					/**
 					 * Fires after the main setting but before the nonce.
 					 *
@@ -172,7 +172,6 @@ class Dark_Mode {
 					 * @param object $user WP_User object of the current user.
 					 */
 					do_action( 'dark_mode_profile_settings', $user );
-
 				?>
 				<input type="hidden" name="dark_mode_nonce" id="dark_mode_nonce" value="<?php echo esc_attr( $dark_mode_nonce ); ?>" />
 			</td>
@@ -245,5 +244,28 @@ class Dark_Mode {
 		}
 
 		return $links;
+	}
+
+	/**
+	 * Add the Dark Mode class to the body tag.
+	 * 
+	 * @since 3.1
+	 * 
+	 * @param string $classes A string of class names.
+	 * 
+	 * @return string $classes
+	 */
+	public static function add_body_class( $classes ) {
+ 		$user_id = get_current_user_id();
+
+		// Is the user using Dark Mode?
+		if ( false !== self::is_using_dark_mode( $user_id ) ) {
+
+			// Add the body class.
+			$classes .= ' dark-mode ';
+
+		}
+
+		return $classes;
 	}
 }
