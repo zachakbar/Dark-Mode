@@ -12,7 +12,7 @@ class Dark_Mode {
 	 *
 	 * @since 3.0
 	 */
-	const PLUGIN_VERSION = '3.0.1';
+	const PLUGIN_VERSION = '3.1';
 
 	/**
 	 * Make WordPress Dark.

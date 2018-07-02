@@ -6,7 +6,7 @@
  * Author: Daniel James
  * Author URI: https://www.danieltj.co.uk/
  * Text Domain: dark-mode
- * Version: 3.0.1
+ * Version: 3.1
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
