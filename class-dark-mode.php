@@ -103,10 +103,8 @@ class Dark_Mode {
 	 * @return void
 	 */
 	public static function load_dark_mode_css() {
-		$user_id = get_current_user_id();
-
-		// Check the user is using Dark Mode.
-		if ( false !== self::is_using_dark_mode( $user_id ) ) {
+		// Has the user enabled Dark Mode?
+		if ( false !== self::is_using_dark_mode() ) {
 
 			/**
 			 * Fires just before the stylesheet is included.
@@ -256,10 +254,8 @@ class Dark_Mode {
 	 * @return string $classes
 	 */
 	public static function add_body_class( $classes ) {
- 		$user_id = get_current_user_id();
-
-		// Is the user using Dark Mode?
-		if ( false !== self::is_using_dark_mode( $user_id ) ) {
+ 		// Has the user enabled Dark Mode?
+		if ( false !== self::is_using_dark_mode() ) {
 
 			// Add the body class.
 			$classes .= ' dark-mode ';
