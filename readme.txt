@@ -22,6 +22,8 @@ For information on the progress of this plugin, please refer to the [Trac ticket
 
 There are many hooks and filters available within the Dark Mode plugin which allow you to extend it's capabilities with small amounts of code. Please see the [GitHub wiki](https://github.com/danieltj27/Dark-Mode/wiki) pages for more information.
 
+To learn how you can make your own plugins compatible with Dark Mode, please read the [compatibility guide](https://github.com/danieltj27/Dark-Mode/wiki/Help:-Plugin-Compatibility-Guide) located on the GitHub Repository.
+
 = Translators =
 
 Whilst Dark Mode has been translated into a few different languages already, we need your help! If you have just five minutes to spare, please consider [translating Dark Mode](https://translate.wordpress.org/projects/wp-plugins/dark-mode) into your language today.
