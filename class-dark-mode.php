@@ -70,7 +70,6 @@ class Dark_Mode {
 
 		// Check if the user is using Dark Mode.
 		if ( 'on' === get_user_meta( $user_id, 'dark_mode', true ) ) {
-
 			/**
 			 * Filters when Dark Mode is on.
 			 *
@@ -80,7 +79,6 @@ class Dark_Mode {
 			 * @param int     $user_id The current user id.
 			 */
 			return apply_filters( 'is_using_dark_mode', true, $user_id );
-
 		}
 
 		/**
@@ -234,7 +232,6 @@ class Dark_Mode {
 	public static function add_plugin_links( $links, $file ) {
 		// Check Dark Mode is the next plugin.
 		if ( 'dark-mode/dark-mode.php' === $file ) {
-
 			// Create the feedback link.
 			$feedback_link = '<a href="https://github.com/danieltj27/Dark-Mode/issues" target="_blank">' . __( 'Feedback', 'dark-mode' ) . '</a>';
 
@@ -257,10 +254,8 @@ class Dark_Mode {
 	public static function add_body_class( $classes ) {
  		// Has the user enabled Dark Mode?
 		if ( false !== self::is_using_dark_mode() ) {
-
 			// Add the body class.
 			$classes .= ' dark-mode ';
-
 		}
 
 		return $classes;
