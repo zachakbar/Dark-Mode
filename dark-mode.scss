@@ -35,7 +35,7 @@ $editor-lavender: #c678dd;
 $editor-sunglo:   #e06c75;
 $editor-olivine:  #98c379;
 
-body {
+body:not(.gutenberg-editor-page) {
 
 	background-color: $base-grey;
 	color: $light-grey;
