@@ -1459,8 +1459,8 @@ body:not(.gutenberg-editor-page) {
 
 		button.media-modal-close {
 
-			background-color: $ultra-grey;
-			border-color: $dark-silver;
+			background-color: $base-grey;
+			border-color: $base-grey;
 
 			&:hover {
 
@@ -1510,7 +1510,7 @@ body:not(.gutenberg-editor-page) {
 
 			.separator {
 
-				border-color: $light-grey;
+				border-color: $dark-silver;
 
 			}
 
@@ -1540,7 +1540,7 @@ body:not(.gutenberg-editor-page) {
 			.active {
 
 				color: $white;
-				background: $dark-silver;
+				background: $base-grey;
 				border-color: $ultra-grey;
 
 			}
@@ -2359,39 +2359,29 @@ body:not(.gutenberg-editor-page) {
 
 	}
 
-	input[type=checkbox]:checked:before {
+	input {
 
-		color: $white;
+		&[type=checkbox]:checked:before {
 
-	}
+			color: $white;
 
-	input[type=radio]:checked:before {
+		}
 
-		background-color: $white;
+		&[type=radio]:checked:before {
 
-	}
+			background-color: $white;
 
-	::-webkit-input-placeholder {
-
-		color: $white;
+		}
 
 	}
 
-	::-moz-placeholder {
-
-		color: $white;
-
-	}
-
-	:-ms-input-placeholder {
-
-		color: $white;
-
-	}
-
+	::-webkit-input-placeholder,
+	::-moz-placeholder,
+	:-ms-input-placeholder,
 	:-moz-placeholder {
 
 		color: $white;
+		opacity: 1;
 
 	}
 
