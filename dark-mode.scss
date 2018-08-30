@@ -285,6 +285,7 @@ body:not(.gutenberg-editor-page) {
 		.notice-dismiss:before,
 		.tagchecklist .ntdelbutton .remove-tag-icon:before,
 		.welcome-panel .welcome-panel-close:before,
+		.try-gutenberg-panel .try-gutenberg-panel-close:before,
 		.pressthis-js-toggle .dashicons,
 		.try-gutenberg-panel p,
 		.try-gutenberg-panel-column p.about-description,
@@ -335,6 +336,12 @@ body:not(.gutenberg-editor-page) {
 		.subtitle {
 
 			color: $light-grey;
+
+		}
+
+		.try-gutenberg-panel-content hr {
+
+			border-color: $ultra-grey;
 
 		}
 
@@ -2175,7 +2182,6 @@ body:not(.gutenberg-editor-page) {
 		border-color: $dark-grey;
 		box-shadow: 0 1px 0 $ultra-grey;
 		color: $white;
-		text-decoration: none;
 
 		span {
 
@@ -2393,12 +2399,10 @@ body:not(.gutenberg-editor-page) {
 	.button-link {
 
 		color: $bright-blue;
-		text-decoration: none;
 
 		&:hover {
 
 			color: $light-blue;
-			text-decoration: none;
 
 		}
 
