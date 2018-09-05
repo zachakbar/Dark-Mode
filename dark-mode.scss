@@ -2414,3 +2414,21 @@ input.readonly, input[readonly], textarea.readonly, textarea[readonly] {
 
 }
 
+/* ACF */
+.acf-flexible-content {
+	
+	.layout{
+		
+		.acf-fc-layout-handle {
+			color: $light-grey;
+			
+			.acf-fc-layout-order{
+				background-color: $white;
+				color: $black !important;
+			}
+			
+		}
+	
+	}
+	
+}
